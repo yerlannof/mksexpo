@@ -13,7 +13,7 @@ export default function HeaderSimple() {
   const { language, setLanguage, t } = useLanguage();
 
   return (
-    <header className="fixed top-0 w-full bg-primary/95 backdrop-blur-md z-50 shadow-lg">
+    <header className="fixed top-0 w-full bg-primary z-50 shadow-md">
       <div className="container">
         <nav className="flex items-center justify-between h-16 sm:h-20">
           {/* Logo */}

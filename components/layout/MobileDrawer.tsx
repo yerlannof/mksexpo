@@ -69,7 +69,7 @@ export default function MobileDrawer({ isOpen, onClose }: MobileDrawerProps) {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}
-            className="fixed inset-0 bg-black/60 backdrop-blur-sm"
+            className="fixed inset-0 bg-black/70"
             onClick={onClose}
           />
           
@@ -79,7 +79,7 @@ export default function MobileDrawer({ isOpen, onClose }: MobileDrawerProps) {
             animate={{ x: 0 }}
             exit={{ x: '100%' }}
             transition={{ type: 'tween', duration: 0.3, ease: [0.4, 0, 0.2, 1] }}
-            className="fixed right-0 top-0 bottom-0 w-80 max-w-[85vw] bg-white shadow-2xl z-[61] flex flex-col"
+            className="fixed right-0 top-0 bottom-0 w-80 max-w-[85vw] bg-white shadow-xl z-[61] flex flex-col"
           >
             {/* Header */}
             <div className="bg-primary px-6 py-5 text-white flex-shrink-0 shadow-lg">

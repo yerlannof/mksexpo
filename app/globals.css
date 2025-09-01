@@ -292,4 +292,56 @@
   ::-webkit-scrollbar-thumb:hover {
     @apply bg-primary-light/70;
   }
+  
+  /* Mobile performance optimizations */
+  @media (max-width: 767px) {
+    /* Disable smooth scroll on mobile */
+    html {
+      scroll-behavior: auto !important;
+    }
+    
+    /* Disable heavy transitions on mobile */
+    * {
+      transition-duration: 0.15s !important;
+    }
+    
+    /* Disable transform effects on mobile */
+    .btn-primary:hover,
+    .btn-secondary:hover,
+    .btn-outline:hover {
+      transform: none !important;
+    }
+    
+    /* Simplify card hover effects */
+    .card {
+      transition: none !important;
+    }
+    
+    .card:hover {
+      transform: none !important;
+      box-shadow: var(--shadow-card) !important;
+    }
+    
+    /* Disable backdrop filters on mobile */
+    .backdrop-blur-sm,
+    .backdrop-blur-md,
+    .backdrop-blur-lg,
+    .backdrop-blur-xl {
+      backdrop-filter: none !important;
+    }
+    
+    /* Simplify shadows on mobile */
+    .shadow-2xl {
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1) !important;
+    }
+    
+    .shadow-xl {
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08) !important;
+    }
+    
+    /* Disable will-change property */
+    * {
+      will-change: auto !important;
+    }
+  }
 }
