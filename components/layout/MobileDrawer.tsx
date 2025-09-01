@@ -27,16 +27,37 @@ export default function MobileDrawer({ isOpen, onClose }: MobileDrawerProps) {
   }, [isOpen]);
 
   const menuItems = [
-    { href: '#participants', label: t('nav.participants'), icon: Users },
-    { href: '#timeline', label: t('nav.timeline'), icon: Calendar },
-    { href: '#whyvisit', label: t('nav.whyvisit'), icon: Star },
-    { href: '#testimonials', label: t('nav.testimonials'), icon: MessageSquare },
-    { href: '#registration', label: t('nav.registration'), icon: ClipboardList },
-    { href: '#faq', label: t('nav.faq'), icon: HelpCircle },
+    { 
+      href: '#participants', 
+      label: language === 'ru' ? 'Список участников' : 'Participants', 
+      icon: Users 
+    },
+    { 
+      href: '#timeline', 
+      label: language === 'ru' ? 'Программа' : 'Program', 
+      icon: Calendar 
+    },
+    { 
+      href: '#whyvisit', 
+      label: language === 'ru' ? 'Почему мы' : 'Why Visit', 
+      icon: Star 
+    },
+    { 
+      href: '#testimonials', 
+      label: language === 'ru' ? 'Отзывы' : 'Testimonials', 
+      icon: MessageSquare 
+    },
+    { 
+      href: '#registration', 
+      label: language === 'ru' ? 'Регистрация' : 'Registration', 
+      icon: ClipboardList 
+    },
+    { 
+      href: '#faq', 
+      label: 'FAQ', 
+      icon: HelpCircle 
+    },
   ];
-
-  // Debug: log menu items
-  console.log('Mobile Drawer Menu Items:', menuItems);
 
   return (
     <AnimatePresence>
