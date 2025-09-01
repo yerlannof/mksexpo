@@ -48,3 +48,6 @@ Thumbs.db
 /docs/*Zone.Identifier
 PROJECT_COMPLETION_SUMMARY.md
 DEPLOYMENT_OPTIONS.md
+
+# logs
+dev.log
