@@ -80,7 +80,7 @@ export default function HeroNew() {
           >
             <div className="relative w-full max-w-lg lg:max-w-xl xl:max-w-2xl">
               <Image
-                src="/hero-photo.jpg"
+                src="/hero-photo-new.jpg"
                 alt="Студенты частных школ"
                 width={800}
                 height={1000}
