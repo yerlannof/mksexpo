@@ -1,0 +1,24 @@
+{
+  "documentName": "M&K",
+  "lastModified": "2025-08-30T13:17:47Z",
+  "mainSections": [],
+  "totalComponents": 39931,
+  "componentsWithGradients": 910,
+  "effects": [
+    {
+      "type": "DROP_SHADOW",
+      "radius": 21.5,
+      "color": {
+        "r": 0.6192708611488342,
+        "g": 0.7117301821708679,
+        "b": 0.8541666865348816,
+        "a": 0.11999999731779099
+      },
+      "offset": {
+        "x": 0,
+        "y": 2
+      }
+    }
+  ],
+  "extractedAt": "2025-08-31T20:01:44.075Z"
+}

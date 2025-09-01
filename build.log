@@ -1,0 +1,61 @@
+
+> private-schools-expo@0.1.0 build
+> next build
+
+   ▲ Next.js 15.5.2
+
+   Creating an optimized production build ...
+ ✓ Compiled successfully in 2.6s
+   Linting and checking validity of types ...
+
+./app/animated-button-demo/page.tsx
+8:10  Warning: 'loading' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+8:19  Warning: 'setLoading' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+
+./app/demo/skeleton-showcase/page.tsx
+4:8  Warning: 'SkeletonLoader' is defined but never used.  @typescript-eslint/no-unused-vars
+
+./app/not-found.tsx
+9:11  Warning: 't' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+
+./app/toast-demo/page.tsx
+72:14  Warning: 'error' is defined but never used.  @typescript-eslint/no-unused-vars
+
+./components/PerformanceWrapper.tsx
+85:14  Warning: 'e' is defined but never used.  @typescript-eslint/no-unused-vars
+
+./components/examples/ToastExample.tsx
+26:14  Warning: 'error' is defined but never used.  @typescript-eslint/no-unused-vars
+
+./components/layout/MobileDrawer.tsx
+13:3  Warning: 'Globe' is defined but never used.  @typescript-eslint/no-unused-vars
+
+./components/sections/FAQ.tsx
+4:10  Warning: 'motion' is defined but never used.  @typescript-eslint/no-unused-vars
+
+./components/sections/HeroFigma.tsx
+5:8  Warning: 'Image' is defined but never used.  @typescript-eslint/no-unused-vars
+
+./components/sections/Registration.tsx
+70:14  Warning: 'error' is defined but never used.  @typescript-eslint/no-unused-vars
+
+./components/sections/Statistics.tsx
+3:10  Warning: 'motion' is defined but never used.  @typescript-eslint/no-unused-vars
+
+./components/skeletons/index.tsx
+13:10  Warning: 'cn' is defined but never used.  @typescript-eslint/no-unused-vars
+357:1  Warning: Assign object to a variable before exporting as module default  import/no-anonymous-default-export
+
+./components/skeletons/usage-example.tsx
+5:3  Warning: 'HeroSkeleton' is defined but never used.  @typescript-eslint/no-unused-vars
+7:3  Warning: 'TimelineSkeleton' is defined but never used.  @typescript-eslint/no-unused-vars
+8:3  Warning: 'FAQSkeleton' is defined but never used.  @typescript-eslint/no-unused-vars
+45:10  Warning: 'data' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+80:7  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+95:10  Warning: 'items' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+121:21  Warning: 'setIsLoading' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+
+./components/ui/Toast.tsx
+46:3  Warning: 'id' is defined but never used.  @typescript-eslint/no-unused-vars
+
+info  - Need to disable some ESLint rules? Learn more here: https://nextjs.org/docs/app/api-reference/config/eslint#disabling-rules

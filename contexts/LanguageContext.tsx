@@ -1,0 +1,418 @@
+'use client';
+
+import { createContext, useContext, useState, ReactNode } from 'react';
+
+type Language = 'ru' | 'en';
+
+interface LanguageContextType {
+  language: Language;
+  setLanguage: (lang: Language) => void;
+  t: (key: string) => string;
+  isChanging: boolean;
+}
+
+const translations = {
+  ru: {
+    // Header
+    'nav.participants': 'Список участников',
+    'nav.registration': 'Регистрация',
+    'nav.faq': 'FAQ',
+    
+    // Hero
+    'hero.badge': 'Образование мирового уровня',
+    'hero.title': 'Выставка',
+    'hero.subtitle': 'Частные школы',
+    'hero.subtitle2': 'за рубежом',
+    'hero.title.main': 'Зачислитесь\nв лучшие учебные\nзаведения мира!',
+    'hero.cta.apply': 'Оставить заявку',
+    'hero.date.astana': 'Астана',
+    'hero.date.almaty': 'Алматы',
+    'hero.countdown.days': 'Дней',
+    'hero.countdown.hours': 'Часов',
+    'hero.countdown.minutes': 'Минут',
+    'hero.countdown.seconds': 'Секунд',
+    'hero.cta.register': 'Зарегистрироваться бесплатно',
+    'hero.cta.participants': 'Список участников',
+    'hero.stats.schools': 'Школ-участников',
+    'hero.stats.countries': 'Стран мира',
+    'hero.stats.visitors': 'Посетителей',
+    'hero.years': 'лет опыта',
+    'hero.students': 'успешных студентов',
+    'hero.stats.years': 'лет на рынке',
+    'hero.stats.students': 'студентов обучили',
+    'hero.stats.partners': 'учебных заведений',
+    'hero.stats.countries.count': 'страна для обучения',
+    
+    // Statistics
+    'stats.title': 'Даты проведения выставки',
+    'stats.subtitle': 'Не пропустите главное образовательное событие года! До начала выставки осталось:',
+    'stats.countdown.astana': 'До выставки в Астане',
+    'stats.schools': 'Частных школ',
+    'stats.days': 'Дня выставки',
+    'stats.time': 'Время работы',
+    'stats.cities': 'Города',
+    
+    // Why Visit
+    'why.title': 'Почему стоит',
+    'why.title.highlight': 'посетить выставку',
+    'why.subtitle': 'Уникальная возможность выбрать лучшую школу для вашего ребёнка за один день',
+    'why.meetings.title': 'Встречи с представителями',
+    'why.meetings.desc': 'Личное общение с приёмными комиссиями топовых школ мира',
+    'why.countries.title': '20+ стран',
+    'why.countries.desc': 'Школы из Великобритании, США, Канады, Европы и Азии',
+    'why.scholarships.title': 'Эксклюзивные стипендии',
+    'why.scholarships.desc': 'Гранты до 50% от стоимости обучения для участников выставки',
+    'why.consultations.title': 'Консультации экспертов',
+    'why.consultations.desc': '27 лет опыта в международном образовании к вашим услугам',
+    'why.documents.title': 'Оценка документов',
+    'why.documents.desc': 'Проверка готовности к поступлению на месте',
+    'why.offers.title': 'Специальные предложения',
+    'why.offers.desc': 'Скидки на подготовку и визовую поддержку для посетителей',
+    'why.cta.title': 'Не упустите возможность!',
+    'why.cta.desc': 'Количество мест ограничено. Зарегистрируйтесь сейчас, чтобы гарантировать участие',
+    
+    // Timeline
+    'timeline.title': 'Программа',
+    'timeline.title.highlight': 'мероприятия',
+    'timeline.subtitle': 'Насыщенный день, который изменит будущее вашего ребёнка',
+    
+    // Participants
+    'participants.title': 'Участники',
+    'participants.title.highlight': 'выставки',
+    'participants.subtitle': 'Лучшие частные школы мира в одном месте',
+    
+    // Testimonials
+    'testimonials.title': 'Отзывы',
+    'testimonials.title.highlight': 'родителей',
+    'testimonials.subtitle': 'Истории успеха наших клиентов',
+    
+    // Registration
+    'registration.title': 'Бесплатная',
+    'registration.title.highlight': 'регистрация',
+    'registration.subtitle': 'Зарегистрируйтесь сейчас и получите персональную консультацию',
+    'registration.firstName': 'Имя',
+    'registration.firstName.placeholder': 'Введите ваше имя',
+    'registration.lastName': 'Фамилия',
+    'registration.lastName.placeholder': 'Введите вашу фамилию',
+    'registration.birthDate': 'Дата рождения',
+    'registration.phone': 'Телефон',
+    'registration.phone.placeholder': '+7 (___) ___-__-__',
+    'registration.email': 'E-mail',
+    'registration.email.placeholder': 'your@email.com',
+    'registration.educationLevel': 'Уровень образования',
+    'registration.educationLevel.placeholder': 'Выберите уровень',
+    'registration.educationLevel.middle': 'Средняя школа',
+    'registration.educationLevel.high': 'Старшая школа',
+    'registration.educationLevel.prep': 'Подготовительная программа',
+    'registration.educationLevel.bachelor': 'Бакалавриат',
+    'registration.educationLevel.master': 'Магистратура',
+    'registration.educationLevel.other': 'Другое',
+    'registration.programs': 'Интересующие программы обучения',
+    'registration.programs.ib': 'International Baccalaureate (IB)',
+    'registration.programs.gcse': 'GCSE and A-level',
+    'registration.programs.ap': 'Advanced Placement (USA)',
+    'registration.programs.local': 'Местные программы',
+    'registration.programs.summer': 'Летние программы',
+    'registration.programs.language': 'Языковые курсы',
+    'registration.agreement': 'Я ознакомился(-ась) и принимаю Пользовательское соглашение и Политику конфиденциальности, включая обработку персональных данных и фото/видеосъемку на мероприятии.',
+    'registration.submit': 'Зарегистрироваться',
+    'registration.name': 'Ваше имя',
+    'registration.city': 'Выберите город',
+    'registration.city.astana': 'Астана - 4 октября',
+    'registration.city.almaty': 'Алматы - 5 октября',
+    'registration.child.age': 'Возраст ребёнка',
+    'registration.child.class': 'Текущий класс',
+    'registration.countries': 'Интересующие страны',
+    'registration.countries.uk': 'Великобритания',
+    'registration.countries.usa': 'США',
+    'registration.countries.canada': 'Канада',
+    'registration.countries.europe': 'Европа',
+    'registration.countries.asia': 'Азия',
+    'registration.budget': 'Планируемый бюджет в год',
+    'registration.questions': 'Ваши вопросы (необязательно)',
+    'registration.privacy': 'Нажимая кнопку, вы соглашаетесь с',
+    'registration.privacy.link': 'политикой конфиденциальности',
+    'registration.benefits': 'Что вы получите после регистрации:',
+    'registration.benefit1': 'Персональное приглашение с программой',
+    'registration.benefit2': 'Приоритетные встречи со школами',
+    'registration.benefit3': 'Эксклюзивные материалы о школах',
+    'registration.benefit4': 'Специальные предложения от M&K',
+    
+    // FAQ
+    'faq.title': 'Часто задаваемые',
+    'faq.title.highlight': 'вопросы',
+    'faq.subtitle': 'Ответы на популярные вопросы о выставке',
+    
+    // Footer
+    'footer.about': 'О компании',
+    'footer.about.desc': 'M&K Education — ведущий образовательный центр в Казахстане с 27-летним опытом работы',
+    'footer.quickLinks': 'Быстрые ссылки',
+    'footer.contact': 'Контакты',
+    'footer.phone': 'Телефон',
+    'footer.email': 'Email',
+    'footer.address': 'Адрес',
+    'footer.address.almaty': 'Алматы, ул. Богенбай батыра 132',
+    'footer.address.astana': 'Астана, ул. Сыганак 18/1',
+    'footer.social': 'Социальные сети',
+    'footer.rights': 'Все права защищены',
+    
+    // Timeline Schedule
+    'timeline.schedule.registration': 'Регистрация участников',
+    'timeline.schedule.registration.desc': 'Получение бейджей и информационных материалов',
+    'timeline.schedule.opening': 'Открытие выставки',
+    'timeline.schedule.opening.desc': 'Приветственное слово от M&K Education и партнёров',
+    'timeline.schedule.exhibition': 'Работа выставки',
+    'timeline.schedule.exhibition.desc': 'Общение с представителями школ, консультации',
+    'timeline.schedule.coffee': 'Кофе-брейк',
+    'timeline.schedule.coffee.desc': 'Неформальное общение, нетворкинг',
+    'timeline.schedule.presentations': 'Презентации школ',
+    'timeline.schedule.presentations.desc': 'Выступления представителей топовых учебных заведений',
+    'timeline.schedule.prizes': 'Розыгрыш призов',
+    'timeline.schedule.prizes.desc': 'Ценные подарки и скидки для участников',
+    'timeline.location.astana': 'Астана',
+    'timeline.location.almaty': 'Алматы',
+    'timeline.date.astana': '4 октября 2025',
+    'timeline.date.almaty': '5 октября 2025',
+    'timeline.venue.astana': 'Отель «Rixos President Astana»',
+    'timeline.venue.almaty': 'Отель «Rixos Almaty»',
+    
+    // Participants
+    'participants.organizer': 'Организатор выставки',
+    'participants.organizer.desc': '27 лет успешной работы в образовании',
+    
+    // Testimonials Names
+    'testimonials.name1': 'Айгерим Касымова',
+    'testimonials.role1': 'Мама ученика Harrow School',
+    'testimonials.text1': 'Благодаря выставке M&K мы нашли идеальную школу для нашего сына. Личное общение с представителями помогло развеять все сомнения.',
+    'testimonials.name2': 'Данияр Ахметов',
+    'testimonials.role2': 'Отец выпускницы Eton College',
+    'testimonials.text2': 'M&K Education сопровождали нас на всех этапах поступления. Профессиональная команда, которой можно доверять.',
+    'testimonials.name3': 'Сауле Нурланова',
+    'testimonials.role3': 'Мама студента Westminster School',
+    'testimonials.text3': 'На выставке получили не только информацию о школах, но и помощь с грантом. Сын получил стипендию 30%!',
+    'testimonials.cta.text': 'Присоединяйтесь к тысячам счастливых семей, которые нашли идеальное образование для своих детей',
+    'testimonials.cta.button': 'Начать путь к успеху',
+  },
+  en: {
+    // Header
+    'nav.participants': 'Participants',
+    'nav.registration': 'Registration',
+    'nav.faq': 'FAQ',
+    
+    // Hero
+    'hero.badge': 'World-class education',
+    'hero.title': 'Exhibition',
+    'hero.subtitle': 'Private Schools',
+    'hero.subtitle2': 'Abroad',
+    'hero.title.main': 'Get accepted\nto the best\neducational institutions\nin the world!',
+    'hero.cta.apply': 'Apply Now',
+    'hero.date.astana': 'Astana',
+    'hero.date.almaty': 'Almaty',
+    'hero.countdown.days': 'Days',
+    'hero.countdown.hours': 'Hours',
+    'hero.countdown.minutes': 'Minutes',
+    'hero.countdown.seconds': 'Seconds',
+    'hero.cta.register': 'Register for free',
+    'hero.cta.participants': 'List of participants',
+    'hero.stats.schools': 'Participating schools',
+    'hero.stats.countries': 'Countries',
+    'hero.stats.visitors': 'Visitors',
+    'hero.years': 'years of experience',
+    'hero.students': 'successful students',
+    'hero.stats.years': 'years in business',
+    'hero.stats.students': 'students placed',
+    'hero.stats.partners': 'partner schools',
+    'hero.stats.countries.count': 'countries available',
+    
+    // Statistics
+    'stats.title': 'Exhibition dates',
+    'stats.subtitle': "Don't miss the main educational event of the year! Time until exhibition:",
+    'stats.countdown.astana': 'Until exhibition in Astana',
+    'stats.schools': 'Private schools',
+    'stats.days': 'Exhibition days',
+    'stats.time': 'Working hours',
+    'stats.cities': 'Cities',
+    
+    // Why Visit
+    'why.title': 'Why you should',
+    'why.title.highlight': 'visit the exhibition',
+    'why.subtitle': 'A unique opportunity to choose the best school for your child in one day',
+    'why.meetings.title': 'Meetings with representatives',
+    'why.meetings.desc': 'Personal communication with admissions committees of top schools',
+    'why.countries.title': '20+ countries',
+    'why.countries.desc': 'Schools from UK, USA, Canada, Europe and Asia',
+    'why.scholarships.title': 'Exclusive scholarships',
+    'why.scholarships.desc': 'Grants up to 50% of tuition for exhibition participants',
+    'why.consultations.title': 'Expert consultations',
+    'why.consultations.desc': '27 years of experience in international education at your service',
+    'why.documents.title': 'Document assessment',
+    'why.documents.desc': 'On-site readiness check for admission',
+    'why.offers.title': 'Special offers',
+    'why.offers.desc': 'Discounts on preparation and visa support for visitors',
+    'why.cta.title': "Don't miss the opportunity!",
+    'why.cta.desc': 'Places are limited. Register now to guarantee participation',
+    
+    // Timeline
+    'timeline.title': 'Event',
+    'timeline.title.highlight': 'program',
+    'timeline.subtitle': 'An eventful day that will change your child\'s future',
+    
+    // Participants
+    'participants.title': 'Exhibition',
+    'participants.title.highlight': 'participants',
+    'participants.subtitle': "The world's best private schools in one place",
+    
+    // Testimonials
+    'testimonials.title': 'Parent',
+    'testimonials.title.highlight': 'testimonials',
+    'testimonials.subtitle': 'Success stories from our clients',
+    
+    // Registration
+    'registration.title': 'Free',
+    'registration.title.highlight': 'registration',
+    'registration.subtitle': 'Register now and get a personal consultation',
+    'registration.firstName': 'First Name',
+    'registration.firstName.placeholder': 'Enter your first name',
+    'registration.lastName': 'Last Name',
+    'registration.lastName.placeholder': 'Enter your last name',
+    'registration.birthDate': 'Date of Birth',
+    'registration.phone': 'Phone',
+    'registration.phone.placeholder': '+7 (___) ___-__-__',
+    'registration.email': 'E-mail',
+    'registration.email.placeholder': 'your@email.com',
+    'registration.educationLevel': 'Education Level',
+    'registration.educationLevel.placeholder': 'Select level',
+    'registration.educationLevel.middle': 'Middle School',
+    'registration.educationLevel.high': 'High School',
+    'registration.educationLevel.prep': 'Preparatory Program',
+    'registration.educationLevel.bachelor': 'Bachelor',
+    'registration.educationLevel.master': 'Master',
+    'registration.educationLevel.other': 'Other',
+    'registration.programs': 'Programs of Interest',
+    'registration.programs.ib': 'International Baccalaureate (IB)',
+    'registration.programs.gcse': 'GCSE and A-level',
+    'registration.programs.ap': 'Advanced Placement (USA)',
+    'registration.programs.local': 'Local Programs',
+    'registration.programs.summer': 'Summer Programs',
+    'registration.programs.language': 'Language Courses',
+    'registration.agreement': 'I have read and accept the User Agreement and Privacy Policy, including the processing of personal data and photo/video recording at the event.',
+    'registration.submit': 'Register',
+    'registration.name': 'Your name',
+    'registration.city': 'Select city',
+    'registration.city.astana': 'Astana - October 4',
+    'registration.city.almaty': 'Almaty - October 5',
+    'registration.child.age': "Child's age",
+    'registration.child.class': 'Current grade',
+    'registration.countries': 'Countries of interest',
+    'registration.countries.uk': 'United Kingdom',
+    'registration.countries.usa': 'USA',
+    'registration.countries.canada': 'Canada',
+    'registration.countries.europe': 'Europe',
+    'registration.countries.asia': 'Asia',
+    'registration.budget': 'Annual budget',
+    'registration.questions': 'Your questions (optional)',
+    'registration.privacy': 'By clicking the button, you agree to the',
+    'registration.privacy.link': 'privacy policy',
+    'registration.benefits': 'What you will receive after registration:',
+    'registration.benefit1': 'Personal invitation with program',
+    'registration.benefit2': 'Priority meetings with schools',
+    'registration.benefit3': 'Exclusive school materials',
+    'registration.benefit4': 'Special offers from M&K',
+    
+    // FAQ
+    'faq.title': 'Frequently asked',
+    'faq.title.highlight': 'questions',
+    'faq.subtitle': 'Answers to popular questions about the exhibition',
+    
+    // Footer
+    'footer.about': 'About Us',
+    'footer.about.desc': 'M&K Education — leading educational center in Kazakhstan with 27 years of experience',
+    'footer.quickLinks': 'Quick Links',
+    'footer.contact': 'Contact',
+    'footer.phone': 'Phone',
+    'footer.email': 'Email',
+    'footer.address': 'Address',
+    'footer.address.almaty': 'Almaty, 132 Bogenbay Batyr St.',
+    'footer.address.astana': 'Astana, 18/1 Syganak St.',
+    'footer.social': 'Social Media',
+    'footer.rights': 'All rights reserved',
+    
+    // Timeline Schedule
+    'timeline.schedule.registration': 'Participant Registration',
+    'timeline.schedule.registration.desc': 'Badge collection and information materials',
+    'timeline.schedule.opening': 'Exhibition Opening',
+    'timeline.schedule.opening.desc': 'Welcome speech from M&K Education and partners',
+    'timeline.schedule.exhibition': 'Exhibition Hours',
+    'timeline.schedule.exhibition.desc': 'Communication with school representatives, consultations',
+    'timeline.schedule.coffee': 'Coffee Break',
+    'timeline.schedule.coffee.desc': 'Informal communication, networking',
+    'timeline.schedule.presentations': 'School Presentations',
+    'timeline.schedule.presentations.desc': 'Presentations by top educational institutions',
+    'timeline.schedule.prizes': 'Prize Draw',
+    'timeline.schedule.prizes.desc': 'Valuable gifts and discounts for participants',
+    'timeline.location.astana': 'Astana',
+    'timeline.location.almaty': 'Almaty',
+    'timeline.date.astana': 'October 4, 2025',
+    'timeline.date.almaty': 'October 5, 2025',
+    'timeline.venue.astana': 'Rixos President Astana Hotel',
+    'timeline.venue.almaty': 'Rixos Almaty Hotel',
+    
+    // Participants
+    'participants.organizer': 'Exhibition Organizer',
+    'participants.organizer.desc': '27 years of successful work in education',
+    
+    // Testimonials Names
+    'testimonials.name1': 'Aigerim Kassymova',
+    'testimonials.role1': 'Mother of Harrow School student',
+    'testimonials.text1': 'Thanks to the M&K exhibition, we found the perfect school for our son. Personal communication with representatives helped dispel all doubts.',
+    'testimonials.name2': 'Daniyar Akhmetov',
+    'testimonials.role2': 'Father of Eton College graduate',
+    'testimonials.text2': 'M&K Education accompanied us at all stages of admission. A professional team you can trust.',
+    'testimonials.name3': 'Saule Nurlanova',
+    'testimonials.role3': 'Mother of Westminster School student',
+    'testimonials.text3': 'At the exhibition, we received not only information about schools, but also help with a grant. My son received a 30% scholarship!',
+    'testimonials.cta.text': 'Join thousands of happy families who have found the perfect education for their children',
+    'testimonials.cta.button': 'Start your journey to success',
+  }
+};
+
+const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
+
+export function LanguageProvider({ children }: { children: ReactNode }) {
+  const [language, setLanguage] = useState<Language>('ru');
+  const [isChanging, setIsChanging] = useState(false);
+
+  const handleSetLanguage = (lang: Language) => {
+    if (lang === language) return;
+    
+    setIsChanging(true);
+    // Add a small delay for smooth transition
+    setTimeout(() => {
+      setLanguage(lang);
+      setIsChanging(false);
+    }, 300);
+  };
+
+  const t = (key: string): string => {
+    return translations[language][key as keyof typeof translations['ru']] || key;
+  };
+
+  return (
+    <LanguageContext.Provider value={{ 
+      language, 
+      setLanguage: handleSetLanguage, 
+      t,
+      isChanging 
+    }}>
+      {children}
+    </LanguageContext.Provider>
+  );
+}
+
+export function useLanguage() {
+  const context = useContext(LanguageContext);
+  if (context === undefined) {
+    throw new Error('useLanguage must be used within a LanguageProvider');
+  }
+  return context;
+}

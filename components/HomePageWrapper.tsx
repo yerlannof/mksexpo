@@ -1,0 +1,183 @@
+'use client';
+
+import React, { useState, useEffect, useRef } from 'react';
+import dynamic from 'next/dynamic';
+import { motion, AnimatePresence } from 'framer-motion';
+import PageLoader from '@/components/ui/PageLoader';
+import HeroSkeleton from '@/components/skeletons/HeroSkeleton';
+import StatisticsSkeleton from '@/components/skeletons/StatisticsSkeleton';
+import SectionSkeleton from '@/components/skeletons/SectionSkeleton';
+
+// Dynamically import sections with loading states
+const HeroNew = dynamic(() => import('@/components/sections/HeroNew'), {
+  loading: () => <HeroSkeleton />,
+});
+
+const Statistics = dynamic(() => import('@/components/sections/Statistics'), {
+  loading: () => <StatisticsSkeleton />,
+});
+
+const WhyVisit = dynamic(() => import('@/components/sections/WhyVisit'), {
+  loading: () => <SectionSkeleton variant="cards" cardCount={6} />,
+});
+
+const Timeline = dynamic(() => import('@/components/sections/Timeline'), {
+  loading: () => <SectionSkeleton variant="list" cardCount={4} />,
+});
+
+const Participants = dynamic(() => import('@/components/sections/Participants'), {
+  loading: () => <SectionSkeleton variant="cards" cardCount={6} />,
+});
+
+const Testimonials = dynamic(() => import('@/components/sections/Testimonials'), {
+  loading: () => <SectionSkeleton variant="testimonials" />,
+});
+
+const Registration = dynamic(() => import('@/components/sections/Registration'), {
+  loading: () => <SectionSkeleton variant="content" />,
+});
+
+const FAQ = dynamic(() => import('@/components/sections/FAQ'), {
+  loading: () => <SectionSkeleton variant="faq" />,
+});
+
+interface SectionState {
+  id: string;
+  isLoaded: boolean;
+  isVisible: boolean;
+  component: React.ComponentType;
+  skeleton: React.ReactElement;
+}
+
+export default function HomePageWrapper() {
+  const [pageLoading, setPageLoading] = useState(true);
+  const [sections, setSections] = useState<SectionState[]>([
+    { id: 'hero', isLoaded: false, isVisible: true, component: HeroNew, skeleton: <HeroSkeleton /> },
+    { id: 'statistics', isLoaded: false, isVisible: false, component: Statistics, skeleton: <StatisticsSkeleton /> },
+    { id: 'whyvisit', isLoaded: false, isVisible: false, component: WhyVisit, skeleton: <SectionSkeleton variant="cards" cardCount={6} /> },
+    { id: 'timeline', isLoaded: false, isVisible: false, component: Timeline, skeleton: <SectionSkeleton variant="list" cardCount={4} /> },
+    { id: 'participants', isLoaded: false, isVisible: false, component: Participants, skeleton: <SectionSkeleton variant="cards" cardCount={6} /> },
+    { id: 'testimonials', isLoaded: false, isVisible: false, component: Testimonials, skeleton: <SectionSkeleton variant="testimonials" /> },
+    { id: 'registration', isLoaded: false, isVisible: false, component: Registration, skeleton: <SectionSkeleton variant="content" /> },
+    { id: 'faq', isLoaded: false, isVisible: false, component: FAQ, skeleton: <SectionSkeleton variant="faq" /> },
+  ]);
+
+  const sectionRefs = useRef<{ [key: string]: HTMLDivElement | null }>({});
+
+  // Initial page load simulation
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setPageLoading(false);
+      // Load hero section immediately
+      setSections(prev => prev.map(section => 
+        section.id === 'hero' ? { ...section, isLoaded: true } : section
+      ));
+    }, 1500);
+
+    return () => clearTimeout(timer);
+  }, []);
+
+  // Intersection Observer for lazy loading sections
+  useEffect(() => {
+    const observerOptions = {
+      root: null,
+      rootMargin: '100px',
+      threshold: 0.1,
+    };
+
+    const observerCallback = (entries: IntersectionObserverEntry[]) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const sectionId = entry.target.getAttribute('data-section-id');
+          if (sectionId) {
+            setSections(prev => prev.map(section => 
+              section.id === sectionId 
+                ? { ...section, isVisible: true } 
+                : section
+            ));
+
+            // Simulate loading delay for demonstration
+            setTimeout(() => {
+              setSections(prev => prev.map(section => 
+                section.id === sectionId 
+                  ? { ...section, isLoaded: true } 
+                  : section
+              ));
+            }, 800);
+          }
+        }
+      });
+    };
+
+    const observer = new IntersectionObserver(observerCallback, observerOptions);
+
+    // Observe all section refs
+    Object.entries(sectionRefs.current).forEach(([id, ref]) => {
+      if (ref) {
+        ref.setAttribute('data-section-id', id);
+        observer.observe(ref);
+      }
+    });
+
+    return () => {
+      observer.disconnect();
+    };
+  }, [pageLoading]);
+
+  return (
+    <>
+      {/* Initial page loader */}
+      <PageLoader isLoading={pageLoading} variant="logo" />
+
+      {/* Page content */}
+      <AnimatePresence mode="wait">
+        {!pageLoading && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.5 }}
+          >
+            {sections.map((section) => {
+              const Component = section.component;
+              
+              return (
+                <div 
+                  key={section.id}
+                  ref={el => {
+                    if (el) {
+                      sectionRefs.current[section.id] = el;
+                    }
+                  }}
+                  className="relative"
+                >
+                  <AnimatePresence mode="wait">
+                    {!section.isLoaded && section.isVisible ? (
+                      <motion.div
+                        key={`${section.id}-skeleton`}
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        transition={{ duration: 0.3 }}
+                      >
+                        {section.skeleton}
+                      </motion.div>
+                    ) : section.isLoaded ? (
+                      <motion.div
+                        key={`${section.id}-content`}
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        transition={{ duration: 0.5 }}
+                      >
+                        <Component />
+                      </motion.div>
+                    ) : null}
+                  </AnimatePresence>
+                </div>
+              );
+            })}
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </>
+  );
+}
