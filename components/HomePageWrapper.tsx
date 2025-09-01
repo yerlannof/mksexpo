@@ -51,6 +51,7 @@ interface SectionState {
 
 export default function HomePageWrapper() {
   const [pageLoading, setPageLoading] = useState(true);
+  const [isMobile, setIsMobile] = useState(false);
   const [sections, setSections] = useState<SectionState[]>([
     { id: 'hero', isLoaded: false, isVisible: true, component: HeroNew, skeleton: <HeroSkeleton /> },
     { id: 'statistics', isLoaded: false, isVisible: false, component: Statistics, skeleton: <StatisticsSkeleton /> },
@@ -64,21 +65,44 @@ export default function HomePageWrapper() {
 
   const sectionRefs = useRef<{ [key: string]: HTMLDivElement | null }>({});
 
+  // Check for mobile device
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
   // Initial page load simulation
   useEffect(() => {
     const timer = setTimeout(() => {
       setPageLoading(false);
-      // Load hero section immediately
-      setSections(prev => prev.map(section => 
-        section.id === 'hero' ? { ...section, isLoaded: true } : section
-      ));
+      
+      if (isMobile) {
+        // On mobile, load all sections immediately for smoother experience
+        setSections(prev => prev.map(section => ({ 
+          ...section, 
+          isLoaded: true, 
+          isVisible: true 
+        })));
+      } else {
+        // On desktop, load hero section immediately
+        setSections(prev => prev.map(section => 
+          section.id === 'hero' ? { ...section, isLoaded: true } : section
+        ));
+      }
     }, 1500);
 
     return () => clearTimeout(timer);
-  }, []);
+  }, [isMobile]);
 
-  // Intersection Observer for lazy loading sections
+  // Intersection Observer for lazy loading sections (disabled on mobile)
   useEffect(() => {
+    if (isMobile) return; // Skip observer on mobile for better performance
+    
     const observerOptions = {
       root: null,
       rootMargin: '100px',
@@ -122,7 +146,7 @@ export default function HomePageWrapper() {
     return () => {
       observer.disconnect();
     };
-  }, [pageLoading]);
+  }, [pageLoading, isMobile]);
 
   return (
     <>

@@ -112,8 +112,20 @@ export default function OptimizedAnimatedSection({
   disabled = false
 }: OptimizedAnimatedSectionProps) {
   const [shouldAnimate, setShouldAnimate] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
   const elementRef = useRef<HTMLDivElement>(null);
   const hasAnimated = useRef(false);
+
+  // Check if mobile device
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
 
   useEffect(() => {
     if (disabled || hasAnimated.current) return;
@@ -160,7 +172,8 @@ export default function OptimizedAnimatedSection({
     };
   }, [delay, disabled]);
 
-  if (disabled) {
+  // Disable animations on mobile for better performance
+  if (disabled || isMobile) {
     return <div className={className}>{children}</div>;
   }
 
