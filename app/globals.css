@@ -94,7 +94,7 @@
     min-height: 100vh;
   }
   
-  /* Smooth gradient background like Figma */
+  /* Smooth gradient background - simplified for mobile */
   body::before {
     content: '';
     position: fixed;
@@ -102,24 +102,31 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background: radial-gradient(ellipse at top, #305FA6 0%, #1C417A 40%, #193976 100%);
+    background: #1C417A; /* Simple solid color on mobile */
     z-index: -1;
   }
   
-  /* Additional gradient layer for depth */
-  body::after {
-    content: '';
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: 
-      radial-gradient(circle at 20% 50%, rgba(109, 161, 242, 0.3) 0%, transparent 50%),
-      radial-gradient(circle at 80% 80%, rgba(48, 95, 166, 0.2) 0%, transparent 50%),
-      radial-gradient(circle at 40% 20%, rgba(65, 108, 173, 0.2) 0%, transparent 40%);
-    z-index: -1;
-    pointer-events: none;
+  /* Gradient only on desktop */
+  @media (min-width: 768px) {
+    body::before {
+      background: radial-gradient(ellipse at top, #305FA6 0%, #1C417A 40%, #193976 100%);
+    }
+    
+    /* Additional gradient layer for depth - desktop only */
+    body::after {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: 
+        radial-gradient(circle at 20% 50%, rgba(109, 161, 242, 0.3) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(48, 95, 166, 0.2) 0%, transparent 50%),
+        radial-gradient(circle at 40% 20%, rgba(65, 108, 173, 0.2) 0%, transparent 40%);
+      z-index: -1;
+      pointer-events: none;
+    }
   }
 
   h1, h2, h3, h4, h5, h6 {
