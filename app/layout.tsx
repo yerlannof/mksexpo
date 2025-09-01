@@ -12,18 +12,18 @@ const inter = Inter({
 // Soyuz Grotesk will be loaded via CSS @import
 
 export const metadata: Metadata = {
-  title: "Central Asia Education Expo 2025 | International Schools Exhibition",
-  description: "Join the premier international schools exhibition in Central Asia. Discover top educational institutions, meet representatives, and explore opportunities for your child's future. March 15-16, 2025 in Astana.",
-  keywords: "international schools, education expo, Central Asia, Kazakhstan, private schools, education fair, school exhibition, Astana, education 2025",
+  title: "Выставка «Частные школы за рубежом» - M&K Education Expo 2025",
+  description: "Встретьтесь с представителями ведущих частных школ мира. 4 октября - Астана, 5 октября - Алматы. Бесплатная регистрация.",
+  keywords: "частные школы, международные школы, образование за рубежом, школы-пансионы, выставка образования, Астана, Алматы",
   authors: [{ name: "M&K Education" }],
   openGraph: {
-    title: "Central Asia Education Expo 2025",
-    description: "Premier international schools exhibition in Central Asia. March 15-16, 2025",
+    title: "Выставка «Частные школы за рубежом» 2025",
+    description: "Престижное образование для вашего ребенка. 4-5 октября 2025",
     type: "website",
-    locale: "en_US",
-    alternateLocale: "ru_RU",
-    url: "https://caee.kz",
-    siteName: "Central Asia Education Expo",
+    locale: "ru_RU",
+    alternateLocale: "en_US",
+    url: "https://mks-expo.vercel.app",
+    siteName: "M&K Education Expo",
     images: [
       {
         url: "/og-image.jpg",
