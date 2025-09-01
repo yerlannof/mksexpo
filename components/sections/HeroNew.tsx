@@ -5,7 +5,6 @@ import { motion } from 'framer-motion';
 import { useLanguage } from '@/contexts/LanguageContext';
 import Image from 'next/image';
 import AnimatedButton from '@/components/ui/AnimatedButton';
-import heroPhotoNew from '@/public/hero-photo-new.jpg';
 
 export default function HeroNew() {
   const [mounted, setMounted] = useState(false);
@@ -81,12 +80,14 @@ export default function HeroNew() {
           >
             <div className="relative w-full max-w-lg lg:max-w-xl xl:max-w-2xl">
               <Image
-                src={heroPhotoNew}
-                alt="Студенты частных школ"
+                src="/hero-photo-main.jpg"
+                alt="Консультация по поступлению в частные школы"
+                width={800}
+                height={1000}
                 className="w-full h-auto rounded-2xl shadow-2xl object-cover"
                 priority
                 quality={85}
-                placeholder="blur"
+                unoptimized
               />
             </div>
           </motion.div>

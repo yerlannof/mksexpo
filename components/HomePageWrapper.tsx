@@ -24,6 +24,10 @@ const Steps = dynamic(() => import('@/components/sections/Steps'), {
   loading: () => <SectionSkeleton variant="cards" cardCount={6} />,
 });
 
+const Gallery = dynamic(() => import('@/components/sections/Gallery'), {
+  loading: () => <SectionSkeleton variant="cards" cardCount={6} />,
+});
+
 const Registration = dynamic(() => import('@/components/sections/Registration'), {
   loading: () => <SectionSkeleton variant="content" />,
 });
@@ -47,6 +51,7 @@ export default function HomePageWrapper() {
     { id: 'hero', isLoaded: false, isVisible: true, component: HeroNew, skeleton: <HeroSkeleton /> },
     { id: 'participants', isLoaded: false, isVisible: false, component: Participants, skeleton: <SectionSkeleton variant="cards" cardCount={6} /> },
     { id: 'steps', isLoaded: false, isVisible: false, component: Steps, skeleton: <SectionSkeleton variant="cards" cardCount={6} /> },
+    { id: 'gallery', isLoaded: false, isVisible: false, component: Gallery, skeleton: <SectionSkeleton variant="cards" cardCount={6} /> },
     { id: 'timeline', isLoaded: false, isVisible: false, component: Timeline, skeleton: <SectionSkeleton variant="list" cardCount={4} /> },
     { id: 'registration', isLoaded: false, isVisible: false, component: Registration, skeleton: <SectionSkeleton variant="content" /> },
     { id: 'faq', isLoaded: false, isVisible: false, component: FAQ, skeleton: <SectionSkeleton variant="faq" /> },

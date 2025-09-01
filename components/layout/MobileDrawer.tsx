@@ -4,7 +4,7 @@ import { useEffect } from 'react';
 import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useLanguage } from '@/contexts/LanguageContext';
-import { X, Users, ClipboardList, HelpCircle, Phone, Mail, Globe, Calendar, Star, MessageSquare } from 'lucide-react';
+import { X, Users, ClipboardList, HelpCircle, Phone, Mail, Globe, Calendar, GraduationCap } from 'lucide-react';
 
 interface MobileDrawerProps {
   isOpen: boolean;
@@ -29,32 +29,27 @@ export default function MobileDrawer({ isOpen, onClose }: MobileDrawerProps) {
   const menuItems = [
     { 
       href: '#participants', 
-      label: language === 'ru' ? 'Список участников' : 'Participants', 
+      label: t('nav.participants'),
       icon: Users 
     },
     { 
+      href: '#steps', 
+      label: language === 'ru' ? '6 шагов к поступлению' : '6 Steps to Admission',
+      icon: GraduationCap 
+    },
+    { 
       href: '#timeline', 
-      label: language === 'ru' ? 'Программа' : 'Program', 
+      label: t('nav.timeline'),
       icon: Calendar 
     },
     { 
-      href: '#whyvisit', 
-      label: language === 'ru' ? 'Почему мы' : 'Why Visit', 
-      icon: Star 
-    },
-    { 
-      href: '#testimonials', 
-      label: language === 'ru' ? 'Отзывы' : 'Testimonials', 
-      icon: MessageSquare 
-    },
-    { 
       href: '#registration', 
-      label: language === 'ru' ? 'Регистрация' : 'Registration', 
+      label: t('nav.registration'),
       icon: ClipboardList 
     },
     { 
       href: '#faq', 
-      label: 'FAQ', 
+      label: t('nav.faq'),
       icon: HelpCircle 
     },
   ];
@@ -105,53 +100,23 @@ export default function MobileDrawer({ isOpen, onClose }: MobileDrawerProps) {
               {/* Navigation */}
               <nav className="p-4">
                 <ul className="space-y-2">
-                  {/* Hardcoded menu items for reliability */}
-                  <li>
-                    <Link href="#participants" onClick={onClose} className="flex items-center gap-4 p-4 hover:bg-gray-50 rounded-xl transition-colors group">
-                      <Users className="w-6 h-6 text-primary group-hover:text-primary-light transition-colors" />
-                      <span className="font-medium text-gray-900 text-lg">
-                        {language === 'ru' ? 'Список участников' : 'Participants'}
-                      </span>
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="#timeline" onClick={onClose} className="flex items-center gap-4 p-4 hover:bg-gray-50 rounded-xl transition-colors group">
-                      <Calendar className="w-6 h-6 text-primary group-hover:text-primary-light transition-colors" />
-                      <span className="font-medium text-gray-900 text-lg">
-                        {language === 'ru' ? 'Программа' : 'Program'}
-                      </span>
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="#whyvisit" onClick={onClose} className="flex items-center gap-4 p-4 hover:bg-gray-50 rounded-xl transition-colors group">
-                      <Star className="w-6 h-6 text-primary group-hover:text-primary-light transition-colors" />
-                      <span className="font-medium text-gray-900 text-lg">
-                        {language === 'ru' ? 'Почему мы' : 'Why Visit'}
-                      </span>
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="#testimonials" onClick={onClose} className="flex items-center gap-4 p-4 hover:bg-gray-50 rounded-xl transition-colors group">
-                      <MessageSquare className="w-6 h-6 text-primary group-hover:text-primary-light transition-colors" />
-                      <span className="font-medium text-gray-900 text-lg">
-                        {language === 'ru' ? 'Отзывы' : 'Testimonials'}
-                      </span>
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="#registration" onClick={onClose} className="flex items-center gap-4 p-4 hover:bg-gray-50 rounded-xl transition-colors group">
-                      <ClipboardList className="w-6 h-6 text-primary group-hover:text-primary-light transition-colors" />
-                      <span className="font-medium text-gray-900 text-lg">
-                        {language === 'ru' ? 'Регистрация' : 'Registration'}
-                      </span>
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="#faq" onClick={onClose} className="flex items-center gap-4 p-4 hover:bg-gray-50 rounded-xl transition-colors group">
-                      <HelpCircle className="w-6 h-6 text-primary group-hover:text-primary-light transition-colors" />
-                      <span className="font-medium text-gray-900 text-lg">FAQ</span>
-                    </Link>
-                  </li>
+                  {menuItems.map((item, index) => {
+                    const Icon = item.icon;
+                    return (
+                      <li key={index}>
+                        <Link 
+                          href={item.href} 
+                          onClick={onClose} 
+                          className="flex items-center gap-4 p-4 hover:bg-gray-50 rounded-xl transition-colors group"
+                        >
+                          <Icon className="w-6 h-6 text-primary group-hover:text-primary-light transition-colors" />
+                          <span className="font-medium text-gray-900 text-lg">
+                            {item.label}
+                          </span>
+                        </Link>
+                      </li>
+                    );
+                  })}
                 </ul>
               </nav>
 
