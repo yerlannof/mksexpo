@@ -15,7 +15,7 @@ export default function HeaderSimple() {
   return (
     <header className="fixed top-0 w-full bg-primary/95 backdrop-blur-md z-50 shadow-lg">
       <div className="container">
-        <nav className="flex items-center justify-between h-20">
+        <nav className="flex items-center justify-between h-16 sm:h-20">
           {/* Logo */}
           <Link href="/" className="flex items-center space-x-2 sm:space-x-3 group">
             <Image
@@ -23,12 +23,12 @@ export default function HeaderSimple() {
               alt="M&K Study Centre"
               width={50}
               height={50}
-              className="h-10 sm:h-12 w-auto"
+              className="h-8 sm:h-10 md:h-12 w-auto"
               priority
             />
-            <div className="hidden sm:block">
-              <h1 className="text-lg sm:text-xl font-bold text-white">M&K Study Centre</h1>
-              <p className="text-xs text-white/80">{language === 'ru' ? 'Образование за рубежом' : 'Education Abroad'}</p>
+            <div className="block">
+              <h1 className="text-sm sm:text-lg md:text-xl font-bold text-white">M&K Study Centre</h1>
+              <p className="text-xs text-white/80 hidden sm:block">{language === 'ru' ? 'Образование за рубежом' : 'Education Abroad'}</p>
             </div>
           </Link>
 
@@ -45,7 +45,33 @@ export default function HeaderSimple() {
             </Link>
           </div>
 
-          {/* Language Switcher & CTA */}
+          {/* Mobile Controls */}
+          <div className="flex md:hidden items-center space-x-2">
+            <button
+              onClick={() => setLanguage(language === 'ru' ? 'en' : 'ru')}
+              className="flex items-center gap-1 px-2 py-1 text-sm font-medium text-white/90 hover:text-white transition-colors"
+            >
+              <Globe className="w-4 h-4" />
+              <span>{language === 'ru' ? 'RU' : 'EN'}</span>
+            </button>
+            <AnimatedButton
+              variant="secondary"
+              size="sm"
+              href="#registration"
+              className="text-xs px-3 py-2"
+            >
+              {t('nav.registration')}
+            </AnimatedButton>
+            <button
+              onClick={() => setIsMenuOpen(true)}
+              className="p-2 rounded-lg bg-white/10 hover:bg-white/20 transition-colors"
+              aria-label="Open menu"
+            >
+              <Menu className="w-5 h-5 text-white" />
+            </button>
+          </div>
+
+          {/* Desktop Controls */}
           <div className="hidden md:flex items-center space-x-4">
             <button
               onClick={() => setLanguage(language === 'ru' ? 'en' : 'ru')}
@@ -62,15 +88,6 @@ export default function HeaderSimple() {
               {t('nav.registration')}
             </AnimatedButton>
           </div>
-
-          {/* Mobile Menu Button */}
-          <button
-            onClick={() => setIsMenuOpen(true)}
-            className="md:hidden p-2 rounded-lg bg-white/10 hover:bg-white/20 transition-colors"
-            aria-label="Open menu"
-          >
-            <Menu className="w-6 h-6 text-white" />
-          </button>
         </nav>
 
         {/* Mobile Drawer */}
