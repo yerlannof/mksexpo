@@ -6,39 +6,19 @@ import { useLanguage } from '@/contexts/LanguageContext';
 import Image from 'next/image';
 import { X, ChevronLeft, ChevronRight } from 'lucide-react';
 
-// Галерея изображений - здесь можно будет добавить реальные фотографии
+// Галерея изображений - добавьте реальные фотографии в папку /public/gallery/
+// Пока используется placeholder изображение
 const galleryImages = [
   {
     src: '/hero-photo-main.jpg',
     alt: 'Консультация с представителями школ',
     category: 'consultation',
   },
-  // Временные placeholder изображения - замените на реальные фотографии с выставки
-  {
-    src: '/hero-photo-main.jpg',
-    alt: 'Презентация школ',
-    category: 'presentation',
-  },
-  {
-    src: '/hero-photo-main.jpg',
-    alt: 'Общение с родителями',
-    category: 'consultation',
-  },
-  {
-    src: '/hero-photo-main.jpg',
-    alt: 'Стенд школы',
-    category: 'stands',
-  },
-  {
-    src: '/hero-photo-main.jpg',
-    alt: 'Индивидуальная консультация',
-    category: 'consultation',
-  },
-  {
-    src: '/hero-photo-main.jpg',
-    alt: 'Атмосфера выставки',
-    category: 'atmosphere',
-  },
+  // После добавления фотографий в папку /public/gallery/, обновите пути:
+  // { src: '/gallery/consultation-1.jpg', alt: 'Консультация с представителями школ', category: 'consultation' },
+  // { src: '/gallery/presentation-1.jpg', alt: 'Презентация школы', category: 'presentation' },
+  // { src: '/gallery/stands-1.jpg', alt: 'Стенд школы', category: 'stands' },
+  // { src: '/gallery/atmosphere-1.jpg', alt: 'Атмосфера выставки', category: 'atmosphere' },
 ];
 
 const categories = [
