@@ -22,11 +22,12 @@ const translations = {
     'nav.faq': 'FAQ',
     
     // Hero
-    'hero.badge': 'Персональные консультации',
+    'hero.badge': 'Путь к успешному будущему',
     'hero.title': 'Выставка',
     'hero.subtitle': 'Частные школы',
     'hero.subtitle2': '',
-    'hero.title.main': 'Найдите подходящую\nшколу для вашего\nребенка',
+    'hero.title.main': 'Престижное образование\nдля вашего\nребенка',
+    'hero.subtitle.desc': 'Встретьтесь с представителями ведущих частных школ мира и выберите лучшее будущее для вашего ребенка',
     'hero.cta.apply': 'Оставить заявку',
     'hero.date.astana': 'Астана',
     'hero.date.almaty': 'Алматы',
@@ -45,6 +46,13 @@ const translations = {
     'hero.stats.students': 'студентов обучили',
     'hero.stats.partners': 'школ-партнеров',
     'hero.stats.countries.count': 'стран',
+    'hero.programs.title': 'Программы обучения в частных школах:',
+    'hero.programs.british': 'Британская система (GCSE, A-Level)',
+    'hero.programs.american': 'Американская система (High School, AP)',
+    'hero.programs.ib': 'International Baccalaureate (IB)',
+    'hero.programs.boarding': 'Школы-пансионы',
+    'hero.programs.day': 'Дневные школы',
+    'hero.programs.foundation': 'Подготовительные программы',
     
     
     // Timeline

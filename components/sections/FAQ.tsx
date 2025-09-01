@@ -22,72 +22,72 @@ interface FAQItem {
 const faqs: FAQItem[] = [
   {
     question: {
-      ru: 'Сколько стоит посещение выставки?',
-      en: 'How much does it cost to visit the exhibition?'
+      ru: 'Какие частные школы будут представлены на выставке?',
+      en: 'Which private schools will be represented at the exhibition?'
     },
     answer: {
-      ru: 'Регистрация и вход на выставку бесплатные для посетителей.',
-      en: 'Registration and admission to the exhibition are free for visitors.'
+      ru: 'На выставке будут представлены ведущие частные школы из Великобритании, США, Швейцарии, Канады и Германии. Среди них Harrow School, Wellington College, Phillips Academy, Le Rosey и другие престижные учебные заведения.',
+      en: 'The exhibition will feature leading private schools from UK, USA, Switzerland, Canada and Germany. Including Harrow School, Wellington College, Phillips Academy, Le Rosey and other prestigious institutions.'
     },
   },
   {
     question: {
-      ru: 'Что я узнаю на выставке?',
-      en: 'What will I learn at the exhibition?'
+      ru: 'Какие программы обучения предлагают частные школы?',
+      en: 'What educational programs do private schools offer?'
     },
     answer: {
-      ru: 'Вы сможете узнать об образовательных организациях разных стран, их программах и правилах приема. Любые вопросы можно будет задать лично представителям.',
-      en: 'You will learn about educational institutions from different countries, their programs and admission requirements. You can ask representatives any questions in person.'
+      ru: 'Частные школы предлагают различные программы: британская система (GCSE, A-Level), американская система (High School, AP), программа International Baccalaureate (IB), а также национальные программы с углубленным изучением языков.',
+      en: 'Private schools offer various programs: British system (GCSE, A-Level), American system (High School, AP), International Baccalaureate (IB), as well as national programs with intensive language study.'
     },
   },
   {
     question: {
-      ru: 'На каком языке будет проходить мероприятие?',
-      en: 'What language will the event be held in?'
+      ru: 'Чем отличается обучение в частной школе от государственной?',
+      en: 'What is the difference between private and public school education?'
     },
     answer: {
-      ru: 'Представители зарубежных образовательных организаций общаются с посетителями с помощью переводчиков. Большинство из них владеют английским и языком представляемой страны.',
-      en: 'Representatives of foreign educational institutions communicate with visitors through interpreters. Most of them speak English and the language of the country they represent.'
+      ru: 'Частные школы предлагают небольшие классы (8-12 учеников), индивидуальный подход, широкий выбор предметов и внеклассных активностей, современное оснащение, подготовку к поступлению в топовые университеты мира.',
+      en: 'Private schools offer small classes (8-12 students), individual approach, wide choice of subjects and extracurricular activities, modern facilities, preparation for admission to top world universities.'
     },
   },
   {
     question: {
-      ru: 'Смогу ли я получить стипендию?',
-      en: 'Can I get a scholarship?'
+      ru: 'Какая стоимость обучения в частных школах?',
+      en: 'What is the cost of private school education?'
     },
     answer: {
-      ru: 'Большинство университетов ведут обучение на платной основе, но некоторые из них предоставляют скидки на обучение. Стипендии с полным покрытием стоимости обучения встречаются редко.',
-      en: 'Most universities charge tuition fees, but some offer discounts. Full scholarships covering the entire cost of education are rare.'
+      ru: 'Стоимость обучения варьируется от 20,000 до 80,000 долларов в год в зависимости от страны, типа школы (дневная или пансион) и программы. Многие школы предлагают стипендии для талантливых учеников.',
+      en: 'Tuition fees range from $20,000 to $80,000 per year depending on country, school type (day or boarding) and program. Many schools offer scholarships for talented students.'
     },
   },
   {
     question: {
-      ru: 'Где я могу найти информацию об участниках?',
-      en: 'Where can I find information about participants?'
+      ru: 'С какого возраста можно поступить в частную школу?',
+      en: 'From what age can you enroll in a private school?'
     },
     answer: {
-      ru: 'Список участвующих образовательных организаций с основной информацией о них доступен на этой странице в разделе "Список участников".',
-      en: 'The list of participating educational institutions with basic information about them is available on this page in the "List of Participants" section.'
+      ru: 'Большинство частных школ принимают учеников с 11-13 лет, но есть школы с начальными классами от 7 лет. Оптимальный возраст для поступления в школу-пансион — 13-14 лет.',
+      en: 'Most private schools accept students from 11-13 years old, but there are schools with primary classes from 7 years old. The optimal age for boarding school admission is 13-14 years.'
     },
   },
   {
     question: {
-      ru: 'Нужно ли мне прийти к началу выставки?',
-      en: 'Do I need to arrive at the beginning of the exhibition?'
+      ru: 'Какие требования для поступления в частные школы?',
+      en: 'What are the admission requirements for private schools?'
     },
     answer: {
-      ru: 'Вы можете прийти в любое удобное для вас время — общение с представителями образовательных организаций идет в течение всей выставки.',
-      en: 'You can come at any time convenient for you — communication with representatives of educational institutions takes place throughout the exhibition.'
+      ru: 'Основные требования: хорошая успеваемость, знание английского языка (IELTS/TOEFL), мотивационное письмо, рекомендации от учителей. Некоторые школы проводят вступительные экзамены и интервью.',
+      en: 'Main requirements: good academic performance, English proficiency (IELTS/TOEFL), motivation letter, teacher recommendations. Some schools conduct entrance exams and interviews.'
     },
   },
   {
     question: {
-      ru: 'Могу ли я прийти на выставку с кем-то?',
-      en: 'Can I come to the exhibition with someone?'
+      ru: 'Нужна ли предварительная регистрация на выставку?',
+      en: 'Is pre-registration required for the exhibition?'
     },
     answer: {
-      ru: 'Да, но если это не члены вашей семьи, гостю также необходимо пройти регистрацию.',
-      en: 'Yes, but if they are not members of your family, the guest also needs to register.'
+      ru: 'Да, регистрация обязательна. Это позволит нам подготовить для вас персональную программу встреч со школами, соответствующими вашим критериям.',
+      en: 'Yes, registration is mandatory. This will allow us to prepare a personalized meeting program with schools that match your criteria.'
     },
   },
 ];

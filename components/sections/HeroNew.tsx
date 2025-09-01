@@ -36,6 +36,15 @@ export default function HeroNew() {
               ))}
             </motion.h1>
 
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.2, duration: 0.8 }}
+              className="text-lg sm:text-xl text-white/90 mb-8 max-w-xl mx-auto lg:mx-0"
+            >
+              {t('hero.subtitle.desc')}
+            </motion.p>
+
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -73,24 +82,41 @@ export default function HeroNew() {
           </motion.div>
         </div>
 
-        {/* Statistics Row */}
+        {/* Program Types */}
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.6, duration: 0.8 }}
-          className="grid grid-cols-2 gap-8 sm:gap-12 md:gap-16 mt-12 sm:mt-16 lg:mt-20 max-w-2xl mx-auto lg:mx-0"
+          className="mt-12 sm:mt-16 lg:mt-20"
         >
-          <div className="text-center">
-            <h3 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-2">15+</h3>
-            <p className="text-white/80 text-sm sm:text-base">
-              {t('hero.stats.schools')}
-            </p>
-          </div>
-          <div className="text-center">
-            <h3 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-2">1-на-1</h3>
-            <p className="text-white/80 text-sm sm:text-base">
-              {t('hero.stats.visitors')}
-            </p>
+          <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 sm:p-8 border border-white/20">
+            <h3 className="text-lg sm:text-xl font-semibold text-white mb-4">{t('hero.programs.title')}</h3>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+              <div className="flex items-center gap-3">
+                <div className="w-2 h-2 bg-white rounded-full"></div>
+                <span className="text-white/90">{t('hero.programs.british')}</span>
+              </div>
+              <div className="flex items-center gap-3">
+                <div className="w-2 h-2 bg-white rounded-full"></div>
+                <span className="text-white/90">{t('hero.programs.american')}</span>
+              </div>
+              <div className="flex items-center gap-3">
+                <div className="w-2 h-2 bg-white rounded-full"></div>
+                <span className="text-white/90">{t('hero.programs.ib')}</span>
+              </div>
+              <div className="flex items-center gap-3">
+                <div className="w-2 h-2 bg-white rounded-full"></div>
+                <span className="text-white/90">{t('hero.programs.boarding')}</span>
+              </div>
+              <div className="flex items-center gap-3">
+                <div className="w-2 h-2 bg-white rounded-full"></div>
+                <span className="text-white/90">{t('hero.programs.day')}</span>
+              </div>
+              <div className="flex items-center gap-3">
+                <div className="w-2 h-2 bg-white rounded-full"></div>
+                <span className="text-white/90">{t('hero.programs.foundation')}</span>
+              </div>
+            </div>
           </div>
         </motion.div>
       </div>
