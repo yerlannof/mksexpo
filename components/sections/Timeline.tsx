@@ -9,7 +9,7 @@ export default function Timeline() {
   
   const schedule = [
     {
-      time: '11:30 - 12:00',
+      time: '11:00 - 12:00',
       titleKey: 'timeline.schedule.registration',
       descKey: 'timeline.schedule.registration.desc',
       icon: (
@@ -23,21 +23,9 @@ export default function Timeline() {
       gradient: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
     },
     {
-      time: '12:00 - 12:30',
-      titleKey: 'timeline.schedule.opening',
-      descKey: 'timeline.schedule.opening.desc',
-      icon: (
-        <svg viewBox="0 0 24 24" fill="none" className="w-6 h-6">
-          <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-          <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-        </svg>
-      ),
-      gradient: 'linear-gradient(135deg, #f093fb 0%, #f5576c 100%)',
-    },
-    {
-      time: '12:30 - 14:00',
-      titleKey: 'timeline.schedule.exhibition',
-      descKey: 'timeline.schedule.exhibition.desc',
+      time: '12:00 - 17:00',
+      titleKey: 'timeline.schedule.meetings',
+      descKey: 'timeline.schedule.meetings.desc',
       icon: (
         <svg viewBox="0 0 24 24" fill="none" className="w-6 h-6">
           <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
@@ -46,37 +34,21 @@ export default function Timeline() {
       gradient: 'linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)',
     },
     {
-      time: '14:00 - 14:30',
-      titleKey: 'timeline.schedule.coffee',
-      descKey: 'timeline.schedule.coffee.desc',
+      time: '12:00 - 18:00',
+      titleKey: 'timeline.schedule.consultations',
+      descKey: 'timeline.schedule.consultations.desc',
       icon: (
         <svg viewBox="0 0 24 24" fill="none" className="w-6 h-6">
-          <path d="M18 8h1a4 4 0 0 1 0 8h-1" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-          <path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-          <line x1="6" y1="1" x2="6" y2="4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-          <line x1="10" y1="1" x2="10" y2="4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-          <line x1="14" y1="1" x2="14" y2="4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+          <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+          <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
         </svg>
       ),
       gradient: 'linear-gradient(135deg, #fa709a 0%, #fee140 100%)',
     },
     {
-      time: '14:30 - 15:30',
-      titleKey: 'timeline.schedule.presentations',
-      descKey: 'timeline.schedule.presentations.desc',
-      icon: (
-        <svg viewBox="0 0 24 24" fill="none" className="w-6 h-6">
-          <rect x="2" y="3" width="20" height="14" rx="2" ry="2" stroke="currentColor" strokeWidth="2"/>
-          <line x1="8" y1="21" x2="16" y2="21" stroke="currentColor" strokeWidth="2"/>
-          <line x1="12" y1="17" x2="12" y2="21" stroke="currentColor" strokeWidth="2"/>
-        </svg>
-      ),
-      gradient: 'linear-gradient(135deg, #a8edea 0%, #fed6e3 100%)',
-    },
-    {
-      time: '15:30 - 16:00',
-      titleKey: 'timeline.schedule.prizes',
-      descKey: 'timeline.schedule.prizes.desc',
+      time: '17:00 - 18:00',
+      titleKey: 'timeline.schedule.specialoffers',
+      descKey: 'timeline.schedule.specialoffers.desc',
       icon: (
         <svg viewBox="0 0 24 24" fill="none" className="w-6 h-6">
           <path d="M6 9H4.5a2.5 2.5 0 0 1 0-5C5.5 4 6 4.5 6 5.5V9zm0 0h12m-12 0v10m12-10h1.5a2.5 2.5 0 0 0 0-5c-1 0-1.5.5-1.5 1.5V9zm0 0v10m-6-10v10m-3.5-7.5h7" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>

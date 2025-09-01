@@ -5,20 +5,11 @@ import dynamic from 'next/dynamic';
 import { motion, AnimatePresence } from 'framer-motion';
 import PageLoader from '@/components/ui/PageLoader';
 import HeroSkeleton from '@/components/skeletons/HeroSkeleton';
-import StatisticsSkeleton from '@/components/skeletons/StatisticsSkeleton';
 import SectionSkeleton from '@/components/skeletons/SectionSkeleton';
 
 // Dynamically import sections with loading states
 const HeroNew = dynamic(() => import('@/components/sections/HeroNew'), {
   loading: () => <HeroSkeleton />,
-});
-
-const Statistics = dynamic(() => import('@/components/sections/Statistics'), {
-  loading: () => <StatisticsSkeleton />,
-});
-
-const WhyVisit = dynamic(() => import('@/components/sections/WhyVisit'), {
-  loading: () => <SectionSkeleton variant="cards" cardCount={6} />,
 });
 
 const Timeline = dynamic(() => import('@/components/sections/Timeline'), {
@@ -27,10 +18,6 @@ const Timeline = dynamic(() => import('@/components/sections/Timeline'), {
 
 const Participants = dynamic(() => import('@/components/sections/Participants'), {
   loading: () => <SectionSkeleton variant="cards" cardCount={6} />,
-});
-
-const Testimonials = dynamic(() => import('@/components/sections/Testimonials'), {
-  loading: () => <SectionSkeleton variant="testimonials" />,
 });
 
 const Registration = dynamic(() => import('@/components/sections/Registration'), {
@@ -54,11 +41,8 @@ export default function HomePageWrapper() {
   const [isMobile, setIsMobile] = useState(false);
   const [sections, setSections] = useState<SectionState[]>([
     { id: 'hero', isLoaded: false, isVisible: true, component: HeroNew, skeleton: <HeroSkeleton /> },
-    { id: 'statistics', isLoaded: false, isVisible: false, component: Statistics, skeleton: <StatisticsSkeleton /> },
-    { id: 'whyvisit', isLoaded: false, isVisible: false, component: WhyVisit, skeleton: <SectionSkeleton variant="cards" cardCount={6} /> },
-    { id: 'timeline', isLoaded: false, isVisible: false, component: Timeline, skeleton: <SectionSkeleton variant="list" cardCount={4} /> },
     { id: 'participants', isLoaded: false, isVisible: false, component: Participants, skeleton: <SectionSkeleton variant="cards" cardCount={6} /> },
-    { id: 'testimonials', isLoaded: false, isVisible: false, component: Testimonials, skeleton: <SectionSkeleton variant="testimonials" /> },
+    { id: 'timeline', isLoaded: false, isVisible: false, component: Timeline, skeleton: <SectionSkeleton variant="list" cardCount={4} /> },
     { id: 'registration', isLoaded: false, isVisible: false, component: Registration, skeleton: <SectionSkeleton variant="content" /> },
     { id: 'faq', isLoaded: false, isVisible: false, component: FAQ, skeleton: <SectionSkeleton variant="faq" /> },
   ]);

@@ -5,44 +5,57 @@ import { useLanguage } from '@/contexts/LanguageContext';
 
 const participants = [
   {
-    country: 'Switzerland',
-    code: 'CH',
-    flagIcon: '🇨🇭',
-    gradient: 'from-red-600 to-red-800',
-    schools: [
-      { name: 'Saint-Charles International School', type: 'Boarding School' },
-      { name: 'Verbier International School', type: 'Day & Boarding' },
-    ],
-  },
-  {
-    country: 'UK',
+    country: 'Великобритания',
     code: 'GB',
     flagIcon: '🇬🇧',
     gradient: 'from-blue-600 to-red-600',
     schools: [
-      { name: "St Clare's, Oxford", type: 'International Baccalaureate' },
+      { name: 'Harrow School', type: 'Boarding School' },
       { name: 'Wellington College', type: 'Co-educational' },
-      { name: 'Harrow School', type: 'Boys Boarding' },
+      { name: 'Brighton College', type: 'Day & Boarding' },
+      { name: 'Sevenoaks School', type: 'IB World School' },
     ],
   },
   {
-    country: 'USA',
+    country: 'США',
     code: 'US',
     flagIcon: '🇺🇸',
     gradient: 'from-blue-700 to-red-700',
     schools: [
-      { name: 'North Cedar Academy', type: 'STEM Focus' },
-      { name: 'Phillips Academy', type: 'Liberal Arts' },
+      { name: 'Phillips Academy Andover', type: 'Liberal Arts' },
+      { name: 'Choate Rosemary Hall', type: 'Boarding School' },
+      { name: 'The Hotchkiss School', type: 'Prep School' },
     ],
   },
   {
-    country: 'Canada',
+    country: 'Швейцария',
+    code: 'CH',
+    flagIcon: '🇨🇭',
+    gradient: 'from-red-600 to-white',
+    schools: [
+      { name: 'Le Rosey', type: 'International Boarding' },
+      { name: 'Aiglon College', type: 'British Curriculum' },
+      { name: 'Institut Montana', type: 'IB & Swiss Matura' },
+    ],
+  },
+  {
+    country: 'Канада',
     code: 'CA',
     flagIcon: '🇨🇦',
-    gradient: 'from-red-600 to-red-800',
+    gradient: 'from-red-600 to-white',
     schools: [
-      { name: 'Ridley College', type: 'IB World School' },
-      { name: 'Upper Canada College', type: 'Boys School' },
+      { name: 'Upper Canada College', type: 'IB World School' },
+      { name: 'Ridley College', type: 'Boarding School' },
+    ],
+  },
+  {
+    country: 'Германия',
+    code: 'DE',
+    flagIcon: '🇩🇪',
+    gradient: 'from-black via-red-600 to-yellow-500',
+    schools: [
+      { name: 'Salem International College', type: 'IB Diploma' },
+      { name: 'Berlin Brandenburg School', type: 'IB World School' },
     ],
   },
 ];

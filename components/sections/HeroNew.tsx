@@ -78,30 +78,18 @@ export default function HeroNew() {
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.6, duration: 0.8 }}
-          className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 md:gap-8 mt-12 sm:mt-16 lg:mt-20"
+          className="grid grid-cols-2 gap-8 sm:gap-12 md:gap-16 mt-12 sm:mt-16 lg:mt-20 max-w-2xl mx-auto lg:mx-0"
         >
           <div className="text-center">
-            <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-1 sm:mb-2">25</h3>
-            <p className="text-white/80 text-xs sm:text-sm">
-              {t('hero.stats.years')}
+            <h3 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-2">15+</h3>
+            <p className="text-white/80 text-sm sm:text-base">
+              {t('hero.stats.schools')}
             </p>
           </div>
           <div className="text-center">
-            <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-1 sm:mb-2">10,000</h3>
-            <p className="text-white/80 text-xs sm:text-sm">
-              {t('hero.stats.students')}
-            </p>
-          </div>
-          <div className="text-center">
-            <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-1 sm:mb-2">1,800</h3>
-            <p className="text-white/80 text-xs sm:text-sm">
-              {t('hero.stats.partners')}
-            </p>
-          </div>
-          <div className="text-center">
-            <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-1 sm:mb-2">41</h3>
-            <p className="text-white/80 text-xs sm:text-sm">
-              {t('hero.stats.countries.count')}
+            <h3 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-2">1-на-1</h3>
+            <p className="text-white/80 text-sm sm:text-base">
+              {t('hero.stats.visitors')}
             </p>
           </div>
         </motion.div>
