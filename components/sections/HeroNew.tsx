@@ -5,6 +5,7 @@ import { motion } from 'framer-motion';
 import { useLanguage } from '@/contexts/LanguageContext';
 import Image from 'next/image';
 import AnimatedButton from '@/components/ui/AnimatedButton';
+import heroPhotoNew from '@/public/hero-photo-new.jpg';
 
 export default function HeroNew() {
   const [mounted, setMounted] = useState(false);
@@ -80,15 +81,12 @@ export default function HeroNew() {
           >
             <div className="relative w-full max-w-lg lg:max-w-xl xl:max-w-2xl">
               <Image
-                src="/hero-photo-new.jpg"
+                src={heroPhotoNew}
                 alt="Студенты частных школ"
-                width={800}
-                height={1000}
                 className="w-full h-auto rounded-2xl shadow-2xl object-cover"
                 priority
                 quality={85}
                 placeholder="blur"
-                blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAABAAEDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAf/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWEREiMxUf/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R//2Q=="
               />
             </div>
           </motion.div>
