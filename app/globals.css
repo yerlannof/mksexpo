@@ -298,11 +298,13 @@
     /* Disable smooth scroll on mobile */
     html {
       scroll-behavior: auto !important;
+      -webkit-overflow-scrolling: touch;
     }
     
-    /* Disable heavy transitions on mobile */
-    * {
-      transition-duration: 0.15s !important;
+    /* Disable ALL transitions on mobile */
+    *, *::before, *::after {
+      transition: none !important;
+      animation: none !important;
     }
     
     /* Disable transform effects on mobile */
@@ -342,6 +344,19 @@
     /* Disable will-change property */
     * {
       will-change: auto !important;
+    }
+    
+    /* Remove decorative elements on mobile */
+    .animate-pulse-slow,
+    .animate-pulse,
+    div[class*="absolute"][class*="blur"] {
+      display: none !important;
+    }
+    
+    /* Optimize mobile rendering */
+    .container {
+      transform: translateZ(0);
+      backface-visibility: hidden;
     }
   }
 }
