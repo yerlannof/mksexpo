@@ -105,23 +105,53 @@ export default function MobileDrawer({ isOpen, onClose }: MobileDrawerProps) {
               {/* Navigation */}
               <nav className="p-4">
                 <ul className="space-y-2">
-                  {menuItems.map((item, index) => (
-                    <li key={`${item.href}-${index}`}>
-                      <Link
-                        href={item.href}
-                        onClick={onClose}
-                        className="flex items-center gap-4 p-4 hover:bg-gray-50 rounded-xl transition-colors group"
-                      >
-                        <item.icon className="w-6 h-6 text-primary group-hover:text-primary-light transition-colors" />
-                        <span className="font-medium text-gray-900 text-lg">
-                          {item.label || 'Loading...'}
-                        </span>
-                      </Link>
-                    </li>
-                  ))}
-                  {menuItems.length === 0 && (
-                    <li className="p-4 text-gray-500">Загрузка меню...</li>
-                  )}
+                  {/* Hardcoded menu items for reliability */}
+                  <li>
+                    <Link href="#participants" onClick={onClose} className="flex items-center gap-4 p-4 hover:bg-gray-50 rounded-xl transition-colors group">
+                      <Users className="w-6 h-6 text-primary group-hover:text-primary-light transition-colors" />
+                      <span className="font-medium text-gray-900 text-lg">
+                        {language === 'ru' ? 'Список участников' : 'Participants'}
+                      </span>
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="#timeline" onClick={onClose} className="flex items-center gap-4 p-4 hover:bg-gray-50 rounded-xl transition-colors group">
+                      <Calendar className="w-6 h-6 text-primary group-hover:text-primary-light transition-colors" />
+                      <span className="font-medium text-gray-900 text-lg">
+                        {language === 'ru' ? 'Программа' : 'Program'}
+                      </span>
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="#whyvisit" onClick={onClose} className="flex items-center gap-4 p-4 hover:bg-gray-50 rounded-xl transition-colors group">
+                      <Star className="w-6 h-6 text-primary group-hover:text-primary-light transition-colors" />
+                      <span className="font-medium text-gray-900 text-lg">
+                        {language === 'ru' ? 'Почему мы' : 'Why Visit'}
+                      </span>
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="#testimonials" onClick={onClose} className="flex items-center gap-4 p-4 hover:bg-gray-50 rounded-xl transition-colors group">
+                      <MessageSquare className="w-6 h-6 text-primary group-hover:text-primary-light transition-colors" />
+                      <span className="font-medium text-gray-900 text-lg">
+                        {language === 'ru' ? 'Отзывы' : 'Testimonials'}
+                      </span>
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="#registration" onClick={onClose} className="flex items-center gap-4 p-4 hover:bg-gray-50 rounded-xl transition-colors group">
+                      <ClipboardList className="w-6 h-6 text-primary group-hover:text-primary-light transition-colors" />
+                      <span className="font-medium text-gray-900 text-lg">
+                        {language === 'ru' ? 'Регистрация' : 'Registration'}
+                      </span>
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="#faq" onClick={onClose} className="flex items-center gap-4 p-4 hover:bg-gray-50 rounded-xl transition-colors group">
+                      <HelpCircle className="w-6 h-6 text-primary group-hover:text-primary-light transition-colors" />
+                      <span className="font-medium text-gray-900 text-lg">FAQ</span>
+                    </Link>
+                  </li>
                 </ul>
               </nav>
 
