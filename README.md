@@ -1,116 +1,61 @@
-# Выставка «Частные школы за рубежом» - Landing Page
+# Central Asia Education Expo 2025
 
-Современный лендинг для образовательной выставки, созданный на основе дизайна Begin Expo с интеграцией корпоративного стиля M&K.
+Modern, responsive website for the premier international schools exhibition in Central Asia.
 
-## 🚀 Технологии
+## 🌟 Features
 
-- **Next.js 15** с App Router
-- **TypeScript** для типобезопасности
-- **Tailwind CSS** для стилизации
-- **React Hooks** для управления состоянием
+- **Modern Design**: Clean, professional interface with smooth animations
+- **Bilingual Support**: Full Russian and English localization
+- **Mobile-First**: Fully responsive design for all devices
+- **Performance Optimized**: Fast loading times and optimal SEO
+- **Interactive Elements**: Smooth scrolling, hover effects, and micro-interactions
 
-## 📦 Установка
+## 🚀 Technology Stack
+
+- **Framework**: Next.js 15 with TypeScript
+- **Styling**: Tailwind CSS with custom design system
+- **Animations**: Framer Motion for smooth transitions
+- **Icons**: Lucide React for consistent iconography
+- **Performance**: Optimized images and code splitting
+
+## 📱 Pages & Sections
+
+- **Hero Section**: Exhibition overview with key statistics
+- **Timeline**: Important dates and milestones
+- **Participants**: Showcase of participating schools
+- **Registration**: Contact forms and application process
+- **FAQ**: Frequently asked questions
+- **About**: Company information and contacts
+
+## 🎨 Design System
+
+- **Primary Colors**: Professional blue gradient palette
+- **Typography**: Inter (body) and Soyuz Grotesk (headings)
+- **Components**: Reusable UI components with consistent styling
+- **Responsive**: Mobile, tablet, and desktop breakpoints
+
+## 🛠️ Development
 
 ```bash
+# Install dependencies
 npm install
-```
 
-## 🔧 Запуск
-
-```bash
-# Режим разработки
+# Start development server
 npm run dev
 
-# Сборка для продакшена
+# Build for production
 npm run build
+
+# Start production server
 npm start
 ```
 
-## 🎨 Дизайн-система
+## 📧 Contact
 
-### Цвета (из Figma M&K)
-- **Primary**: Deep Blue (#1E3A8A)
-- **Secondary**: Amber (#F59E0B)
-- **Accent**: Emerald (#10B981)
-
-### Шрифты
-- **Display**: Montserrat (заголовки)
-- **Sans**: Inter (основной текст)
-
-## 📁 Структура проекта
-
-```
-├── app/
-│   ├── page.tsx         # Главная страница
-│   ├── layout.tsx       # Корневой layout
-│   └── globals.css      # Глобальные стили
-├── components/
-│   ├── layout/
-│   │   └── Header.tsx   # Навигация
-│   ├── sections/
-│   │   ├── Hero.tsx         # Главный экран
-│   │   ├── Participants.tsx # Список участников
-│   │   ├── Registration.tsx # Форма регистрации
-│   │   └── FAQ.tsx          # Часто задаваемые вопросы
-│   └── ui/              # UI компоненты
-└── public/              # Статические файлы
-```
-
-## ✨ Функционал
-
-- ✅ Адаптивный дизайн для всех устройств
-- ✅ Переключение языков (RU/EN)
-- ✅ Интерактивная форма регистрации
-- ✅ Аккордеон для FAQ
-- ✅ Плавная прокрутка к секциям
-- ✅ Анимации при скролле
-
-## 🔄 Работа с Figma
-
-### Получение токена API
-1. Откройте Figma → Settings → Account
-2. Найдите раздел Personal access tokens
-3. Создайте новый токен
-
-### Экспорт дизайнов
-```javascript
-// Пример использования Figma API
-const FIGMA_TOKEN = 'your-token';
-const FILE_KEY = 'S41cnQoS6gO95yVMGhKGaz';
-
-fetch(`https://api.figma.com/v1/files/${FILE_KEY}`, {
-  headers: { 'X-Figma-Token': FIGMA_TOKEN }
-});
-```
-
-### Рекомендуемые плагины
-- **Figma to Code** - экспорт компонентов
-- **Design Tokens** - экспорт переменных
-- **Anima** - генерация React кода
-
-## 📝 TODO
-
-- [ ] Добавить валидацию формы на бэкенд
-- [ ] Интегрировать Google Maps
-- [ ] Добавить мультиязычность через i18n
-- [ ] Настроить отправку email
-- [ ] Добавить аналитику
-- [ ] SEO оптимизация
-
-## 🌐 Деплой
-
-Рекомендуется использовать Vercel:
-
-```bash
-npm i -g vercel
-vercel
-```
-
-## 📞 Контакты
-
+For questions about the exhibition:
 - Email: info@mkeducation.kz
-- Телефон: +7 (701) 234-56-78
+- Phone: +7 (701) 234-56-78
 
 ---
 
-Создано с ❤️ для M&K Education
+**M&K Education** - Leading educational center in Kazakhstan with 27+ years of experience.
