@@ -21,23 +21,10 @@ export default function MobileDrawer({ isOpen, onClose }: MobileDrawerProps) {
     } else {
       document.body.style.overflow = '';
     }
-
     return () => {
       document.body.style.overflow = '';
     };
   }, [isOpen]);
-
-  // Close on escape key
-  useEffect(() => {
-    const handleEscape = (e: KeyboardEvent) => {
-      if (e.key === 'Escape' && isOpen) {
-        onClose();
-      }
-    };
-
-    document.addEventListener('keydown', handleEscape);
-    return () => document.removeEventListener('keydown', handleEscape);
-  }, [isOpen, onClose]);
 
   const menuItems = [
     {
@@ -46,7 +33,7 @@ export default function MobileDrawer({ isOpen, onClose }: MobileDrawerProps) {
       icon: Users,
     },
     {
-      href: '#registration',
+      href: '#registration', 
       label: t('nav.registration'),
       icon: ClipboardList,
     },
@@ -57,135 +44,116 @@ export default function MobileDrawer({ isOpen, onClose }: MobileDrawerProps) {
     },
   ];
 
-  return (
-    <AnimatePresence>
-      {isOpen && (
-        <div className="fixed inset-0 z-[9999] md:hidden">
-          {/* Backdrop */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.2 }}
-            className="absolute inset-0 bg-black/80"
-            style={{ backgroundColor: 'rgba(0, 0, 0, 0.8)' }}
-            onClick={onClose}
-          />
+  if (!isOpen) return null;
 
-          {/* Drawer */}
-          <motion.div
-            initial={{ x: '100%' }}
-            animate={{ x: 0 }}
-            exit={{ x: '100%' }}
-            transition={{ type: 'spring', damping: 25, stiffness: 200 }}
-            className="absolute right-0 top-0 h-full w-[80%] max-w-sm bg-white shadow-2xl overflow-hidden"
-            style={{ backgroundColor: '#ffffff' }}
-          >
-            {/* Header */}
-            <div className="flex items-center justify-between p-4 border-b"
-                 style={{ backgroundColor: '#4B6AAF' }}>
-              <div>
-                <h2 className="text-lg font-bold text-white">M&K Study Centre</h2>
-                <p className="text-sm text-white/80">
-                  {language === 'ru' ? 'Образование за рубежом' : 'Education Abroad'}
-                </p>
-              </div>
+  return (
+    <div className="fixed inset-0 z-[9999] md:hidden">
+      {/* Black overlay */}
+      <div 
+        className="absolute inset-0 bg-black bg-opacity-75"
+        onClick={onClose}
+      />
+      
+      {/* White drawer panel */}
+      <motion.div
+        initial={{ x: '100%' }}
+        animate={{ x: 0 }}
+        exit={{ x: '100%' }}
+        transition={{ type: 'tween', duration: 0.3 }}
+        className="absolute right-0 top-0 h-full w-80 max-w-[80vw] bg-white"
+      >
+        {/* Header with logo */}
+        <div className="bg-blue-600 px-4 py-4 text-white">
+          <div className="flex items-center justify-between">
+            <div>
+              <h2 className="text-lg font-bold">M&K Study Centre</h2>
+              <p className="text-sm opacity-90">
+                {language === 'ru' ? 'Образование за рубежом' : 'Education Abroad'}
+              </p>
+            </div>
+            <button 
+              onClick={onClose}
+              className="p-2 hover:bg-white/20 rounded-lg"
+            >
+              <X className="w-5 h-5" />
+            </button>
+          </div>
+        </div>
+
+        {/* Content */}
+        <div className="p-4 h-full overflow-y-auto">
+          {/* Navigation links */}
+          <nav className="mb-6">
+            <ul className="space-y-3">
+              {menuItems.map((item) => (
+                <li key={item.href}>
+                  <Link
+                    href={item.href}
+                    onClick={onClose}
+                    className="flex items-center gap-3 p-3 hover:bg-gray-100 rounded-lg transition-colors"
+                  >
+                    <item.icon className="w-5 h-5 text-blue-600" />
+                    <span className="font-medium text-gray-900">{item.label}</span>
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </nav>
+
+          {/* Language switcher */}
+          <div className="mb-6 p-4 bg-gray-50 rounded-lg">
+            <p className="text-sm font-medium text-gray-700 mb-3">
+              {language === 'ru' ? 'Выберите язык' : 'Choose language'}
+            </p>
+            <div className="flex gap-2">
               <button
-                onClick={onClose}
-                className="p-2 rounded-lg bg-white/10 hover:bg-white/20 transition-colors"
-                aria-label="Close menu"
+                onClick={() => setLanguage('ru')}
+                className={`px-4 py-2 rounded-md text-sm font-medium ${
+                  language === 'ru' 
+                    ? 'bg-blue-600 text-white' 
+                    : 'bg-white text-gray-600 border'
+                }`}
               >
-                <X className="w-5 h-5 text-white" />
+                Русский
+              </button>
+              <button
+                onClick={() => setLanguage('en')}
+                className={`px-4 py-2 rounded-md text-sm font-medium ${
+                  language === 'en' 
+                    ? 'bg-blue-600 text-white' 
+                    : 'bg-white text-gray-600 border'
+                }`}
+              >
+                English
               </button>
             </div>
+          </div>
 
-            {/* Content */}
-            <div className="flex flex-col h-full bg-white"
-                 style={{ backgroundColor: '#ffffff' }}>
-              {/* Navigation */}
-              <nav className="flex-1 p-4">
-                <ul className="space-y-2">
-                  {menuItems.map((item) => (
-                    <li key={item.href}>
-                      <Link
-                        href={item.href}
-                        onClick={onClose}
-                        className="flex items-center gap-4 p-4 rounded-lg hover:bg-gray-50 transition-colors group"
-                      >
-                        <div className="p-2 rounded-lg bg-primary/10 group-hover:bg-primary/20 transition-colors">
-                          <item.icon className="w-5 h-5 text-primary" />
-                        </div>
-                        <span className="font-medium text-gray-900">{item.label}</span>
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-
-                {/* Language Switcher */}
-                <div className="mt-8 p-4 bg-gray-50 rounded-lg">
-                  <p className="text-sm font-medium text-gray-700 mb-3">
-                    {language === 'ru' ? 'Язык / Language' : 'Language / Язык'}
-                  </p>
-                  <div className="flex gap-2">
-                    <button
-                      onClick={() => setLanguage('ru')}
-                      className={`flex-1 py-2 px-4 rounded-lg text-sm font-medium transition-all ${
-                        language === 'ru'
-                          ? 'bg-primary text-white'
-                          : 'bg-white text-gray-600 hover:bg-gray-100'
-                      }`}
-                    >
-                      Русский
-                    </button>
-                    <button
-                      onClick={() => setLanguage('en')}
-                      className={`flex-1 py-2 px-4 rounded-lg text-sm font-medium transition-all ${
-                        language === 'en'
-                          ? 'bg-primary text-white'
-                          : 'bg-white text-gray-600 hover:bg-gray-100'
-                      }`}
-                    >
-                      English
-                    </button>
-                  </div>
-                </div>
-
-                {/* Contact Info */}
-                <div className="mt-6">
-                  <p className="text-sm font-medium text-gray-700 mb-3">{t('footer.contact')}</p>
-                  <div className="space-y-2">
-                    <a
-                      href="tel:+77012345678"
-                      className="flex items-center gap-3 text-gray-600 hover:text-primary transition-colors"
-                    >
-                      <Phone className="w-4 h-4" />
-                      <span className="text-sm">+7 (701) 234-56-78</span>
-                    </a>
-                    <a
-                      href="mailto:info@mkeducation.kz"
-                      className="flex items-center gap-3 text-gray-600 hover:text-primary transition-colors"
-                    >
-                      <Mail className="w-4 h-4" />
-                      <span className="text-sm">info@mkeducation.kz</span>
-                    </a>
-                  </div>
-                </div>
-              </nav>
-
-              {/* Footer CTA */}
-              <div className="p-4 border-t bg-gray-50">
-                <Link
-                  href="#registration"
-                  onClick={onClose}
-                  className="block w-full py-3 px-6 text-center rounded-lg bg-primary text-white font-semibold hover:bg-primary-dark transition-colors"
-                >
-                  {t('nav.registration')}
-                </Link>
-              </div>
+          {/* Contact info */}
+          <div className="mb-6">
+            <p className="text-sm font-medium text-gray-700 mb-3">Контакты</p>
+            <div className="space-y-2">
+              <a href="tel:+77012345678" className="flex items-center gap-3 text-gray-600">
+                <Phone className="w-4 h-4" />
+                <span className="text-sm">+7 (701) 234-56-78</span>
+              </a>
+              <a href="mailto:info@mkeducation.kz" className="flex items-center gap-3 text-gray-600">
+                <Mail className="w-4 h-4" />
+                <span className="text-sm">info@mkeducation.kz</span>
+              </a>
             </div>
-          </motion.div>
+          </div>
+
+          {/* Registration button */}
+          <Link
+            href="#registration"
+            onClick={onClose}
+            className="block w-full py-3 px-6 text-center bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition-colors"
+          >
+            {t('nav.registration')}
+          </Link>
         </div>
-      )}
-    </AnimatePresence>
+      </motion.div>
+    </div>
   );
 }
