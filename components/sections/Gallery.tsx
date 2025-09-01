@@ -8,94 +8,20 @@ import { X, ChevronLeft, ChevronRight } from 'lucide-react';
 
 // Галерея изображений с выставки
 const galleryImages = [
-  {
-    src: '/gallery/76_BAS32347.JPG',
-    alt: 'Общая атмосфера выставки частных школ',
-    category: 'atmosphere',
-  },
-  {
-    src: '/gallery/photo_2025-09-02_03-39-24.jpg',
-    alt: 'Консультация с представителями школ',
-    category: 'consultation',
-  },
-  {
-    src: '/gallery/photo_2025-09-02_03-39-24 (2).jpg',
-    alt: 'Индивидуальная консультация по поступлению',
-    category: 'consultation',
-  },
-  {
-    src: '/gallery/photo_2025-09-02_03-39-25.jpg',
-    alt: 'Презентация образовательных программ',
-    category: 'presentation',
-  },
-  {
-    src: '/gallery/photo_2025-09-02_03-39-25 (2).jpg',
-    alt: 'Встреча с представителями школ',
-    category: 'consultation',
-  },
-  {
-    src: '/gallery/photo_2025-09-02_03-39-25 (3).jpg',
-    alt: 'Стенды школ на выставке',
-    category: 'stands',
-  },
-  {
-    src: '/gallery/photo_2025-09-02_03-39-25 (4).jpg',
-    alt: 'Консультация родителей',
-    category: 'consultation',
-  },
-  {
-    src: '/gallery/photo_2025-09-02_03-39-26.jpg',
-    alt: 'Презентация международных программ',
-    category: 'presentation',
-  },
-  {
-    src: '/gallery/photo_2025-09-02_03-39-26 (2).jpg',
-    alt: 'Информационные стенды школ',
-    category: 'stands',
-  },
-  {
-    src: '/gallery/photo_2025-09-02_03-39-26 (3).jpg',
-    alt: 'Общение с представителями школ',
-    category: 'consultation',
-  },
-  {
-    src: '/gallery/photo_2025-09-02_03-39-26 (4).jpg',
-    alt: 'Атмосфера мероприятия',
-    category: 'atmosphere',
-  },
-  {
-    src: '/gallery/photo_2025-09-02_03-39-27.jpg',
-    alt: 'Выступление представителей школ',
-    category: 'presentation',
-  },
-  {
-    src: '/gallery/photo_2025-09-02_03-39-27 (2).jpg',
-    alt: 'Консультационная зона',
-    category: 'consultation',
-  },
-  {
-    src: '/gallery/photo_2025-09-02_03-39-27 (3).jpg',
-    alt: 'Стенды частных школ',
-    category: 'stands',
-  },
-];
-
-const categories = [
-  { id: 'all', nameRu: 'Все', nameEn: 'All' },
-  { id: 'consultation', nameRu: 'Консультации', nameEn: 'Consultations' },
-  { id: 'presentation', nameRu: 'Презентации', nameEn: 'Presentations' },
-  { id: 'stands', nameRu: 'Стенды', nameEn: 'Stands' },
-  { id: 'atmosphere', nameRu: 'Атмосфера', nameEn: 'Atmosphere' },
+  { src: '/gallery/photo_2025-09-02_03-39-24.jpg', alt: 'Консультация с представителями школ' },
+  { src: '/gallery/photo_2025-09-02_03-39-24 (2).jpg', alt: 'Индивидуальная консультация' },
+  { src: '/gallery/photo_2025-09-02_03-39-25.jpg', alt: 'Презентация программ' },
+  { src: '/gallery/photo_2025-09-02_03-39-25 (4).jpg', alt: 'Консультация родителей' },
+  { src: '/gallery/photo_2025-09-02_03-39-26.jpg', alt: 'Презентация программ' },
+  { src: '/gallery/photo_2025-09-02_03-39-26 (3).jpg', alt: 'Общение с представителями' },
+  { src: '/gallery/photo_2025-09-02_03-39-26 (4).jpg', alt: 'Атмосфера мероприятия' },
+  { src: '/gallery/photo_2025-09-02_03-39-27.jpg', alt: 'Выступление представителей' },
+  { src: '/gallery/photo_2025-09-02_03-39-27 (2).jpg', alt: 'Консультационная зона' },
 ];
 
 export default function Gallery() {
-  const { t, language } = useLanguage();
-  const [selectedCategory, setSelectedCategory] = useState('all');
+  const { language } = useLanguage();
   const [selectedImage, setSelectedImage] = useState<number | null>(null);
-
-  const filteredImages = selectedCategory === 'all' 
-    ? galleryImages 
-    : galleryImages.filter(img => img.category === selectedCategory);
 
   const handlePrevImage = () => {
     if (selectedImage !== null && selectedImage > 0) {
@@ -104,7 +30,7 @@ export default function Gallery() {
   };
 
   const handleNextImage = () => {
-    if (selectedImage !== null && selectedImage < filteredImages.length - 1) {
+    if (selectedImage !== null && selectedImage < galleryImages.length - 1) {
       setSelectedImage(selectedImage + 1);
     }
   };
@@ -118,66 +44,38 @@ export default function Gallery() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="text-center mb-12 space-y-3"
+          className="text-center mb-8 space-y-3"
         >
           <h2 className="text-3xl md:text-4xl font-display font-bold text-white">
             {language === 'ru' ? 'Фотографии' : 'Photos'}{' '}
             <span className="text-white/80">{language === 'ru' ? 'с выставки' : 'from Exhibition'}</span>
           </h2>
-          <p className="text-lg text-white/70 max-w-2xl mx-auto">
-            {language === 'ru' 
-              ? 'Атмосфера наших мероприятий и встречи с представителями школ' 
-              : 'The atmosphere of our events and meetings with school representatives'}
-          </p>
         </motion.div>
 
-        {/* Category Filter */}
-        <div className="flex flex-wrap justify-center gap-3 mb-8">
-          {categories.map((category) => (
-            <button
-              key={category.id}
-              onClick={() => setSelectedCategory(category.id)}
-              className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
-                selectedCategory === category.id
-                  ? 'bg-white text-primary'
-                  : 'bg-white/10 text-white hover:bg-white/20'
-              }`}
+        {/* Compact Gallery Grid */}
+        <div className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-2 md:gap-3">
+          {galleryImages.map((image, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.3, delay: index * 0.05 }}
+              className="aspect-square relative group cursor-pointer overflow-hidden rounded-lg"
+              onClick={() => setSelectedImage(index)}
             >
-              {language === 'ru' ? category.nameRu : category.nameEn}
-            </button>
+              <Image
+                src={image.src}
+                alt={image.alt}
+                fill
+                className="object-cover group-hover:scale-110 transition-transform duration-300"
+                sizes="(max-width: 768px) 33vw, (max-width: 1024px) 25vw, 20vw"
+                loading="lazy"
+                quality={60}
+              />
+              <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300" />
+            </motion.div>
           ))}
         </div>
-
-        {/* Gallery Grid */}
-        <motion.div 
-          layout
-          className="grid grid-cols-2 md:grid-cols-3 gap-4"
-        >
-          <AnimatePresence mode="popLayout">
-            {filteredImages.map((image, index) => (
-              <motion.div
-                key={`${image.src}-${index}`}
-                layout
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.9 }}
-                transition={{ duration: 0.3 }}
-                className="aspect-[4/3] relative group cursor-pointer overflow-hidden rounded-xl"
-                onClick={() => setSelectedImage(index)}
-              >
-                <Image
-                  src={image.src}
-                  alt={image.alt}
-                  fill
-                  className="object-cover group-hover:scale-110 transition-transform duration-500"
-                  sizes="(max-width: 768px) 50vw, 33vw"
-                  loading="lazy"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-              </motion.div>
-            ))}
-          </AnimatePresence>
-        </motion.div>
 
         {/* Lightbox */}
         <AnimatePresence>
@@ -190,33 +88,35 @@ export default function Gallery() {
               onClick={() => setSelectedImage(null)}
             >
               <button
-                className="absolute top-4 right-4 p-2 text-white hover:bg-white/20 rounded-lg transition-colors"
+                className="absolute top-4 right-4 p-2 text-white hover:bg-white/20 rounded-lg transition-colors z-50"
                 onClick={() => setSelectedImage(null)}
               >
                 <X className="w-6 h-6" />
               </button>
               
-              <button
-                className="absolute left-4 top-1/2 -translate-y-1/2 p-2 text-white hover:bg-white/20 rounded-lg transition-colors"
-                onClick={(e) => {
-                  e.stopPropagation();
-                  handlePrevImage();
-                }}
-                disabled={selectedImage === 0}
-              >
-                <ChevronLeft className="w-6 h-6" />
-              </button>
+              {selectedImage > 0 && (
+                <button
+                  className="absolute left-4 top-1/2 -translate-y-1/2 p-2 text-white hover:bg-white/20 rounded-lg transition-colors"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    handlePrevImage();
+                  }}
+                >
+                  <ChevronLeft className="w-6 h-6" />
+                </button>
+              )}
               
-              <button
-                className="absolute right-4 top-1/2 -translate-y-1/2 p-2 text-white hover:bg-white/20 rounded-lg transition-colors"
-                onClick={(e) => {
-                  e.stopPropagation();
-                  handleNextImage();
-                }}
-                disabled={selectedImage === filteredImages.length - 1}
-              >
-                <ChevronRight className="w-6 h-6" />
-              </button>
+              {selectedImage < galleryImages.length - 1 && (
+                <button
+                  className="absolute right-4 top-1/2 -translate-y-1/2 p-2 text-white hover:bg-white/20 rounded-lg transition-colors"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    handleNextImage();
+                  }}
+                >
+                  <ChevronRight className="w-6 h-6" />
+                </button>
+              )}
 
               <motion.div
                 initial={{ scale: 0.9 }}
@@ -226,12 +126,16 @@ export default function Gallery() {
                 onClick={(e) => e.stopPropagation()}
               >
                 <Image
-                  src={filteredImages[selectedImage].src}
-                  alt={filteredImages[selectedImage].alt}
+                  src={galleryImages[selectedImage].src}
+                  alt={galleryImages[selectedImage].alt}
                   fill
                   className="object-contain"
                   sizes="100vw"
+                  quality={85}
                 />
+                <div className="absolute bottom-4 left-1/2 -translate-x-1/2 bg-black/50 text-white px-4 py-2 rounded-lg text-sm">
+                  {selectedImage + 1} / {galleryImages.length}
+                </div>
               </motion.div>
             </motion.div>
           )}
