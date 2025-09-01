@@ -15,6 +15,9 @@ const translations = {
   ru: {
     // Header
     'nav.participants': 'Список участников',
+    'nav.timeline': 'Программа',
+    'nav.whyvisit': 'Почему мы',
+    'nav.testimonials': 'Отзывы',
     'nav.registration': 'Регистрация',
     'nav.faq': 'FAQ',
     
@@ -196,6 +199,9 @@ const translations = {
   en: {
     // Header
     'nav.participants': 'Participants',
+    'nav.timeline': 'Program',
+    'nav.whyvisit': 'Why Visit',
+    'nav.testimonials': 'Testimonials',
     'nav.registration': 'Registration',
     'nav.faq': 'FAQ',
     

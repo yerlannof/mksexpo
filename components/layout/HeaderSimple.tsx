@@ -33,12 +33,18 @@ export default function HeaderSimple() {
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
+          <div className="hidden md:flex items-center space-x-6">
             <Link href="#participants" className="text-white/90 hover:text-white transition-colors">
               {t('nav.participants')}
             </Link>
-            <Link href="#registration" className="text-white/90 hover:text-white transition-colors">
-              {t('nav.registration')}
+            <Link href="#timeline" className="text-white/90 hover:text-white transition-colors">
+              {t('nav.timeline')}
+            </Link>
+            <Link href="#whyvisit" className="text-white/90 hover:text-white transition-colors">
+              {t('nav.whyvisit')}
+            </Link>
+            <Link href="#testimonials" className="text-white/90 hover:text-white transition-colors">
+              {t('nav.testimonials')}
             </Link>
             <Link href="#faq" className="text-white/90 hover:text-white transition-colors">
               {t('nav.faq')}
