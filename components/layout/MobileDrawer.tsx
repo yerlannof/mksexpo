@@ -60,14 +60,15 @@ export default function MobileDrawer({ isOpen, onClose }: MobileDrawerProps) {
   return (
     <AnimatePresence>
       {isOpen && (
-        <div className="fixed inset-0 z-[100] md:hidden">
+        <div className="fixed inset-0 z-[9999] md:hidden">
           {/* Backdrop */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.2 }}
-            className="absolute inset-0 bg-black/70 backdrop-blur-sm"
+            className="absolute inset-0 bg-black/80"
+            style={{ backgroundColor: 'rgba(0, 0, 0, 0.8)' }}
             onClick={onClose}
           />
 
@@ -77,10 +78,12 @@ export default function MobileDrawer({ isOpen, onClose }: MobileDrawerProps) {
             animate={{ x: 0 }}
             exit={{ x: '100%' }}
             transition={{ type: 'spring', damping: 25, stiffness: 200 }}
-            className="absolute right-0 top-0 h-full w-[80%] max-w-sm bg-white shadow-2xl"
+            className="absolute right-0 top-0 h-full w-[80%] max-w-sm bg-white shadow-2xl overflow-hidden"
+            style={{ backgroundColor: '#ffffff' }}
           >
             {/* Header */}
-            <div className="flex items-center justify-between p-4 border-b bg-primary">
+            <div className="flex items-center justify-between p-4 border-b"
+                 style={{ backgroundColor: '#4B6AAF' }}>
               <div>
                 <h2 className="text-lg font-bold text-white">M&K Study Centre</h2>
                 <p className="text-sm text-white/80">
@@ -97,7 +100,8 @@ export default function MobileDrawer({ isOpen, onClose }: MobileDrawerProps) {
             </div>
 
             {/* Content */}
-            <div className="flex flex-col h-full">
+            <div className="flex flex-col h-full bg-white"
+                 style={{ backgroundColor: '#ffffff' }}>
               {/* Navigation */}
               <nav className="flex-1 p-4">
                 <ul className="space-y-2">
