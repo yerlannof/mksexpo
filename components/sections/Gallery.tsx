@@ -6,19 +6,78 @@ import { useLanguage } from '@/contexts/LanguageContext';
 import Image from 'next/image';
 import { X, ChevronLeft, ChevronRight } from 'lucide-react';
 
-// Галерея изображений - добавьте реальные фотографии в папку /public/gallery/
-// Пока используется placeholder изображение
+// Галерея изображений с выставки
 const galleryImages = [
   {
-    src: '/hero-photo-main.jpg',
+    src: '/gallery/76_BAS32347.JPG',
+    alt: 'Общая атмосфера выставки частных школ',
+    category: 'atmosphere',
+  },
+  {
+    src: '/gallery/photo_2025-09-02_03-39-24.jpg',
     alt: 'Консультация с представителями школ',
     category: 'consultation',
   },
-  // После добавления фотографий в папку /public/gallery/, обновите пути:
-  // { src: '/gallery/consultation-1.jpg', alt: 'Консультация с представителями школ', category: 'consultation' },
-  // { src: '/gallery/presentation-1.jpg', alt: 'Презентация школы', category: 'presentation' },
-  // { src: '/gallery/stands-1.jpg', alt: 'Стенд школы', category: 'stands' },
-  // { src: '/gallery/atmosphere-1.jpg', alt: 'Атмосфера выставки', category: 'atmosphere' },
+  {
+    src: '/gallery/photo_2025-09-02_03-39-24 (2).jpg',
+    alt: 'Индивидуальная консультация по поступлению',
+    category: 'consultation',
+  },
+  {
+    src: '/gallery/photo_2025-09-02_03-39-25.jpg',
+    alt: 'Презентация образовательных программ',
+    category: 'presentation',
+  },
+  {
+    src: '/gallery/photo_2025-09-02_03-39-25 (2).jpg',
+    alt: 'Встреча с представителями школ',
+    category: 'consultation',
+  },
+  {
+    src: '/gallery/photo_2025-09-02_03-39-25 (3).jpg',
+    alt: 'Стенды школ на выставке',
+    category: 'stands',
+  },
+  {
+    src: '/gallery/photo_2025-09-02_03-39-25 (4).jpg',
+    alt: 'Консультация родителей',
+    category: 'consultation',
+  },
+  {
+    src: '/gallery/photo_2025-09-02_03-39-26.jpg',
+    alt: 'Презентация международных программ',
+    category: 'presentation',
+  },
+  {
+    src: '/gallery/photo_2025-09-02_03-39-26 (2).jpg',
+    alt: 'Информационные стенды школ',
+    category: 'stands',
+  },
+  {
+    src: '/gallery/photo_2025-09-02_03-39-26 (3).jpg',
+    alt: 'Общение с представителями школ',
+    category: 'consultation',
+  },
+  {
+    src: '/gallery/photo_2025-09-02_03-39-26 (4).jpg',
+    alt: 'Атмосфера мероприятия',
+    category: 'atmosphere',
+  },
+  {
+    src: '/gallery/photo_2025-09-02_03-39-27.jpg',
+    alt: 'Выступление представителей школ',
+    category: 'presentation',
+  },
+  {
+    src: '/gallery/photo_2025-09-02_03-39-27 (2).jpg',
+    alt: 'Консультационная зона',
+    category: 'consultation',
+  },
+  {
+    src: '/gallery/photo_2025-09-02_03-39-27 (3).jpg',
+    alt: 'Стенды частных школ',
+    category: 'stands',
+  },
 ];
 
 const categories = [
@@ -112,6 +171,7 @@ export default function Gallery() {
                   fill
                   className="object-cover group-hover:scale-110 transition-transform duration-500"
                   sizes="(max-width: 768px) 50vw, 33vw"
+                  loading="lazy"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               </motion.div>
