@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Search, Globe, FileText, Calculator, CheckCircle, GraduationCap } from 'lucide-react';
+import Image from 'next/image';
 
 const steps = [
   {
@@ -50,7 +51,7 @@ const steps = [
 ];
 
 export default function Steps() {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
 
   return (
     <section className="section-padding relative overflow-hidden">
@@ -106,6 +107,60 @@ export default function Steps() {
             );
           })}
         </div>
+
+        {/* Photo Break - After Step 2 */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.3 }}
+          viewport={{ once: true }}
+          className="my-16 max-w-4xl mx-auto"
+        >
+          <div className="relative aspect-[16/9] rounded-2xl overflow-hidden">
+            <Image
+              src="/gallery/photo_2025-09-02_03-39-24.jpg"
+              alt={language === 'ru' ? 'Консультация с представителями школ' : 'Consultation with school representatives'}
+              fill
+              className="object-cover"
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 70vw"
+              quality={85}
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
+            <div className="absolute bottom-6 left-6 right-6">
+              <p className="text-white text-lg font-medium">
+                {language === 'ru' ? 'Прямое общение с представителями школ' : 'Direct communication with school representatives'}
+              </p>
+            </div>
+          </div>
+        </motion.div>
+
+        {/* Additional Photo Section */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.4 }}
+          viewport={{ once: true }}
+          className="mt-12 grid md:grid-cols-2 gap-8 max-w-5xl mx-auto"
+        >
+          <div className="space-y-4">
+            <h3 className="text-2xl font-semibold text-white">
+              {language === 'ru' ? 'Профессиональная поддержка' : 'Professional Support'}
+            </h3>
+            <p className="text-white/70">
+              {language === 'ru' ? 'Наши эксперты помогут вам на каждом этапе поступления в частную школу за рубежом.' : 'Our experts will help you at every stage of admission to a private school abroad.'}
+            </p>
+          </div>
+          <div className="relative aspect-[4/3] rounded-2xl overflow-hidden">
+            <Image
+              src="/gallery/photo_2025-09-02_03-39-25.jpg"
+              alt={language === 'ru' ? 'Презентация программ' : 'Program presentation'}
+              fill
+              className="object-cover"
+              sizes="(max-width: 768px) 100vw, 50vw"
+              quality={85}
+            />
+          </div>
+        </motion.div>
       </div>
     </section>
   );

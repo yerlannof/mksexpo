@@ -4,7 +4,7 @@ import { useEffect } from 'react';
 import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useLanguage } from '@/contexts/LanguageContext';
-import { X, Users, ClipboardList, HelpCircle, Phone, Mail, Globe, Calendar, GraduationCap, Camera } from 'lucide-react';
+import { X, Users, ClipboardList, HelpCircle, Phone, Mail, Globe, Calendar, GraduationCap, BookOpen } from 'lucide-react';
 
 interface MobileDrawerProps {
   isOpen: boolean;
@@ -33,14 +33,14 @@ export default function MobileDrawer({ isOpen, onClose }: MobileDrawerProps) {
       icon: Users 
     },
     { 
+      href: '#programs', 
+      label: language === 'ru' ? 'Программы обучения' : 'Programs',
+      icon: BookOpen 
+    },
+    { 
       href: '#steps', 
       label: language === 'ru' ? '6 шагов к поступлению' : '6 Steps to Admission',
       icon: GraduationCap 
-    },
-    { 
-      href: '#gallery', 
-      label: language === 'ru' ? 'Фотографии' : 'Gallery',
-      icon: Camera 
     },
     { 
       href: '#timeline', 

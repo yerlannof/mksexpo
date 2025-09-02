@@ -93,43 +93,6 @@ export default function HeroNew() {
           </motion.div>
         </div>
 
-        {/* Program Types */}
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.6, duration: 0.8 }}
-          className="mt-12 sm:mt-16 lg:mt-20"
-        >
-          <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 sm:p-8 border border-white/20">
-            <h3 className="text-lg sm:text-xl font-semibold text-white mb-4">{t('hero.programs.title')}</h3>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-              <div className="flex items-center gap-3">
-                <div className="w-2 h-2 bg-white rounded-full"></div>
-                <span className="text-white/90">{t('hero.programs.british')}</span>
-              </div>
-              <div className="flex items-center gap-3">
-                <div className="w-2 h-2 bg-white rounded-full"></div>
-                <span className="text-white/90">{t('hero.programs.american')}</span>
-              </div>
-              <div className="flex items-center gap-3">
-                <div className="w-2 h-2 bg-white rounded-full"></div>
-                <span className="text-white/90">{t('hero.programs.ib')}</span>
-              </div>
-              <div className="flex items-center gap-3">
-                <div className="w-2 h-2 bg-white rounded-full"></div>
-                <span className="text-white/90">{t('hero.programs.boarding')}</span>
-              </div>
-              <div className="flex items-center gap-3">
-                <div className="w-2 h-2 bg-white rounded-full"></div>
-                <span className="text-white/90">{t('hero.programs.day')}</span>
-              </div>
-              <div className="flex items-center gap-3">
-                <div className="w-2 h-2 bg-white rounded-full"></div>
-                <span className="text-white/90">{t('hero.programs.foundation')}</span>
-              </div>
-            </div>
-          </div>
-        </motion.div>
       </div>
 
       {/* Bottom scroll indicator */}

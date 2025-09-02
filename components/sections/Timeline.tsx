@@ -3,9 +3,10 @@
 import { motion } from 'framer-motion';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Clock, Users, MessageSquare, BookOpen, Gift, MapPin } from 'lucide-react';
+import Image from 'next/image';
 
 export default function Timeline() {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   
   const schedule = [
     {
@@ -99,6 +100,51 @@ export default function Timeline() {
             })}
           </div>
         </div>
+
+        {/* Photo Section - Event Atmosphere */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.3 }}
+          viewport={{ once: true }}
+          className="my-16 max-w-5xl mx-auto"
+        >
+          <div className="grid md:grid-cols-2 gap-6">
+            <div className="relative aspect-[4/3] rounded-2xl overflow-hidden">
+              <Image
+                src="/gallery/photo_2025-09-02_03-39-26 (4).jpg"
+                alt={language === 'ru' ? 'Атмосфера мероприятия' : 'Event atmosphere'}
+                fill
+                className="object-cover"
+                sizes="(max-width: 768px) 100vw, 50vw"
+                quality={85}
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
+              <div className="absolute bottom-4 left-4 right-4">
+                <p className="text-white text-sm font-medium">
+                  {language === 'ru' ? 'Уникальная атмосфера выставки' : 'Unique exhibition atmosphere'}
+                </p>
+              </div>
+            </div>
+            
+            <div className="relative aspect-[4/3] rounded-2xl overflow-hidden">
+              <Image
+                src="/gallery/photo_2025-09-02_03-39-27 (2).jpg"
+                alt={language === 'ru' ? 'Консультационная зона' : 'Consultation area'}
+                fill
+                className="object-cover"
+                sizes="(max-width: 768px) 100vw, 50vw"
+                quality={85}
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
+              <div className="absolute bottom-4 left-4 right-4">
+                <p className="text-white text-sm font-medium">
+                  {language === 'ru' ? 'Комфортные зоны для общения' : 'Comfortable communication areas'}
+                </p>
+              </div>
+            </div>
+          </div>
+        </motion.div>
 
         {/* Location cards - Minimalist */}
         <motion.div
