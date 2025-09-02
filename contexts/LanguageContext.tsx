@@ -14,8 +14,11 @@ interface LanguageContextType {
 const translations = {
   ru: {
     // Header
-    'nav.participants': 'Список участников',
+    'nav.opportunities': 'Возможности',
+    'nav.programs': 'Программы',
+    'nav.participants': 'Участники',
     'nav.timeline': 'Программа',
+    'nav.steps': 'Как участвовать',
     'nav.whyvisit': 'Почему мы',
     'nav.testimonials': 'Отзывы',
     'nav.registration': 'Регистрация',
@@ -184,8 +187,11 @@ const translations = {
   },
   en: {
     // Header
+    'nav.opportunities': 'Opportunities',
+    'nav.programs': 'Programs',
     'nav.participants': 'Participants',
     'nav.timeline': 'Program',
+    'nav.steps': 'How to Participate',
     'nav.whyvisit': 'Why Visit',
     'nav.testimonials': 'Testimonials',
     'nav.registration': 'Registration',

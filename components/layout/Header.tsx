@@ -58,22 +58,22 @@ export default function Header() {
           {/* Desktop Navigation */}
           <div className="hidden lg:flex items-center space-x-8">
             <Link href="#opportunities" className="text-neutral-700 hover:text-primary transition-colors font-medium">
-              Возможности
+              {t('nav.opportunities') || 'Возможности'}
             </Link>
             <Link href="#programs" className="text-neutral-700 hover:text-primary transition-colors font-medium">
-              Программы
+              {t('nav.programs') || 'Программы'}
             </Link>
             <Link href="#participants" className="text-neutral-700 hover:text-primary transition-colors font-medium">
-              Участники
+              {t('nav.participants')}
             </Link>
             <Link href="#steps" className="text-neutral-700 hover:text-primary transition-colors font-medium">
-              Как участвовать
+              {t('nav.steps') || 'Как участвовать'}
             </Link>
             <Link href="#registration" className="text-neutral-700 hover:text-primary transition-colors font-medium">
-              Регистрация
+              {t('nav.registration')}
             </Link>
             <Link href="#faq" className="text-neutral-700 hover:text-primary transition-colors font-medium">
-              FAQ
+              {t('nav.faq')}
             </Link>
           </div>
 
@@ -113,23 +113,26 @@ export default function Header() {
         {isMenuOpen && (
           <div className="md:hidden border-t border-neutral-200 py-4">
             <div className="flex flex-col space-y-4">
-              <Link href="#opportunities" className="text-neutral-700 hover:text-primary transition-colors">
-                Возможности
+              <Link href="#opportunities" className="text-neutral-700 hover:text-primary transition-colors" onClick={() => setIsMenuOpen(false)}>
+                {t('nav.opportunities') || 'Возможности'}
               </Link>
-              <Link href="#programs" className="text-neutral-700 hover:text-primary transition-colors">
-                Программы
+              <Link href="#programs" className="text-neutral-700 hover:text-primary transition-colors" onClick={() => setIsMenuOpen(false)}>
+                {t('nav.programs') || 'Программы'}
               </Link>
-              <Link href="#participants" className="text-neutral-700 hover:text-primary transition-colors">
-                Участники
+              <Link href="#participants" className="text-neutral-700 hover:text-primary transition-colors" onClick={() => setIsMenuOpen(false)}>
+                {t('nav.participants')}
               </Link>
-              <Link href="#steps" className="text-neutral-700 hover:text-primary transition-colors">
-                Как участвовать
+              <Link href="#steps" className="text-neutral-700 hover:text-primary transition-colors" onClick={() => setIsMenuOpen(false)}>
+                {t('nav.steps') || 'Как участвовать'}
               </Link>
-              <Link href="#registration" className="text-neutral-700 hover:text-primary transition-colors">
-                Регистрация
+              <Link href="#registration" className="text-neutral-700 hover:text-primary transition-colors" onClick={() => setIsMenuOpen(false)}>
+                {t('nav.registration')}
               </Link>
-              <Link href="#faq" className="text-neutral-700 hover:text-primary transition-colors">
-                FAQ
+              <Link href="#faq" className="text-neutral-700 hover:text-primary transition-colors" onClick={() => setIsMenuOpen(false)}>
+                {t('nav.faq')}
+              </Link>
+              <Link href="#registration" className="bg-red-600 hover:bg-red-700 text-white px-6 py-2.5 rounded-lg font-medium transition-all text-center" onClick={() => setIsMenuOpen(false)}>
+                Оставить заявку
               </Link>
               <button
                 onClick={() => setLanguage(language === 'ru' ? 'en' : 'ru')}
