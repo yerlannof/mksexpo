@@ -52,7 +52,6 @@ export default function HomePageWrapper() {
     { id: 'participants', isLoaded: false, isVisible: false, component: Participants, skeleton: <SectionSkeleton variant="cards" cardCount={6} /> },
     { id: 'programs', isLoaded: false, isVisible: false, component: Programs, skeleton: <SectionSkeleton variant="cards" cardCount={5} /> },
     { id: 'steps', isLoaded: false, isVisible: false, component: Steps, skeleton: <SectionSkeleton variant="cards" cardCount={6} /> },
-    { id: 'timeline', isLoaded: false, isVisible: false, component: Timeline, skeleton: <SectionSkeleton variant="list" cardCount={4} /> },
     { id: 'registration', isLoaded: false, isVisible: false, component: Registration, skeleton: <SectionSkeleton variant="content" /> },
     { id: 'faq', isLoaded: false, isVisible: false, component: FAQ, skeleton: <SectionSkeleton variant="faq" /> },
   ]);

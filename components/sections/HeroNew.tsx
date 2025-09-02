@@ -26,7 +26,7 @@ export default function HeroNew() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
-              className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-white leading-tight mb-6 sm:mb-8"
+              className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold text-white leading-tight mb-3"
             >
               {t('hero.title.main').split('\n').map((line, i) => (
                 <span key={i}>
@@ -36,29 +36,24 @@ export default function HeroNew() {
               ))}
             </motion.h1>
 
-            <motion.div
+            <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.15, duration: 0.8 }}
-              className="text-base sm:text-lg text-white/90 mb-6 space-y-1"
+              transition={{ delay: 0.1, duration: 0.8 }}
+              className="text-base sm:text-lg md:text-xl text-white/90 mb-6"
             >
-              {t('hero.dates').split('\n').map((line, i) => (
-                <p key={i}>{line}</p>
-              ))}
-            </motion.div>
+              {t('hero.subtitle.main')}
+            </motion.p>
 
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.2, duration: 0.8 }}
-              className="text-base sm:text-lg text-white/90 mb-8 max-w-xl mx-auto lg:mx-0 space-y-3"
+              transition={{ delay: 0.15, duration: 0.8 }}
+              className="text-sm sm:text-base text-white/80 mb-8 space-y-1"
             >
-              {t('hero.subtitle.desc').split('\n').map((line, i) => {
-                if (line.includes('•')) {
-                  return <p key={i} className="pl-4">{line}</p>;
-                }
-                return line ? <p key={i}>{line}</p> : null;
-              })}
+              {t('hero.dates').split('\n').map((line, i) => (
+                <p key={i}>{line}</p>
+              ))}
             </motion.div>
 
             <motion.div
