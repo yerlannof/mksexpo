@@ -54,8 +54,8 @@ export default function HomePageWrapper() {
   const [sections, setSections] = useState<SectionState[]>([
     { id: 'hero', isLoaded: false, isVisible: true, component: HeroNew, skeleton: <HeroSkeleton /> },
     { id: 'opportunities', isLoaded: false, isVisible: false, component: Opportunities, skeleton: <SectionSkeleton variant="content" /> },
-    { id: 'participants', isLoaded: false, isVisible: false, component: Participants, skeleton: <SectionSkeleton variant="cards" cardCount={6} /> },
     { id: 'programs', isLoaded: false, isVisible: false, component: Programs, skeleton: <SectionSkeleton variant="cards" cardCount={5} /> },
+    { id: 'participants', isLoaded: false, isVisible: false, component: Participants, skeleton: <SectionSkeleton variant="cards" cardCount={6} /> },
     { id: 'steps', isLoaded: false, isVisible: false, component: Steps, skeleton: <SectionSkeleton variant="cards" cardCount={6} /> },
     { id: 'registration', isLoaded: false, isVisible: false, component: Registration, skeleton: <SectionSkeleton variant="content" /> },
     { id: 'faq', isLoaded: false, isVisible: false, component: FAQ, skeleton: <SectionSkeleton variant="faq" /> },

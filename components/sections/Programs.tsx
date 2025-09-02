@@ -54,7 +54,7 @@ export default function Programs() {
   const { language } = useLanguage();
 
   return (
-    <section className="py-16 bg-gray-50">
+    <section className="py-16">
       <div className="container">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -64,7 +64,7 @@ export default function Programs() {
           className="max-w-6xl mx-auto"
         >
           {/* Header */}
-          <p className="text-gray-700 text-lg mb-12 max-w-4xl">
+          <p className="text-white/90 text-lg mb-12 max-w-4xl">
             {language === 'ru' 
               ? 'Присоединяйтесь к крупнейшей выставке частных школ в Алматы, чтобы выбрать подходящую школу и программу обучения:'
               : 'Join the largest private school exhibition in Almaty to choose the right school and educational program:'}
@@ -81,9 +81,9 @@ export default function Programs() {
                 viewport={{ once: true }}
                 className="text-left"
               >
-                <p className="text-gray-900 text-base leading-relaxed">
+                <p className="text-white text-base leading-relaxed">
                   • <span className="font-medium">{category.title}</span><br/>
-                  <span className="text-gray-700">{category.items.join(', ')}</span>
+                  <span className="text-white/80">{category.items.join(', ')}</span>
                 </p>
               </motion.div>
             ))}
