@@ -17,7 +17,7 @@ export default function HeaderSimple() {
       <div className="container">
         <nav className="flex items-center justify-between h-16 sm:h-20">
           {/* Logo */}
-          <Link href="/" className="flex items-center space-x-2 sm:space-x-3 group">
+          <Link href="/" className="flex items-center group">
             <Image
               src="/mkslogo.png"
               alt="M&K Study Centre"
@@ -26,10 +26,6 @@ export default function HeaderSimple() {
               className="h-8 sm:h-10 md:h-12 w-auto"
               priority
             />
-            <div className="block">
-              <h1 className="text-sm sm:text-lg md:text-xl font-bold text-white">M&K Study Centre</h1>
-              <p className="text-xs text-white/80 hidden sm:block">{language === 'ru' ? 'Образование за рубежом' : 'Education Abroad'}</p>
-            </div>
           </Link>
 
           {/* Desktop Navigation */}
