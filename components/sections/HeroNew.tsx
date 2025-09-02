@@ -67,7 +67,7 @@ export default function HeroNew() {
                   variant="danger"
                   size="xl"
                   href="#registration"
-                  className="w-full sm:w-auto text-sm sm:text-base px-4 py-2 sm:px-6 sm:py-3"
+                  className="w-auto text-sm sm:text-base px-4 py-2 sm:px-6 sm:py-3"
                 >
                   {t('hero.cta.apply')}
                 </AnimatedButton>
@@ -86,7 +86,7 @@ export default function HeroNew() {
               {/* Images Grid */}
               <div className="grid grid-cols-2 gap-4">
                 {/* First Column */}
-                <div className="space-y-4">
+                <div>
                   {/* First Image */}
                   <motion.div
                     initial={{ opacity: 0, y: 20 }}
@@ -102,24 +102,6 @@ export default function HeroNew() {
                       sizes="(max-width: 768px) 50vw, 25vw"
                       priority
                       quality={85}
-                    />
-                  </motion.div>
-                  
-                  {/* Third Image */}
-                  <motion.div
-                    initial={{ opacity: 0, y: 30 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.7, duration: 0.8 }}
-                    className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl"
-                  >
-                    <Image
-                      src="/gallery/photo_2025-09-02_23-15-47.jpg"
-                      alt="Консультации с экспертами"
-                      fill
-                      className="object-cover"
-                      sizes="(max-width: 768px) 50vw, 25vw"
-                      loading="lazy"
-                      quality={75}
                     />
                   </motion.div>
                 </div>
