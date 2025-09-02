@@ -40,6 +40,14 @@ const schools = [
     initials: 'SC',
     image: 'https://images.unsplash.com/photo-1607237138185-eedd9c632b0b?w=400&h=300&fit=crop' // Oxford architecture style
   },
+  { 
+    name: 'MPW College', 
+    country: 'GB', 
+    countryName: 'Великобритания', 
+    countryNameEn: 'United Kingdom', 
+    initials: 'MPW',
+    image: 'https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=400&h=300&fit=crop' // Modern UK college building
+  },
 ];
 
 // Цвета для инициалов школ по странам

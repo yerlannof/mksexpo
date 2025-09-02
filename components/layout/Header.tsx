@@ -57,32 +57,23 @@ export default function Header() {
 
           {/* Desktop Navigation */}
           <div className="hidden lg:flex items-center space-x-8">
-            <div className="relative group">
-              <button className="flex items-center gap-1 text-neutral-700 hover:text-primary transition-colors font-medium">
-                О нас
-                <ChevronDown className="w-4 h-4" />
-              </button>
-            </div>
-            <div className="relative group">
-              <button className="flex items-center gap-1 text-neutral-700 hover:text-primary transition-colors font-medium">
-                Среднее образование за рубежом
-                <ChevronDown className="w-4 h-4" />
-              </button>
-            </div>
-            <div className="relative group">
-              <button className="flex items-center gap-1 text-neutral-700 hover:text-primary transition-colors font-medium">
-                Летние каникулы
-                <ChevronDown className="w-4 h-4" />
-              </button>
-            </div>
-            <Link href="#services" className="text-neutral-700 hover:text-primary transition-colors font-medium">
-              Услуги
+            <Link href="#opportunities" className="text-neutral-700 hover:text-primary transition-colors font-medium">
+              Возможности
             </Link>
-            <Link href="#news" className="text-neutral-700 hover:text-primary transition-colors font-medium">
-              Новости
+            <Link href="#programs" className="text-neutral-700 hover:text-primary transition-colors font-medium">
+              Программы
             </Link>
-            <Link href="#contacts" className="text-neutral-700 hover:text-primary transition-colors font-medium">
-              Контакты
+            <Link href="#participants" className="text-neutral-700 hover:text-primary transition-colors font-medium">
+              Участники
+            </Link>
+            <Link href="#steps" className="text-neutral-700 hover:text-primary transition-colors font-medium">
+              Как участвовать
+            </Link>
+            <Link href="#registration" className="text-neutral-700 hover:text-primary transition-colors font-medium">
+              Регистрация
+            </Link>
+            <Link href="#faq" className="text-neutral-700 hover:text-primary transition-colors font-medium">
+              FAQ
             </Link>
           </div>
 
@@ -98,9 +89,9 @@ export default function Header() {
               </span>
               <ChevronDown className="w-3 h-3" />
             </button>
-            <button className="bg-red-600 hover:bg-red-700 text-white px-6 py-2.5 rounded-lg font-medium transition-all hover:shadow-lg flex items-center gap-2">
+            <Link href="#registration" className="bg-red-600 hover:bg-red-700 text-white px-6 py-2.5 rounded-lg font-medium transition-all hover:shadow-lg flex items-center gap-2">
               <span>Оставить заявку</span>
-            </button>
+            </Link>
           </div>
 
           {/* Mobile Menu Button */}
@@ -122,14 +113,23 @@ export default function Header() {
         {isMenuOpen && (
           <div className="md:hidden border-t border-neutral-200 py-4">
             <div className="flex flex-col space-y-4">
+              <Link href="#opportunities" className="text-neutral-700 hover:text-primary transition-colors">
+                Возможности
+              </Link>
+              <Link href="#programs" className="text-neutral-700 hover:text-primary transition-colors">
+                Программы
+              </Link>
               <Link href="#participants" className="text-neutral-700 hover:text-primary transition-colors">
-                {t('nav.participants')}
+                Участники
+              </Link>
+              <Link href="#steps" className="text-neutral-700 hover:text-primary transition-colors">
+                Как участвовать
               </Link>
               <Link href="#registration" className="text-neutral-700 hover:text-primary transition-colors">
-                {t('nav.registration')}
+                Регистрация
               </Link>
               <Link href="#faq" className="text-neutral-700 hover:text-primary transition-colors">
-                {t('nav.faq')}
+                FAQ
               </Link>
               <button
                 onClick={() => setLanguage(language === 'ru' ? 'en' : 'ru')}
