@@ -157,18 +157,18 @@ export const AnimatedButton: React.FC<AnimatedButtonProps> = ({
   // Variant classes
   const variantClasses = {
     primary: cn(
-      'bg-gradient-to-r from-indigo-600 to-purple-600',
-      'hover:from-indigo-700 hover:to-purple-700',
+      'bg-gradient-to-r from-red-600 to-red-700',
+      'hover:from-red-700 hover:to-red-800',
       'text-white shadow-lg hover:shadow-xl',
-      'focus:ring-indigo-500',
+      'focus:ring-red-500',
       'before:absolute before:inset-0',
-      'before:bg-gradient-to-r before:from-indigo-400 before:to-purple-400',
+      'before:bg-gradient-to-r before:from-red-400 before:to-red-500',
       'before:opacity-0 hover:before:opacity-20',
       'before:transition-opacity before:duration-300'
     ),
     secondary: cn(
       'bg-transparent border-2',
-      'border-transparent bg-gradient-to-r from-indigo-600 to-purple-600',
+      'border-transparent bg-gradient-to-r from-red-600 to-red-700',
       'bg-clip-padding relative',
       'before:absolute before:inset-0 before:-z-10',
       'before:bg-white dark:before:bg-gray-900',
@@ -176,7 +176,7 @@ export const AnimatedButton: React.FC<AnimatedButtonProps> = ({
       'text-gray-900 dark:text-white',
       'hover:text-white dark:hover:text-white',
       'hover:before:opacity-0 hover:shadow-lg',
-      'focus:ring-indigo-500',
+      'focus:ring-red-500',
       'transition-all duration-300'
     ),
     ghost: cn(
@@ -186,10 +186,10 @@ export const AnimatedButton: React.FC<AnimatedButtonProps> = ({
       'focus:ring-gray-500'
     ),
     glow: cn(
-      'bg-gradient-to-r from-indigo-600 to-purple-600',
+      'bg-gradient-to-r from-red-600 to-red-700',
       'text-white shadow-lg',
-      'hover:shadow-[0_0_30px_rgba(99,102,241,0.5)]',
-      'focus:ring-indigo-500',
+      'hover:shadow-[0_0_30px_rgba(220,38,38,0.5)]',
+      'focus:ring-red-500',
       'animate-pulse-glow'
     ),
     danger: cn(
@@ -237,7 +237,7 @@ export const AnimatedButton: React.FC<AnimatedButtonProps> = ({
           <motion.div
             className="absolute inset-0 -z-10 blur-xl"
             style={{
-              background: 'linear-gradient(to right, #6366f1, #9333ea)',
+              background: 'linear-gradient(to right, #dc2626, #b91c1c)',
               opacity: 0.5,
             }}
             animate={{
@@ -305,7 +305,7 @@ export const AnimatedButton: React.FC<AnimatedButtonProps> = ({
         <motion.div
           className="absolute inset-0 -z-10 blur-xl"
           style={{
-            background: 'linear-gradient(to right, #6366f1, #9333ea)',
+            background: 'linear-gradient(to right, #dc2626, #b91c1c)',
             opacity: 0.5,
           }}
           animate={{

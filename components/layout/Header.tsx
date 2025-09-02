@@ -98,7 +98,7 @@ export default function Header() {
               </span>
               <ChevronDown className="w-3 h-3" />
             </button>
-            <button className="bg-secondary hover:bg-secondary-dark text-white px-6 py-2.5 rounded-lg font-medium transition-all hover:shadow-lg flex items-center gap-2">
+            <button className="bg-red-600 hover:bg-red-700 text-white px-6 py-2.5 rounded-lg font-medium transition-all hover:shadow-lg flex items-center gap-2">
               <span>Оставить заявку</span>
             </button>
           </div>

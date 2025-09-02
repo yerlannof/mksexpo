@@ -186,7 +186,7 @@ export default function MobileDrawer({ isOpen, onClose }: MobileDrawerProps) {
               <Link
                 href="#registration"
                 onClick={onClose}
-                className="block w-full py-4 px-6 text-center bg-primary text-white font-semibold rounded-xl hover:bg-primary-dark transition-colors shadow-lg"
+                className="block w-full py-4 px-6 text-center bg-red-600 text-white font-semibold rounded-xl hover:bg-red-700 transition-colors shadow-lg"
               >
                 {t('nav.registration')}
               </Link>

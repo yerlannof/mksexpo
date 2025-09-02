@@ -22,7 +22,7 @@ const schools = [
     countryName: 'Великобритания', 
     countryNameEn: 'United Kingdom', 
     initials: 'CC',
-    image: 'https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=400&h=300&fit=crop' // British traditional school building
+    image: 'https://images.unsplash.com/photo-1509062522246-3755977927d7?w=400&h=300&fit=crop' // British traditional school building facade
   },
   { 
     name: 'Cascadia College', 
@@ -30,7 +30,7 @@ const schools = [
     countryName: 'США', 
     countryNameEn: 'USA', 
     initials: 'CC',
-    image: 'https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=400&h=300&fit=crop' // American campus building
+    image: 'https://images.unsplash.com/photo-1562774053-701939374585?w=400&h=300&fit=crop' // American campus building
   },
   { 
     name: 'St. Clares Oxford', 

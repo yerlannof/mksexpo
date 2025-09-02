@@ -153,11 +153,14 @@ export default function Hero() {
                 transition={{ delay: 0.6 }}
                 className="flex flex-col sm:flex-row gap-4"
               >
-                <a href="#registration" className="bg-red-600 hover:bg-red-700 text-white px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-300 transform hover:scale-105 inline-flex items-center justify-center shadow-xl hover:shadow-2xl text-center group">
-                  <span>Зарегистрироваться</span>
-                  <Calendar className="w-5 h-5 ml-2 group-hover:scale-110 transition-transform" />
-                </a>
-                <a href="#participants" className="btn-outline text-center group">
+                <div className="flex flex-col">
+                  <a href="#registration" className="bg-red-600 hover:bg-red-700 text-white px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-300 transform hover:scale-105 inline-flex items-center justify-center shadow-xl hover:shadow-2xl text-center group">
+                    <span>Зарегистрироваться</span>
+                    <Calendar className="w-5 h-5 ml-2 group-hover:scale-110 transition-transform" />
+                  </a>
+                  <p className="text-sm text-neutral-600 text-center mt-2">для бесплатного участия в выставке!</p>
+                </div>
+                <a href="#participants" className="btn-outline text-center group self-start">
                   <span>Список участников</span>
                   <Users className="w-5 h-5 ml-2 group-hover:scale-110 transition-transform" />
                 </a>
