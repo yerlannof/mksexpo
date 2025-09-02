@@ -8,29 +8,37 @@ import { ChevronLeft, ChevronRight } from 'lucide-react';
 
 // Все школы в едином списке с информацией о стране
 const schools = [
-  { name: 'Harrow School', country: 'GB', countryName: 'Великобритания', initials: 'HS' },
-  { name: 'Wellington College', country: 'GB', countryName: 'Великобритания', initials: 'WC' },
-  { name: 'Brighton College', country: 'GB', countryName: 'Великобритания', initials: 'BC' },
-  { name: 'Sevenoaks School', country: 'GB', countryName: 'Великобритания', initials: 'SS' },
-  { name: 'Phillips Academy Andover', country: 'US', countryName: 'США', initials: 'PA' },
-  { name: 'Choate Rosemary Hall', country: 'US', countryName: 'США', initials: 'CR' },
-  { name: 'The Hotchkiss School', country: 'US', countryName: 'США', initials: 'TH' },
-  { name: 'Le Rosey', country: 'CH', countryName: 'Швейцария', initials: 'LR' },
-  { name: 'Aiglon College', country: 'CH', countryName: 'Швейцария', initials: 'AC' },
-  { name: 'Institut Montana', country: 'CH', countryName: 'Швейцария', initials: 'IM' },
-  { name: 'Upper Canada College', country: 'CA', countryName: 'Канада', initials: 'UC' },
-  { name: 'Ridley College', country: 'CA', countryName: 'Канада', initials: 'RC' },
-  { name: 'Salem International College', country: 'DE', countryName: 'Германия', initials: 'SI' },
-  { name: 'Berlin Brandenburg School', country: 'DE', countryName: 'Германия', initials: 'BB' },
+  { 
+    name: 'Vertex School', 
+    country: 'AE', 
+    countryName: 'ОАЭ', 
+    countryNameEn: 'UAE', 
+    initials: 'VS',
+    image: 'https://images.unsplash.com/photo-1562774053-701939374585?w=400&h=300&fit=crop'
+  },
+  { 
+    name: 'Concord College', 
+    country: 'GB', 
+    countryName: 'Великобритания', 
+    countryNameEn: 'United Kingdom', 
+    initials: 'CC',
+    image: 'https://images.unsplash.com/photo-1580537659466-0a9bfa916a54?w=400&h=300&fit=crop'
+  },
+  { 
+    name: 'Cascadia College', 
+    country: 'US', 
+    countryName: 'США', 
+    countryNameEn: 'USA', 
+    initials: 'CC',
+    image: 'https://images.unsplash.com/photo-1541339907198-e08756dedf3f?w=400&h=300&fit=crop'
+  },
 ];
 
 // Цвета для инициалов школ по странам
 const schoolColors = {
   GB: 'from-blue-500 to-blue-600',
   US: 'from-indigo-500 to-indigo-600',
-  CH: 'from-red-500 to-red-600',
-  CA: 'from-pink-500 to-pink-600',
-  DE: 'from-gray-600 to-gray-700',
+  AE: 'from-amber-500 to-amber-600',
 };
 
 export default function Participants() {
@@ -102,9 +110,6 @@ export default function Participants() {
           <h2 className="text-3xl md:text-4xl font-display font-bold text-white">
             {t('participants.title')} <span className="text-white/80">{t('participants.title.highlight')}</span>
           </h2>
-          <p className="text-lg text-white/70 max-w-2xl mx-auto">
-            {t('participants.subtitle')}
-          </p>
         </motion.div>
 
         {/* Minimalist School Slider */}
@@ -143,24 +148,39 @@ export default function Participants() {
                     transition={{ duration: 0.3 }}
                     className={`flex-1 min-w-0 ${visibleCount === 1 ? 'w-full' : ''}`}
                   >
-                    <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6 hover:bg-white/[0.07] transition-all duration-300 h-full">
-                      <div className="flex flex-col items-center text-center space-y-3">
-                        {/* School Logo/Initials */}
-                        <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${schoolColors[school.country]} flex items-center justify-center shadow-md`}>
-                          <span className="text-white font-semibold text-sm">
-                            {school.initials}
-                          </span>
+                    <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl overflow-hidden hover:bg-white/[0.07] transition-all duration-300 h-full">
+                      {/* School Image */}
+                      <div className="relative aspect-[4/3] w-full">
+                        <Image
+                          src={school.image}
+                          alt={school.name}
+                          fill
+                          className="object-cover"
+                          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                          quality={85}
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+                      </div>
+                      
+                      <div className="p-6">
+                        <div className="flex flex-col items-center text-center space-y-3">
+                          {/* School Logo/Initials */}
+                          <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${schoolColors[school.country]} flex items-center justify-center shadow-md`}>
+                            <span className="text-white font-semibold text-sm">
+                              {school.initials}
+                            </span>
+                          </div>
+                          
+                          {/* School Name */}
+                          <h3 className="text-lg font-semibold text-white">
+                            {school.name}
+                          </h3>
+                          
+                          {/* Country Name */}
+                          <p className="text-xs text-white/50">
+                            {language === 'ru' ? school.countryName : school.countryNameEn}
+                          </p>
                         </div>
-                        
-                        {/* School Name */}
-                        <h3 className="text-lg font-semibold text-white">
-                          {school.name}
-                        </h3>
-                        
-                        {/* Country Name */}
-                        <p className="text-xs text-white/50">
-                          {school.countryName}
-                        </p>
                       </div>
                     </div>
                   </motion.div>
