@@ -26,7 +26,7 @@ export default function HeroNew() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
-              className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold text-white leading-tight mb-3"
+              className="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-bold text-white leading-tight mb-3"
             >
               {t('hero.title.main').split('\n').map((line, i) => (
                 <span key={i}>
@@ -121,8 +121,8 @@ export default function HeroNew() {
                       fill
                       className="object-cover"
                       sizes="(max-width: 768px) 50vw, 25vw"
-                      priority
-                      quality={85}
+                      loading="lazy"
+                      quality={75}
                     />
                   </motion.div>
                 </div>
@@ -142,8 +142,8 @@ export default function HeroNew() {
                       fill
                       className="object-cover"
                       sizes="(max-width: 768px) 50vw, 25vw"
-                      priority
-                      quality={85}
+                      loading="lazy"
+                      quality={75}
                     />
                   </motion.div>
                 </div>
