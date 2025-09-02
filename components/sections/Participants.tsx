@@ -14,7 +14,7 @@ const schools = [
     countryName: 'ОАЭ', 
     countryNameEn: 'UAE', 
     initials: 'VS',
-    image: 'https://images.unsplash.com/photo-1562774053-701939374585?w=400&h=300&fit=crop'
+    image: 'https://images.unsplash.com/photo-1606761568499-6d2451b23c66?w=400&h=300&fit=crop' // Modern Dubai school architecture
   },
   { 
     name: 'Concord College', 
@@ -22,7 +22,7 @@ const schools = [
     countryName: 'Великобритания', 
     countryNameEn: 'United Kingdom', 
     initials: 'CC',
-    image: 'https://images.unsplash.com/photo-1580537659466-0a9bfa916a54?w=400&h=300&fit=crop'
+    image: 'https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=400&h=300&fit=crop' // British traditional school building
   },
   { 
     name: 'Cascadia College', 
@@ -30,12 +30,20 @@ const schools = [
     countryName: 'США', 
     countryNameEn: 'USA', 
     initials: 'CC',
-    image: 'https://images.unsplash.com/photo-1541339907198-e08756dedf3f?w=400&h=300&fit=crop'
+    image: 'https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=400&h=300&fit=crop' // American campus building
+  },
+  { 
+    name: 'St. Clares Oxford', 
+    country: 'GB', 
+    countryName: 'Великобритания', 
+    countryNameEn: 'United Kingdom', 
+    initials: 'SC',
+    image: 'https://images.unsplash.com/photo-1607237138185-eedd9c632b0b?w=400&h=300&fit=crop' // Oxford architecture style
   },
 ];
 
 // Цвета для инициалов школ по странам
-const schoolColors = {
+const schoolColors: Record<string, string> = {
   GB: 'from-blue-500 to-blue-600',
   US: 'from-indigo-500 to-indigo-600',
   AE: 'from-amber-500 to-amber-600',
@@ -97,7 +105,7 @@ export default function Participants() {
   };
   
   return (
-    <section id="participants" className="section-padding">
+    <section id="participants" className="py-12 sm:py-16 lg:py-20">
       <div className="container">
         {/* Section Header */}
         <motion.div
@@ -105,9 +113,9 @@ export default function Participants() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="text-center mb-12 space-y-3"
+          className="text-center mb-8 space-y-2"
         >
-          <h2 className="text-3xl md:text-4xl font-display font-bold text-white">
+          <h2 className="text-2xl md:text-3xl font-display font-bold text-white">
             {t('participants.title')} <span className="text-white/80">{t('participants.title.highlight')}</span>
           </h2>
         </motion.div>
@@ -162,17 +170,17 @@ export default function Participants() {
                         <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
                       </div>
                       
-                      <div className="p-6">
+                      <div className="p-4">
                         <div className="flex flex-col items-center text-center space-y-3">
                           {/* School Logo/Initials */}
-                          <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${schoolColors[school.country]} flex items-center justify-center shadow-md`}>
-                            <span className="text-white font-semibold text-sm">
+                          <div className={`w-10 h-10 rounded-lg bg-gradient-to-br ${schoolColors[school.country]} flex items-center justify-center shadow-md`}>
+                            <span className="text-white font-semibold text-xs">
                               {school.initials}
                             </span>
                           </div>
                           
                           {/* School Name */}
-                          <h3 className="text-lg font-semibold text-white">
+                          <h3 className="text-base font-semibold text-white">
                             {school.name}
                           </h3>
                           
@@ -215,7 +223,7 @@ export default function Participants() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.3 }}
           viewport={{ once: true }}
-          className="mt-16 max-w-5xl mx-auto"
+          className="mt-12 max-w-5xl mx-auto"
         >
           <div className="grid md:grid-cols-2 gap-6">
             <div className="relative aspect-[4/3] rounded-2xl overflow-hidden">
@@ -260,11 +268,11 @@ export default function Participants() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.4 }}
           viewport={{ once: true }}
-          className="mt-12 text-center"
+          className="mt-8 text-center"
         >
-          <div className="inline-flex flex-col items-center gap-3 p-6 bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl">
+          <div className="inline-flex flex-col items-center gap-2 p-4 bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl">
             <p className="text-sm text-white/60 uppercase tracking-wider">{t('participants.organizer')}</p>
-            <h4 className="font-display font-bold text-xl text-white">M&K Study Centre</h4>
+            <h4 className="font-display font-bold text-lg text-white">M&K Study Centre</h4>
             <p className="text-white/70 text-sm">{t('participants.organizer.desc')}</p>
           </div>
         </motion.div>
