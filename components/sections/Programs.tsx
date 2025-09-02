@@ -100,13 +100,8 @@ export default function Programs() {
           viewport={{ once: true }}
           className="max-w-7xl mx-auto"
         >
-          {/* Section Header */}
+          {/* Section Header - Title removed, keeping description */}
           <div className="text-center mb-8">
-            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-4">
-              {language === 'ru' 
-                ? 'Образовательные программы'
-                : 'Educational Programs'}
-            </h2>
             <p className="text-white/80 text-base sm:text-lg max-w-3xl mx-auto">
               {language === 'ru' 
                 ? 'Выберите подходящую программу обучения для вашего ребенка из широкого спектра международных образовательных систем'

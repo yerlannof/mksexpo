@@ -17,11 +17,11 @@ export default function HeroNew() {
   if (!mounted) return <div className="min-h-screen" />;
 
   return (
-    <section id="hero" className="relative min-h-screen flex items-center overflow-hidden pt-16 sm:pt-20 px-4 sm:px-6 lg:px-8">
+    <section id="hero" className="relative min-h-screen flex items-center overflow-hidden pt-24 sm:pt-20 px-4 sm:px-6 lg:px-8">
       <div className="container relative z-10">
         <div className="flex flex-col lg:flex-row items-center justify-between gap-8 sm:gap-12">
           {/* Left Column - Text Content */}
-          <div className="flex-1 max-w-2xl text-center lg:text-left">
+          <div className="flex-1 max-w-2xl text-left">
             <motion.h1
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -49,7 +49,7 @@ export default function HeroNew() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.15, duration: 0.8 }}
-              className="text-sm sm:text-base text-white/80 mb-8 space-y-1"
+              className="text-sm sm:text-base text-white/80 mb-8 space-y-1 text-left"
             >
               {t('hero.dates').split('\n').map((line, i) => (
                 <p key={i}>{line}</p>
@@ -62,18 +62,15 @@ export default function HeroNew() {
               transition={{ delay: 0.3, duration: 0.8 }}
               className="mb-12 sm:mb-16"
             >
-              <div className="flex flex-col items-center lg:items-start gap-2">
+              <div className="flex flex-col items-start gap-2">
                 <AnimatedButton
                   variant="danger"
                   size="xl"
                   href="#registration"
-                  className="w-full sm:w-auto"
+                  className="w-full sm:w-auto text-sm sm:text-base px-4 py-2 sm:px-6 sm:py-3"
                 >
                   {t('hero.cta.apply')}
                 </AnimatedButton>
-                <p className="text-xs text-white/60">
-                  для бесплатного участия в выставке!
-                </p>
               </div>
             </motion.div>
           </div>

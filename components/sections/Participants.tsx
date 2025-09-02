@@ -171,21 +171,14 @@ export default function Participants() {
                       </div>
                       
                       <div className="p-4">
-                        <div className="flex flex-col items-center text-center space-y-3">
-                          {/* School Logo/Initials */}
-                          <div className={`w-10 h-10 rounded-lg bg-gradient-to-br ${schoolColors[school.country]} flex items-center justify-center shadow-md`}>
-                            <span className="text-white font-semibold text-xs">
-                              {school.initials}
-                            </span>
-                          </div>
-                          
+                        <div className="flex flex-col items-center text-center space-y-2">
                           {/* School Name */}
-                          <h3 className="text-base font-semibold text-white">
+                          <h3 className="text-lg font-semibold text-white">
                             {school.name}
                           </h3>
                           
                           {/* Country Name */}
-                          <p className="text-xs text-white/50">
+                          <p className="text-sm text-white/70">
                             {language === 'ru' ? school.countryName : school.countryNameEn}
                           </p>
                         </div>
