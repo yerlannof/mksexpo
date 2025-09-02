@@ -26,7 +26,7 @@ export default function HeroNew() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
-              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white leading-tight mb-6 sm:mb-8"
+              className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-white leading-tight mb-6 sm:mb-8"
             >
               {t('hero.title.main').split('\n').map((line, i) => (
                 <span key={i}>
@@ -40,19 +40,26 @@ export default function HeroNew() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.15, duration: 0.8 }}
-              className="text-xl sm:text-2xl text-white font-semibold mb-4"
+              className="text-base sm:text-lg text-white/90 mb-6 space-y-1"
             >
-              {t('hero.dates')}
+              {t('hero.dates').split('\n').map((line, i) => (
+                <p key={i}>{line}</p>
+              ))}
             </motion.div>
 
-            <motion.p
+            <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2, duration: 0.8 }}
-              className="text-lg sm:text-xl text-white/90 mb-8 max-w-xl mx-auto lg:mx-0"
+              className="text-base sm:text-lg text-white/90 mb-8 max-w-xl mx-auto lg:mx-0 space-y-3"
             >
-              {t('hero.subtitle.desc')}
-            </motion.p>
+              {t('hero.subtitle.desc').split('\n').map((line, i) => {
+                if (line.includes('•')) {
+                  return <p key={i} className="pl-4">{line}</p>;
+                }
+                return line ? <p key={i}>{line}</p> : null;
+              })}
+            </motion.div>
 
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -61,7 +68,7 @@ export default function HeroNew() {
               className="mb-12 sm:mb-16 flex justify-center lg:justify-start"
             >
               <AnimatedButton
-                variant="glow"
+                variant="danger"
                 size="xl"
                 href="#registration"
                 className="w-full sm:w-auto"

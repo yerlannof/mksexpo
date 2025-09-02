@@ -6,7 +6,7 @@ import { cn } from '@/lib/utils';
 
 // Types
 export interface AnimatedButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-  variant?: 'primary' | 'secondary' | 'ghost' | 'glow';
+  variant?: 'primary' | 'secondary' | 'ghost' | 'glow' | 'danger';
   size?: 'sm' | 'md' | 'lg' | 'xl';
   leftIcon?: React.ReactNode;
   rightIcon?: React.ReactNode;
@@ -192,10 +192,20 @@ export const AnimatedButton: React.FC<AnimatedButtonProps> = ({
       'focus:ring-indigo-500',
       'animate-pulse-glow'
     ),
+    danger: cn(
+      'bg-gradient-to-r from-red-600 to-red-700',
+      'hover:from-red-700 hover:to-red-800',
+      'text-white shadow-lg hover:shadow-xl',
+      'focus:ring-red-500',
+      'before:absolute before:inset-0',
+      'before:bg-gradient-to-r before:from-red-400 before:to-red-500',
+      'before:opacity-0 hover:before:opacity-20',
+      'before:transition-opacity before:duration-300'
+    ),
   };
 
-  // Gradient shift animation for primary and glow variants
-  const gradientAnimation = (variant === 'primary' || variant === 'glow') ? {
+  // Gradient shift animation for primary, glow and danger variants
+  const gradientAnimation = (variant === 'primary' || variant === 'glow' || variant === 'danger') ? {
     backgroundSize: '200% 200%',
     animation: 'gradient-shift 3s ease infinite',
   } : {};
