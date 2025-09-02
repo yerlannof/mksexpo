@@ -14,7 +14,7 @@ const schools = [
     countryName: 'ОАЭ', 
     countryNameEn: 'UAE', 
     initials: 'VS',
-    image: 'https://images.unsplash.com/photo-1606761568499-6d2451b23c66?w=400&h=300&fit=crop' // Modern Dubai school architecture
+    image: 'https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=400&h=300&fit=crop' // Modern Dubai educational institution building
   },
   { 
     name: 'Concord College', 
@@ -22,7 +22,7 @@ const schools = [
     countryName: 'Великобритания', 
     countryNameEn: 'United Kingdom', 
     initials: 'CC',
-    image: 'https://images.unsplash.com/photo-1509062522246-3755977927d7?w=400&h=300&fit=crop' // British traditional school building facade
+    image: 'https://images.unsplash.com/photo-1580894732444-8ecded7900cd?w=400&h=300&fit=crop' // British historic college building with traditional architecture
   },
   { 
     name: 'Cascadia College', 
@@ -30,7 +30,7 @@ const schools = [
     countryName: 'США', 
     countryNameEn: 'USA', 
     initials: 'CC',
-    image: 'https://images.unsplash.com/photo-1562774053-701939374585?w=400&h=300&fit=crop' // American campus building
+    image: 'https://images.unsplash.com/photo-1541339907198-e08756dedf3f?w=400&h=300&fit=crop' // American college campus building
   },
   { 
     name: 'St. Clares Oxford', 
@@ -38,7 +38,7 @@ const schools = [
     countryName: 'Великобритания', 
     countryNameEn: 'United Kingdom', 
     initials: 'SC',
-    image: 'https://images.unsplash.com/photo-1607237138185-eedd9c632b0b?w=400&h=300&fit=crop' // Oxford architecture style
+    image: 'https://images.unsplash.com/photo-1574958269340-fa927503f3dd?w=400&h=300&fit=crop' // Oxford university building architecture
   },
   { 
     name: 'MPW College', 
@@ -46,7 +46,7 @@ const schools = [
     countryName: 'Великобритания', 
     countryNameEn: 'United Kingdom', 
     initials: 'MPW',
-    image: 'https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=400&h=300&fit=crop' // Modern UK college building
+    image: 'https://images.unsplash.com/photo-1564981797816-1043664bf78d?w=400&h=300&fit=crop' // Modern London academic building
   },
 ];
 
