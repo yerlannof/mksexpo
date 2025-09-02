@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion';
 import { useLanguage } from '@/contexts/LanguageContext';
+import Image from 'next/image';
 
 export default function Opportunities() {
   const { language } = useLanguage();
@@ -9,20 +10,40 @@ export default function Opportunities() {
   return (
     <section className="py-16">
       <div className="container">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
-          className="max-w-4xl mx-auto text-center"
-        >
-          <h3 className="text-2xl md:text-3xl font-semibold text-white mb-8">
-            {language === 'ru' 
-              ? 'Только здесь у вас будет возможность:'
-              : 'Only here you will have the opportunity to:'}
-          </h3>
-          
-          <div className="space-y-4 text-left max-w-3xl mx-auto">
+        <div className="grid lg:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
+          {/* Image Column */}
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+            className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl"
+          >
+            <Image
+              src="/gallery/photo_2025-09-02_23-10-04.jpg"
+              alt={language === 'ru' ? 'Консультация с представителями школ' : 'Consultation with school representatives'}
+              fill
+              className="object-cover"
+              sizes="(max-width: 768px) 100vw, 50vw"
+              quality={85}
+            />
+          </motion.div>
+
+          {/* Text Column */}
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+            className="text-left"
+          >
+            <h3 className="text-2xl md:text-3xl font-semibold text-white mb-8">
+              {language === 'ru' 
+                ? 'Только здесь у вас будет возможность:'
+                : 'Only here you will have the opportunity to:'}
+            </h3>
+            
+            <div className="space-y-4">
             <motion.div
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -70,6 +91,7 @@ export default function Opportunities() {
           </div>
         </motion.div>
       </div>
-    </section>
+    </div>
+  </section>
   );
 }
