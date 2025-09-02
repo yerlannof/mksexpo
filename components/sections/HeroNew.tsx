@@ -60,16 +60,21 @@ export default function HeroNew() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3, duration: 0.8 }}
-              className="mb-12 sm:mb-16 flex justify-center lg:justify-start"
+              className="mb-12 sm:mb-16"
             >
-              <AnimatedButton
-                variant="danger"
-                size="xl"
-                href="#registration"
-                className="w-full sm:w-auto"
-              >
-                {t('hero.cta.apply')}
-              </AnimatedButton>
+              <div className="flex flex-col items-center lg:items-start gap-2">
+                <AnimatedButton
+                  variant="danger"
+                  size="xl"
+                  href="#registration"
+                  className="w-full sm:w-auto"
+                >
+                  {t('hero.cta.apply')}
+                </AnimatedButton>
+                <p className="text-xs text-white/60">
+                  для бесплатного участия в выставке!
+                </p>
+              </div>
             </motion.div>
           </div>
 

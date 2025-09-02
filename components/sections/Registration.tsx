@@ -102,51 +102,6 @@ export default function Registration() {
       </div>
 
       <div className="container relative z-10">
-        {/* Photo Section - Consultation moments */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          viewport={{ once: true }}
-          className="mb-16 max-w-5xl mx-auto"
-        >
-          <div className="grid md:grid-cols-2 gap-6">
-            <div className="relative aspect-[4/3] rounded-2xl overflow-hidden">
-              <Image
-                src="/gallery/photo_2025-09-02_03-39-24 (2).jpg"
-                alt={language === 'ru' ? 'Индивидуальная консультация' : 'Individual consultation'}
-                fill
-                className="object-cover"
-                sizes="(max-width: 768px) 100vw, 50vw"
-                quality={85}
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
-              <div className="absolute bottom-4 left-4 right-4">
-                <p className="text-white text-sm font-medium">
-                  {language === 'ru' ? 'Индивидуальные консультации с представителями школ' : 'Individual consultations with school representatives'}
-                </p>
-              </div>
-            </div>
-            
-            <div className="relative aspect-[4/3] rounded-2xl overflow-hidden">
-              <Image
-                src="/gallery/photo_2025-09-02_03-39-25 (4).jpg"
-                alt={language === 'ru' ? 'Консультация родителей' : 'Parent consultation'}
-                fill
-                className="object-cover"
-                sizes="(max-width: 768px) 100vw, 50vw"
-                quality={85}
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
-              <div className="absolute bottom-4 left-4 right-4">
-                <p className="text-white text-sm font-medium">
-                  {language === 'ru' ? 'Профессиональная помощь в выборе школы' : 'Professional help in choosing a school'}
-                </p>
-              </div>
-            </div>
-          </div>
-        </motion.div>
-
         <div className="max-w-4xl mx-auto">
           {/* Section Header */}
           <motion.div
@@ -340,6 +295,51 @@ export default function Registration() {
               </AnimatedButton>
             </div>
           </motion.form>
+
+          {/* Photo Section - Consultation moments */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.3 }}
+            viewport={{ once: true }}
+            className="mt-16 max-w-5xl mx-auto"
+          >
+            <div className="grid md:grid-cols-2 gap-6">
+              <div className="relative aspect-[4/3] rounded-2xl overflow-hidden">
+                <Image
+                  src="/gallery/photo_2025-09-02_03-39-24 (2).jpg"
+                  alt={language === 'ru' ? 'Индивидуальная консультация' : 'Individual consultation'}
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                  quality={85}
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
+                <div className="absolute bottom-4 left-4 right-4">
+                  <p className="text-white text-sm font-medium">
+                    {language === 'ru' ? 'Индивидуальные консультации с представителями школ' : 'Individual consultations with school representatives'}
+                  </p>
+                </div>
+              </div>
+              
+              <div className="relative aspect-[4/3] rounded-2xl overflow-hidden">
+                <Image
+                  src="/gallery/photo_2025-09-02_03-39-25 (4).jpg"
+                  alt={language === 'ru' ? 'Консультация родителей' : 'Parent consultation'}
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                  quality={85}
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
+                <div className="absolute bottom-4 left-4 right-4">
+                  <p className="text-white text-sm font-medium">
+                    {language === 'ru' ? 'Профессиональная помощь в выборе школы' : 'Professional help in choosing a school'}
+                  </p>
+                </div>
+              </div>
+            </div>
+          </motion.div>
         </div>
       </div>
     </section>
