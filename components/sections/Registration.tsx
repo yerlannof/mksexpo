@@ -94,7 +94,7 @@ export default function Registration() {
   };
 
   return (
-    <section id="registration" className="section-padding relative overflow-hidden px-4 sm:px-6 lg:px-8">
+    <section className="section-padding relative overflow-hidden px-4 sm:px-6 lg:px-8">
       {/* Background decorations */}
       <div className="absolute inset-0 z-0">
         <div className="absolute top-1/2 left-1/3 w-64 sm:w-96 h-64 sm:h-96 bg-gradient-to-br from-cyan-500/20 to-blue-500/20 rounded-full filter blur-3xl animate-pulse-slow" />

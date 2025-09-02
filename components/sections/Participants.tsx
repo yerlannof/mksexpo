@@ -113,7 +113,7 @@ export default function Participants() {
   };
   
   return (
-    <section id="participants" className="py-12 sm:py-16 lg:py-20">
+    <section className="py-12 sm:py-16 lg:py-20">
       <div className="container">
         {/* Section Header */}
         <motion.div

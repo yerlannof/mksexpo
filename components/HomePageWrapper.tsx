@@ -165,6 +165,7 @@ export default function HomePageWrapper() {
               return (
                 <div 
                   key={section.id}
+                  id={section.id}
                   ref={el => {
                     if (el) {
                       sectionRefs.current[section.id] = el;

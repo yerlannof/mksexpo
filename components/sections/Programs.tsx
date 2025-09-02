@@ -91,7 +91,7 @@ export default function Programs() {
   const { language } = useLanguage();
 
   return (
-    <section id="programs" className="py-12 sm:py-16 lg:py-20">
+    <section className="py-12 sm:py-16 lg:py-20">
       <div className="container">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

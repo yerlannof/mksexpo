@@ -101,7 +101,7 @@ export default function FAQ() {
   };
 
   return (
-    <section id="faq" className="section-padding relative overflow-hidden px-4 sm:px-6 lg:px-8">
+    <section className="section-padding relative overflow-hidden px-4 sm:px-6 lg:px-8">
       {/* Decorative background elements */}
       <div className="absolute top-20 left-10 w-64 sm:w-96 h-64 sm:h-96 bg-gradient-to-br from-purple-500/10 to-pink-500/10 rounded-full blur-3xl"></div>
       <div className="absolute bottom-20 right-10 w-64 sm:w-96 h-64 sm:h-96 bg-gradient-to-tr from-blue-500/10 to-cyan-500/10 rounded-full blur-3xl"></div>

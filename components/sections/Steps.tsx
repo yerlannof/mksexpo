@@ -59,7 +59,7 @@ export default function Steps() {
   const { t } = useLanguage();
 
   return (
-    <section id="steps" className="section-padding relative overflow-hidden px-4 sm:px-6 lg:px-8">
+    <section className="section-padding relative overflow-hidden px-4 sm:px-6 lg:px-8">
       <div className="container relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
