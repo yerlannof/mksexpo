@@ -18,7 +18,7 @@ export default function Hero() {
 
   useEffect(() => {
     setMounted(true);
-    const targetDate = new Date('2025-10-04T12:00:00');
+    const targetDate = new Date('2025-10-04T13:00:00');
 
     const calculateTimeLeft = () => {
       const difference = targetDate.getTime() - new Date().getTime();
@@ -68,20 +68,39 @@ export default function Hero() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.2 }}
-                className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-secondary/10 to-secondary/20 rounded-full backdrop-blur-sm"
+                className="space-y-4"
               >
-                <span className="text-secondary font-medium">Образование мирового уровня</span>
+                <p className="text-xl text-neutral-700 font-medium">
+                  – ваш шанс сделать правильный выбор для будущего ребенка.
+                </p>
+                <p className="text-lg text-neutral-600 leading-relaxed">
+                  Только здесь у вас будет возможность:
+                </p>
+                <ul className="space-y-2 text-neutral-600">
+                  <li className="flex items-start">
+                    <span className="text-primary mr-2">•</span>
+                    Встретиться лично с представителями лучших частных школ мира.
+                  </li>
+                  <li className="flex items-start">
+                    <span className="text-primary mr-2">•</span>
+                    Узнать все о поступлении, программах и стипендиях напрямую.
+                  </li>
+                  <li className="flex items-start">
+                    <span className="text-primary mr-2">•</span>
+                    Подобрать школу, которая максимально соответствует интересам и целям вашего ребенка.
+                  </li>
+                </ul>
               </motion.div>
               
               <motion.h1 
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.3 }}
-                className="text-5xl md:text-6xl lg:text-7xl font-display font-extrabold leading-tight tracking-tight"
+                className="text-4xl md:text-5xl lg:text-6xl font-display font-extrabold leading-tight tracking-tight"
               >
-                Выставка
-                <span className="gradient-text"> Частные школы </span>
-                за рубежом
+                Выставка<br/>
+                <span className="gradient-text">«Частные школы<br/>
+                за рубежом»</span>
               </motion.h1>
               
               <motion.div 
@@ -91,21 +110,13 @@ export default function Hero() {
                 className="space-y-4 text-lg text-neutral-700"
               >
                 <div className="space-y-2">
-                  <p className="font-medium text-xl">
-                    <span className="text-primary">Астана</span>, 4 октября 2025, 12:00–16:00
-                  </p>
-                  <p className="flex items-center gap-2 text-base">
-                    <MapPin className="w-5 h-5 text-primary" />
-                    Отель «Rixos President Astana»
+                  <p className="font-medium text-lg">
+                    <span className="text-primary">Астана</span> – 04 октября, 13:00-17:00, Hilton Astana Hotel (EXPO)
                   </p>
                 </div>
                 <div className="space-y-2">
-                  <p className="font-medium text-xl">
-                    <span className="text-primary">Алматы</span>, 5 октября 2025, 12:00–16:00
-                  </p>
-                  <p className="flex items-center gap-2 text-base">
-                    <MapPin className="w-5 h-5 text-primary" />
-                    Отель «Rixos Almaty», пр-т Сейфуллина, 506/99
+                  <p className="font-medium text-lg">
+                    <span className="text-primary">Алматы</span> – 05 октября, 13:00-17:00, Rixos Almaty Hotel
                   </p>
                 </div>
               </motion.div>
@@ -142,8 +153,8 @@ export default function Hero() {
                 transition={{ delay: 0.6 }}
                 className="flex flex-col sm:flex-row gap-4"
               >
-                <a href="#registration" className="btn-primary text-center group">
-                  <span>Зарегистрироваться бесплатно</span>
+                <a href="#registration" className="bg-red-600 hover:bg-red-700 text-white px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-300 transform hover:scale-105 inline-flex items-center justify-center shadow-xl hover:shadow-2xl text-center group">
+                  <span>Зарегистрироваться</span>
                   <Calendar className="w-5 h-5 ml-2 group-hover:scale-110 transition-transform" />
                 </a>
                 <a href="#participants" className="btn-outline text-center group">

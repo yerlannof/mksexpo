@@ -54,41 +54,39 @@ export default function Programs() {
   const { language } = useLanguage();
 
   return (
-    <section className="py-16">
+    <section className="py-16 bg-gray-50">
       <div className="container">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="max-w-5xl mx-auto"
+          className="max-w-6xl mx-auto"
         >
-          {/* Minimalist Card */}
-          <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8 md:p-10">
-            <h3 className="text-2xl font-semibold text-white mb-8">
-              {language === 'ru' ? 'Программы обучения в частных школах:' : 'Private School Programs:'}
-            </h3>
-            
-            {/* Programs List */}
-            <div className="space-y-3">
-              {programsData[language].map((category, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, x: -10 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.3, delay: index * 0.05 }}
-                  viewport={{ once: true }}
-                  className="flex items-start gap-3"
-                >
-                  <div className="w-1.5 h-1.5 bg-white/60 rounded-full flex-shrink-0 mt-2" />
-                  <div>
-                    <span className="text-white/90 text-sm">
-                      {category.title} {category.items.join(', ')}
-                    </span>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
+          {/* Header */}
+          <p className="text-gray-700 text-lg mb-12 max-w-4xl">
+            {language === 'ru' 
+              ? 'Присоединяйтесь к крупнейшей выставке частных школ в Алматы, чтобы выбрать подходящую школу и программу обучения:'
+              : 'Join the largest private school exhibition in Almaty to choose the right school and educational program:'}
+          </p>
+          
+          {/* Programs Grid */}
+          <div className="grid md:grid-cols-5 gap-8">
+            {programsData[language].map((category, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.3, delay: index * 0.1 }}
+                viewport={{ once: true }}
+                className="text-left"
+              >
+                <p className="text-gray-900 text-base leading-relaxed">
+                  • <span className="font-medium">{category.title}</span><br/>
+                  <span className="text-gray-700">{category.items.join(', ')}</span>
+                </p>
+              </motion.div>
+            ))}
           </div>
         </motion.div>
       </div>
