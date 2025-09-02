@@ -80,42 +80,69 @@ export default function HeroNew() {
             transition={{ delay: 0.4, duration: 0.8 }}
             className="flex-1 flex justify-center items-center w-full max-w-md lg:max-w-2xl xl:max-w-3xl"
           >
-            <div className="relative w-full grid grid-cols-2 gap-4">
-              {/* First Image */}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.5, duration: 0.8 }}
-                className="relative aspect-[3/4] rounded-2xl overflow-hidden shadow-2xl"
-              >
-                <Image
-                  src="/hero-photo-main.jpg"
-                  alt="Консультация по поступлению в частные школы"
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 768px) 50vw, 25vw"
-                  priority
-                  quality={85}
-                />
-              </motion.div>
-              
-              {/* Second Image */}
-              <motion.div
-                initial={{ opacity: 0, y: -20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.6, duration: 0.8 }}
-                className="relative aspect-[3/4] rounded-2xl overflow-hidden shadow-2xl mt-8"
-              >
-                <Image
-                  src="/gallery/photo_2025-09-02_23-13-02.jpg"
-                  alt="Выставка частных школ"
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 768px) 50vw, 25vw"
-                  priority
-                  quality={85}
-                />
-              </motion.div>
+            <div className="relative w-full">
+              {/* Images Grid */}
+              <div className="grid grid-cols-2 gap-4">
+                {/* First Column */}
+                <div className="space-y-4">
+                  {/* First Image */}
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.5, duration: 0.8 }}
+                    className="relative aspect-[3/4] rounded-2xl overflow-hidden shadow-2xl"
+                  >
+                    <Image
+                      src="/hero-photo-main.jpg"
+                      alt="Консультация по поступлению в частные школы"
+                      fill
+                      className="object-cover"
+                      sizes="(max-width: 768px) 50vw, 25vw"
+                      priority
+                      quality={85}
+                    />
+                  </motion.div>
+                  
+                  {/* Third Image */}
+                  <motion.div
+                    initial={{ opacity: 0, y: 30 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.7, duration: 0.8 }}
+                    className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl"
+                  >
+                    <Image
+                      src="/gallery/photo_2025-09-02_23-15-47.jpg"
+                      alt="Консультации с экспертами"
+                      fill
+                      className="object-cover"
+                      sizes="(max-width: 768px) 50vw, 25vw"
+                      priority
+                      quality={85}
+                    />
+                  </motion.div>
+                </div>
+                
+                {/* Second Column */}
+                <div className="pt-8">
+                  {/* Second Image */}
+                  <motion.div
+                    initial={{ opacity: 0, y: -20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.6, duration: 0.8 }}
+                    className="relative aspect-[3/4] rounded-2xl overflow-hidden shadow-2xl"
+                  >
+                    <Image
+                      src="/gallery/photo_2025-09-02_23-13-02.jpg"
+                      alt="Выставка частных школ"
+                      fill
+                      className="object-cover"
+                      sizes="(max-width: 768px) 50vw, 25vw"
+                      priority
+                      quality={85}
+                    />
+                  </motion.div>
+                </div>
+              </div>
             </div>
           </motion.div>
         </div>
