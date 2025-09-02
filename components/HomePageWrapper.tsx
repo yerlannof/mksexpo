@@ -12,6 +12,10 @@ const HeroNew = dynamic(() => import('@/components/sections/HeroNew'), {
   loading: () => <HeroSkeleton />,
 });
 
+const Opportunities = dynamic(() => import('@/components/sections/Opportunities'), {
+  loading: () => <SectionSkeleton variant="content" />,
+});
+
 const Timeline = dynamic(() => import('@/components/sections/Timeline'), {
   loading: () => <SectionSkeleton variant="list" cardCount={4} />,
 });
@@ -49,6 +53,7 @@ export default function HomePageWrapper() {
   const [isMobile, setIsMobile] = useState(false);
   const [sections, setSections] = useState<SectionState[]>([
     { id: 'hero', isLoaded: false, isVisible: true, component: HeroNew, skeleton: <HeroSkeleton /> },
+    { id: 'opportunities', isLoaded: false, isVisible: false, component: Opportunities, skeleton: <SectionSkeleton variant="content" /> },
     { id: 'participants', isLoaded: false, isVisible: false, component: Participants, skeleton: <SectionSkeleton variant="cards" cardCount={6} /> },
     { id: 'programs', isLoaded: false, isVisible: false, component: Programs, skeleton: <SectionSkeleton variant="cards" cardCount={5} /> },
     { id: 'steps', isLoaded: false, isVisible: false, component: Steps, skeleton: <SectionSkeleton variant="cards" cardCount={6} /> },
