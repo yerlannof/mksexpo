@@ -115,9 +115,17 @@ export const AnimatedButton: React.FC<AnimatedButtonProps> = ({
     // Handle smooth scrolling for anchor links
     if (href && href.startsWith('#')) {
       e.preventDefault();
-      const element = document.querySelector(href);
+      const targetId = href.slice(1);
+      const element = document.getElementById(targetId);
       if (element) {
-        element.scrollIntoView({ behavior: 'smooth' });
+        const headerHeight = 120; // Same as in Header component
+        const elementPosition = element.getBoundingClientRect().top;
+        const offsetPosition = elementPosition + window.pageYOffset - headerHeight;
+        
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: 'smooth'
+        });
       }
     }
     

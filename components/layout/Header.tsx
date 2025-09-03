@@ -10,6 +10,28 @@ export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { language, setLanguage, t } = useLanguage();
 
+  const smoothScrollTo = (e: React.MouseEvent<HTMLAnchorElement>, targetId: string) => {
+    e.preventDefault();
+    
+    // Close mobile menu if open
+    setIsMenuOpen(false);
+    
+    // Find the target element
+    const element = document.getElementById(targetId);
+    if (element) {
+      // Calculate the header height to offset the scroll
+      const headerHeight = 120; // Adjusted for your header (top bar + main nav)
+      const elementPosition = element.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - headerHeight;
+      
+      // Perform smooth scroll
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      });
+    }
+  };
+
   return (
     <header className="fixed top-0 left-0 right-0 bg-white z-50 shadow-sm">
       {/* Top bar */}
@@ -57,22 +79,46 @@ export default function Header() {
 
           {/* Desktop Navigation */}
           <div className="hidden lg:flex items-center space-x-8">
-            <Link href="#opportunities" className="text-neutral-700 hover:text-primary transition-colors font-medium">
+            <Link 
+              href="#opportunities" 
+              onClick={(e) => smoothScrollTo(e, 'opportunities')}
+              className="text-neutral-700 hover:text-primary transition-colors font-medium"
+            >
               {t('nav.opportunities') || 'Возможности'}
             </Link>
-            <Link href="#programs" className="text-neutral-700 hover:text-primary transition-colors font-medium">
+            <Link 
+              href="#programs" 
+              onClick={(e) => smoothScrollTo(e, 'programs')}
+              className="text-neutral-700 hover:text-primary transition-colors font-medium"
+            >
               {t('nav.programs') || 'Программы'}
             </Link>
-            <Link href="#participants" className="text-neutral-700 hover:text-primary transition-colors font-medium">
+            <Link 
+              href="#participants" 
+              onClick={(e) => smoothScrollTo(e, 'participants')}
+              className="text-neutral-700 hover:text-primary transition-colors font-medium"
+            >
               {t('nav.participants')}
             </Link>
-            <Link href="#steps" className="text-neutral-700 hover:text-primary transition-colors font-medium">
+            <Link 
+              href="#steps" 
+              onClick={(e) => smoothScrollTo(e, 'steps')}
+              className="text-neutral-700 hover:text-primary transition-colors font-medium"
+            >
               {t('nav.steps') || 'Как участвовать'}
             </Link>
-            <Link href="#registration" className="text-neutral-700 hover:text-primary transition-colors font-medium">
+            <Link 
+              href="#registration" 
+              onClick={(e) => smoothScrollTo(e, 'registration')}
+              className="text-neutral-700 hover:text-primary transition-colors font-medium"
+            >
               {t('nav.registration')}
             </Link>
-            <Link href="#faq" className="text-neutral-700 hover:text-primary transition-colors font-medium">
+            <Link 
+              href="#faq" 
+              onClick={(e) => smoothScrollTo(e, 'faq')}
+              className="text-neutral-700 hover:text-primary transition-colors font-medium"
+            >
               {t('nav.faq')}
             </Link>
           </div>
@@ -89,7 +135,11 @@ export default function Header() {
               </span>
               <ChevronDown className="w-3 h-3" />
             </button>
-            <Link href="#registration" className="bg-red-600 hover:bg-red-700 text-white px-6 py-2.5 rounded-lg font-medium transition-all hover:shadow-lg flex items-center gap-2">
+            <Link 
+              href="#registration" 
+              onClick={(e) => smoothScrollTo(e, 'registration')}
+              className="bg-red-600 hover:bg-red-700 text-white px-6 py-2.5 rounded-lg font-medium transition-all hover:shadow-lg flex items-center gap-2"
+            >
               <span>Оставить заявку</span>
             </Link>
           </div>
@@ -113,25 +163,53 @@ export default function Header() {
         {isMenuOpen && (
           <div className="md:hidden border-t border-neutral-200 py-4">
             <div className="flex flex-col space-y-4">
-              <Link href="#opportunities" className="text-neutral-700 hover:text-primary transition-colors" onClick={() => setIsMenuOpen(false)}>
+              <Link 
+                href="#opportunities" 
+                onClick={(e) => smoothScrollTo(e, 'opportunities')}
+                className="text-neutral-700 hover:text-primary transition-colors"
+              >
                 {t('nav.opportunities') || 'Возможности'}
               </Link>
-              <Link href="#programs" className="text-neutral-700 hover:text-primary transition-colors" onClick={() => setIsMenuOpen(false)}>
+              <Link 
+                href="#programs" 
+                onClick={(e) => smoothScrollTo(e, 'programs')}
+                className="text-neutral-700 hover:text-primary transition-colors"
+              >
                 {t('nav.programs') || 'Программы'}
               </Link>
-              <Link href="#participants" className="text-neutral-700 hover:text-primary transition-colors" onClick={() => setIsMenuOpen(false)}>
+              <Link 
+                href="#participants" 
+                onClick={(e) => smoothScrollTo(e, 'participants')}
+                className="text-neutral-700 hover:text-primary transition-colors"
+              >
                 {t('nav.participants')}
               </Link>
-              <Link href="#steps" className="text-neutral-700 hover:text-primary transition-colors" onClick={() => setIsMenuOpen(false)}>
+              <Link 
+                href="#steps" 
+                onClick={(e) => smoothScrollTo(e, 'steps')}
+                className="text-neutral-700 hover:text-primary transition-colors"
+              >
                 {t('nav.steps') || 'Как участвовать'}
               </Link>
-              <Link href="#registration" className="text-neutral-700 hover:text-primary transition-colors" onClick={() => setIsMenuOpen(false)}>
+              <Link 
+                href="#registration" 
+                onClick={(e) => smoothScrollTo(e, 'registration')}
+                className="text-neutral-700 hover:text-primary transition-colors"
+              >
                 {t('nav.registration')}
               </Link>
-              <Link href="#faq" className="text-neutral-700 hover:text-primary transition-colors" onClick={() => setIsMenuOpen(false)}>
+              <Link 
+                href="#faq" 
+                onClick={(e) => smoothScrollTo(e, 'faq')}
+                className="text-neutral-700 hover:text-primary transition-colors"
+              >
                 {t('nav.faq')}
               </Link>
-              <Link href="#registration" className="bg-red-600 hover:bg-red-700 text-white px-6 py-2.5 rounded-lg font-medium transition-all text-center" onClick={() => setIsMenuOpen(false)}>
+              <Link 
+                href="#registration" 
+                onClick={(e) => smoothScrollTo(e, 'registration')}
+                className="bg-red-600 hover:bg-red-700 text-white px-6 py-2.5 rounded-lg font-medium transition-all text-center"
+              >
                 Оставить заявку
               </Link>
               <button

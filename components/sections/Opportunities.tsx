@@ -11,13 +11,31 @@ export default function Opportunities() {
     <section className="section-padding">
       <div className="container">
         <div className="grid lg:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
-          {/* Text Column */}
+          {/* Image Column - Left on desktop */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
-            className="text-left order-2 lg:order-1"
+            className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl order-2 lg:order-1"
+          >
+            <Image
+              src="/gallery/photo_2025-09-02_23-10-04.jpg"
+              alt={language === 'ru' ? 'Консультация с представителями школ' : 'Consultation with school representatives'}
+              fill
+              className="object-cover"
+              sizes="(max-width: 768px) 100vw, 50vw"
+              quality={85}
+            />
+          </motion.div>
+
+          {/* Text Column - Right on desktop */}
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+            className="text-left order-1 lg:order-2"
           >
             <h3 className="text-2xl md:text-3xl font-semibold text-white mb-8">
               {language === 'ru' 
@@ -71,24 +89,6 @@ export default function Opportunities() {
               </p>
             </motion.div>
           </div>
-        </motion.div>
-
-        {/* Image Column */}
-        <motion.div
-          initial={{ opacity: 0, x: 30 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
-          className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl order-1 lg:order-2"
-        >
-          <Image
-            src="/gallery/photo_2025-09-02_23-10-04.jpg"
-            alt={language === 'ru' ? 'Консультация с представителями школ' : 'Consultation with school representatives'}
-            fill
-            className="object-cover"
-            sizes="(max-width: 768px) 100vw, 50vw"
-            quality={85}
-          />
         </motion.div>
       </div>
     </div>
