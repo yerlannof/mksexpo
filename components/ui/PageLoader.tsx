@@ -110,76 +110,80 @@ const PageLoader: React.FC<PageLoaderProps> = ({
 
   const renderLogo = () => (
     <motion.div
-      className="flex flex-col items-center space-y-6"
-      initial={{ scale: 0.9, opacity: 0 }}
-      animate={{ scale: 1, opacity: 1 }}
-      transition={{ duration: 0.5 }}
+      className="flex flex-col items-center"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.6 }}
     >
-      {/* MKS Logo */}
+      {/* Modern minimal loader with logo */}
       <div className="relative">
+        {/* Logo container with subtle animation */}
         <motion.div
-          className="h-24 w-24 rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center p-4"
+          className="relative"
           animate={{
-            boxShadow: [
-              '0 0 20px rgba(255,255,255,0.1)',
-              '0 0 40px rgba(255,255,255,0.2)',
-              '0 0 20px rgba(255,255,255,0.1)',
-            ],
+            scale: [1, 1.05, 1],
           }}
           transition={{
-            duration: 2,
+            duration: 2.5,
             repeat: Infinity,
             ease: 'easeInOut',
           }}
         >
           <Image
-            src="/mkslogo.png"
-            alt="M&K Education Logo"
-            width={64}
-            height={64}
-            className="w-full h-full object-contain"
+            src="/mks-white-logo-new.png"
+            alt="M&K Study Centre"
+            width={180}
+            height={80}
+            className="w-[180px] h-auto object-contain"
+            priority
           />
         </motion.div>
         
-        {/* Rotating border */}
-        <motion.div
-          className="absolute inset-0 rounded-2xl"
-          style={{
-            background: 'conic-gradient(from 0deg, transparent 0deg, white 60deg, transparent 120deg)',
-          }}
-          animate={{ rotate: 360 }}
-          transition={{
-            duration: 3,
-            repeat: Infinity,
-            ease: 'linear',
-          }}
-        />
-      </div>
-      
-      {/* Loading text with dots animation */}
-      <div className="flex items-center space-x-1">
-        <span className="text-white text-lg">Loading</span>
-        <motion.span
-          className="flex space-x-1"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-        >
-          {[0, 1, 2].map((index) => (
-            <motion.span
-              key={index}
-              className="text-white text-lg"
-              animate={{ opacity: [0, 1, 0] }}
+        {/* Modern progress line below logo */}
+        <div className="absolute -bottom-8 left-0 right-0">
+          <div className="h-1 w-full bg-white/10 rounded-full overflow-hidden">
+            <motion.div
+              className="h-full bg-gradient-to-r from-white/60 via-white to-white/60"
+              initial={{ x: '-100%' }}
+              animate={{ x: '100%' }}
               transition={{
                 duration: 1.5,
                 repeat: Infinity,
-                delay: index * 0.2,
+                ease: 'easeInOut',
+              }}
+            />
+          </div>
+        </div>
+      </div>
+      
+      {/* Minimalist loading text */}
+      <motion.div
+        className="mt-16 flex items-baseline gap-1"
+        initial={{ opacity: 0, y: 10 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.3 }}
+      >
+        <span className="text-white/70 text-sm font-light tracking-wider">LOADING</span>
+        <motion.div className="flex">
+          {[0, 1, 2].map((index) => (
+            <motion.span
+              key={index}
+              className="text-white/70 text-sm font-light"
+              animate={{ 
+                opacity: [0.3, 1, 0.3],
+              }}
+              transition={{
+                duration: 1.4,
+                repeat: Infinity,
+                delay: index * 0.15,
+                ease: 'easeInOut',
               }}
             >
-              .
+              •
             </motion.span>
           ))}
-        </motion.span>
-      </div>
+        </motion.div>
+      </motion.div>
     </motion.div>
   );
 
@@ -204,13 +208,23 @@ const PageLoader: React.FC<PageLoaderProps> = ({
           exit={{ opacity: 0 }}
           transition={{ duration: 0.3 }}
         >
-          {/* Background pattern */}
+          {/* Modern gradient background */}
           <div className="absolute inset-0 overflow-hidden">
-            <div className="absolute -inset-[10%] opacity-20">
-              <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,white_0%,transparent_50%)]" />
-              <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_20%,white_0%,transparent_50%)]" />
-              <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_80%,white_0%,transparent_50%)]" />
-            </div>
+            <motion.div
+              className="absolute inset-0"
+              animate={{
+                background: [
+                  'radial-gradient(circle at 20% 50%, rgba(255,255,255,0.1) 0%, transparent 50%)',
+                  'radial-gradient(circle at 80% 50%, rgba(255,255,255,0.1) 0%, transparent 50%)',
+                  'radial-gradient(circle at 20% 50%, rgba(255,255,255,0.1) 0%, transparent 50%)',
+                ],
+              }}
+              transition={{
+                duration: 4,
+                repeat: Infinity,
+                ease: 'easeInOut',
+              }}
+            />
           </div>
           
           {/* Content */}
