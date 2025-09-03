@@ -66,7 +66,7 @@ export default function MobileDrawer({ isOpen, onClose }: MobileDrawerProps) {
             className="fixed right-0 top-0 bottom-0 w-80 max-w-[85vw] bg-white shadow-xl z-[61] flex flex-col"
           >
             {/* Header */}
-            <div className="bg-primary px-6 py-5 text-white flex-shrink-0 shadow-lg">
+            <div className="bg-[#1C417A] px-6 py-5 text-white flex-shrink-0 shadow-lg">
               <div className="flex items-center justify-between">
                 <div>
                   <h2 className="text-xl font-bold">M&K Study Centre</h2>
@@ -105,7 +105,7 @@ export default function MobileDrawer({ isOpen, onClose }: MobileDrawerProps) {
                           }} 
                           className="flex items-center gap-4 p-4 hover:bg-gray-50 rounded-xl transition-colors group block"
                         >
-                          <Icon className="w-6 h-6 text-primary group-hover:text-primary-light transition-colors flex-shrink-0" />
+                          <Icon className="w-6 h-6 text-[#1C417A] group-hover:text-[#305FA6] transition-colors flex-shrink-0" />
                           <span className="font-medium text-gray-900 text-lg">
                             {item.label}
                           </span>
@@ -129,8 +129,8 @@ export default function MobileDrawer({ isOpen, onClose }: MobileDrawerProps) {
                     onClick={() => setLanguage('ru')}
                     className={`py-3 px-4 rounded-lg text-sm font-semibold transition-all ${
                       language === 'ru' 
-                        ? 'bg-primary text-white shadow-md' 
-                        : 'bg-white text-gray-600 border border-gray-200 hover:border-primary hover:text-primary'
+                        ? 'bg-[#1C417A] text-white shadow-md' 
+                        : 'bg-white text-gray-600 border border-gray-200 hover:border-[#1C417A] hover:text-[#1C417A]'
                     }`}
                   >
                     Русский
@@ -139,8 +139,8 @@ export default function MobileDrawer({ isOpen, onClose }: MobileDrawerProps) {
                     onClick={() => setLanguage('en')}
                     className={`py-3 px-4 rounded-lg text-sm font-semibold transition-all ${
                       language === 'en' 
-                        ? 'bg-primary text-white shadow-md' 
-                        : 'bg-white text-gray-600 border border-gray-200 hover:border-primary hover:text-primary'
+                        ? 'bg-[#1C417A] text-white shadow-md' 
+                        : 'bg-white text-gray-600 border border-gray-200 hover:border-[#1C417A] hover:text-[#1C417A]'
                     }`}
                   >
                     English
@@ -158,14 +158,14 @@ export default function MobileDrawer({ isOpen, onClose }: MobileDrawerProps) {
                     href="tel:+77012345678" 
                     className="flex items-center gap-4 p-3 hover:bg-gray-50 rounded-lg transition-colors"
                   >
-                    <Phone className="w-5 h-5 text-primary" />
+                    <Phone className="w-5 h-5 text-[#1C417A]" />
                     <span className="text-gray-700 font-medium">+7 (701) 234-56-78</span>
                   </a>
                   <a 
                     href="mailto:info@mkeducation.kz" 
                     className="flex items-center gap-4 p-3 hover:bg-gray-50 rounded-lg transition-colors"
                   >
-                    <Mail className="w-5 h-5 text-primary" />
+                    <Mail className="w-5 h-5 text-[#1C417A]" />
                     <span className="text-gray-700 font-medium">info@mkeducation.kz</span>
                   </a>
                 </div>

@@ -13,8 +13,8 @@ export default function HeaderSimple() {
   const { language, setLanguage, t } = useLanguage();
 
   return (
-    <header className="fixed top-0 w-full bg-primary z-50 shadow-md">
-      <div className="container px-4 sm:px-6">
+    <header className="fixed top-0 w-full bg-[#1C417A] z-50 shadow-md">
+      <div className="w-full px-4 sm:px-6 max-w-7xl mx-auto">
         <nav className="flex items-center justify-between h-16 sm:h-20">
           {/* Logo */}
           <Link href="/" className="flex items-center group">
@@ -41,21 +41,28 @@ export default function HeaderSimple() {
             </a>
           </div>
 
-          {/* Mobile Controls */}
+          {/* Mobile Controls - High contrast and visibility */}
           <div className="flex md:hidden items-center gap-3">
             <button
               onClick={() => setLanguage(language === 'ru' ? 'en' : 'ru')}
-              className="flex items-center gap-1 px-3 py-2 text-sm font-medium text-white bg-white/20 rounded-lg hover:bg-white/30 transition-colors border border-white/30"
+              className="relative flex items-center gap-1.5 px-4 py-2.5 text-sm font-bold text-[#1C417A] bg-white rounded-lg"
+              style={{ 
+                boxShadow: '0 0 0 2px rgba(255,255,255,0.3), 0 4px 12px rgba(0,0,0,0.3)',
+                minWidth: '60px'
+              }}
             >
-              <Globe className="w-4 h-4" />
-              <span className="font-semibold">{language === 'ru' ? 'RU' : 'EN'}</span>
+              <Globe className="w-4 h-4 flex-shrink-0" />
+              <span>{language === 'ru' ? 'RU' : 'EN'}</span>
             </button>
             <button
               onClick={() => setIsMenuOpen(true)}
-              className="p-2.5 rounded-lg bg-white/20 hover:bg-white/30 transition-colors border border-white/30"
+              className="relative p-3 rounded-lg bg-white text-[#1C417A]"
+              style={{ 
+                boxShadow: '0 0 0 2px rgba(255,255,255,0.3), 0 4px 12px rgba(0,0,0,0.3)' 
+              }}
               aria-label="Open menu"
             >
-              <Menu className="w-6 h-6 text-white" strokeWidth={2.5} />
+              <Menu className="w-6 h-6" strokeWidth={3} />
             </button>
           </div>
 
