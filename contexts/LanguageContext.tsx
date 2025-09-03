@@ -30,7 +30,7 @@ const translations = {
     'hero.subtitle': 'Частные школы',
     'hero.subtitle2': '',
     'hero.title.main': 'Выставка\n«Частные школы\nза рубежом»',
-    'hero.subtitle.main': '– ваш шанс сделать правильный выбор для будущего ребенка.',
+    'hero.subtitle.main': '',
     'hero.dates': '04 октября – Астана, 13:00-17:00, Hilton Astana Hotel (EXPO)\n05 октября – Алматы, 13:00-17:00, Rixos Almaty Hotel',
     'hero.subtitle.desc': '',
     'hero.cta.apply': 'Зарегистрироваться',
@@ -74,8 +74,8 @@ const translations = {
     'timeline.schedule.specialoffers.desc': 'Эксклюзивные условия для участников выставки',
     
     // Participants
-    'participants.title': 'Школы',
-    'participants.title.highlight': 'участники',
+    'participants.title': 'Школы -',
+    'participants.title.highlight': 'участники выставки',
     'participants.subtitle': 'Встретьтесь с представителями ведущих частных школ',
     
     // Steps
@@ -150,7 +150,7 @@ const translations = {
     // FAQ
     'faq.title': 'Часто задаваемые',
     'faq.title.highlight': 'вопросы',
-    'faq.subtitle': 'Ответы на популярные вопросы о выставке',
+    'faq.subtitle': 'ответы на популярные вопросы о выставке',
     
     // Footer
     'footer.about': 'О компании',
@@ -266,8 +266,8 @@ const translations = {
     'timeline.subtitle': 'An eventful day that will change your child\'s future',
     
     // Participants
-    'participants.title': 'Exhibition',
-    'participants.title.highlight': 'participants',
+    'participants.title': 'Schools -',
+    'participants.title.highlight': 'exhibition participants',
     'participants.subtitle': "The world's best private schools in one place",
     
     // Testimonials

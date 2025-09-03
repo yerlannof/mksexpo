@@ -39,6 +39,9 @@ export default function HeaderSimple() {
             <a href="#faq" className="text-white/90 hover:text-white transition-colors">
               FAQ
             </a>
+            <a href="#registration" className="text-white/90 hover:text-white transition-colors">
+              {language === 'ru' ? 'Регистрация' : 'Registration'}
+            </a>
           </div>
 
           {/* Mobile Controls - High contrast and visibility */}

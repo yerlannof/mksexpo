@@ -3,7 +3,7 @@
 import { motion } from 'framer-motion';
 
 interface SectionDividerProps {
-  variant?: 'gradient' | 'dots' | 'wave' | 'none';
+  variant?: 'gradient' | 'dots' | 'wave' | 'ornament' | 'fade' | 'none';
   className?: string;
 }
 
@@ -12,45 +12,86 @@ export default function SectionDivider({ variant = 'gradient', className = '' }:
 
   const dividerVariants = {
     gradient: (
-      <div className="h-px bg-gradient-to-r from-transparent via-white/20 to-transparent" />
+      <motion.div
+        initial={{ opacity: 0, scaleX: 0 }}
+        whileInView={{ opacity: 1, scaleX: 1 }}
+        transition={{ duration: 0.8, ease: "easeOut" }}
+        viewport={{ once: true }}
+        className="h-px bg-gradient-to-r from-transparent via-white/20 to-transparent"
+      />
     ),
     dots: (
-      <div className="flex justify-center items-center space-x-2 py-8">
+      <div className="flex justify-center items-center gap-3">
         {[...Array(3)].map((_, i) => (
           <motion.div
             key={i}
-            className="w-1.5 h-1.5 bg-white/30 rounded-full"
+            className="w-1.5 h-1.5 bg-white/40 rounded-full"
             initial={{ opacity: 0, scale: 0 }}
             whileInView={{ opacity: 1, scale: 1 }}
-            transition={{ delay: i * 0.1, duration: 0.3 }}
+            transition={{ delay: i * 0.1, duration: 0.4, type: "spring" }}
             viewport={{ once: true }}
           />
         ))}
       </div>
     ),
     wave: (
-      <div className="relative h-16 overflow-hidden">
+      <div className="relative h-12 overflow-hidden">
         <svg
-          className="absolute bottom-0 w-full h-full text-white/10"
+          className="absolute inset-0 w-full h-full"
           preserveAspectRatio="none"
-          viewBox="0 0 1200 120"
-          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 1200 60"
         >
           <motion.path
-            d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z"
-            fill="currentColor"
-            initial={{ pathLength: 0 }}
-            whileInView={{ pathLength: 1 }}
+            d="M0,30 Q300,5 600,30 T1200,30"
+            fill="none"
+            stroke="rgba(255,255,255,0.15)"
+            strokeWidth="2"
+            initial={{ pathLength: 0, opacity: 0 }}
+            whileInView={{ pathLength: 1, opacity: 1 }}
             transition={{ duration: 1.5, ease: "easeInOut" }}
             viewport={{ once: true }}
           />
         </svg>
       </div>
+    ),
+    ornament: (
+      <div className="flex items-center justify-center gap-4">
+        <motion.div
+          initial={{ scaleX: 0 }}
+          whileInView={{ scaleX: 1 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+          className="h-px w-24 bg-gradient-to-r from-transparent to-white/20"
+        />
+        <motion.div
+          initial={{ scale: 0, rotate: 0 }}
+          whileInView={{ scale: 1, rotate: 45 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          viewport={{ once: true }}
+          className="w-2 h-2 bg-white/30 transform"
+        />
+        <motion.div
+          initial={{ scaleX: 0 }}
+          whileInView={{ scaleX: 1 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+          className="h-px w-24 bg-gradient-to-l from-transparent to-white/20"
+        />
+      </div>
+    ),
+    fade: (
+      <motion.div
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        transition={{ duration: 1 }}
+        viewport={{ once: true }}
+        className="h-16 bg-gradient-to-b from-white/5 via-transparent to-transparent"
+      />
     )
   };
 
   return (
-    <div className={`relative ${className}`}>
+    <div className={`relative py-1 sm:py-2 lg:py-2 ${className}`}>
       {dividerVariants[variant]}
     </div>
   );

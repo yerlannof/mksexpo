@@ -5,7 +5,6 @@ import { motion } from 'framer-motion';
 import { useLanguage } from '@/contexts/LanguageContext';
 import AnimatedButton from '@/components/ui/AnimatedButton';
 import { useToast } from '@/hooks/useToast';
-import YouTubeSlider from '@/components/ui/YouTubeSlider';
 
 export default function Registration() {
   const { t, language } = useLanguage();
@@ -109,10 +108,10 @@ export default function Registration() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
-            className="text-center mb-8 sm:mb-12 space-y-4"
+            className="text-center mb-8 space-y-2"
           >
-            <h2 className="text-lg sm:text-xl md:text-2xl font-display font-bold text-white">
-              {t('registration.title')} <span className="text-white">{t('registration.title.highlight')}</span>
+            <h2 className="text-lg md:text-xl lg:text-2xl font-semibold text-white">
+              {t('registration.title')} <span className="text-white/80">{t('registration.title.highlight')}</span>
             </h2>
           </motion.div>
 
@@ -243,15 +242,13 @@ export default function Registration() {
               <label className="block text-sm font-medium text-white/90 mb-4">
                 {t('registration.programs')}
               </label>
-              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-3">
-                {[
-                  { key: 'gcse', label: 'GCSE и A-level (UK)' },
-                  { key: 'ib', label: t('registration.programs.ib') },
-                  { key: 'ap', label: t('registration.programs.ap') },
-                  { key: 'summer', label: t('registration.programs.summer') },
-                  { key: 'language', label: t('registration.programs.language') },
-                  { key: 'undecided', label: language === 'ru' ? 'Не определился' : 'Not decided' },
-                ].map((program) => (
+              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-x-6 gap-y-3">
+                <div className="space-y-3">
+                  {[
+                    { key: 'gcse', label: 'GCSE и A-level (UK)' },
+                    { key: 'ap', label: t('registration.programs.ap') },
+                    { key: 'ib', label: t('registration.programs.ib') },
+                  ].map((program) => (
                   <label key={program.key} className="flex items-center space-x-3 cursor-pointer group">
                     <input
                       type="checkbox"
@@ -261,7 +258,25 @@ export default function Registration() {
                     />
                     <span className="text-white/80 group-hover:text-white transition-colors">{program.label}</span>
                   </label>
-                ))}
+                  ))}
+                </div>
+                <div className="space-y-3">
+                  {[
+                    { key: 'university', label: language === 'ru' ? 'Предуниверситетские программы' : 'Pre-University Programs' },
+                    { key: 'holiday', label: language === 'ru' ? 'Каникулярные программы' : 'Holiday Programs' },
+                    { key: 'undecided', label: language === 'ru' ? 'Не определился' : 'Not decided' },
+                  ].map((program) => (
+                    <label key={program.key} className="flex items-center space-x-3 cursor-pointer group">
+                      <input
+                        type="checkbox"
+                        checked={formData.programs.includes(program.key)}
+                        onChange={() => handleCheckboxChange(program.key)}
+                        className="w-5 h-5 rounded backdrop-blur-sm bg-white/10 border-2 border-white/30 text-blue-600 focus:ring-2 focus:ring-white/30 focus:ring-offset-0 transition-all checked:bg-gradient-to-br checked:from-blue-500 checked:to-purple-500 checked:border-transparent"
+                      />
+                      <span className="text-white/80 group-hover:text-white transition-colors">{program.label}</span>
+                    </label>
+                  ))}
+                </div>
               </div>
             </div>
 
@@ -293,20 +308,39 @@ export default function Registration() {
             </div>
           </motion.form>
 
-          {/* Video Section */}
+          {/* Questions Section */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.3 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
             viewport={{ once: true }}
-            className="mt-16"
+            className="mt-16 text-center"
           >
-            <h3 className="text-base md:text-lg font-semibold text-white text-center mb-8">
+            <h2 className="text-lg md:text-xl lg:text-2xl font-semibold text-white mb-4">
+              {language === 'ru' ? 'Остались вопросы?' : 'Have questions?'}
+            </h2>
+            
+            <p className="text-base sm:text-lg text-white/80 mb-10">
               {language === 'ru' 
-                ? 'Посмотрите как проходят наши выставки'
-                : 'See how our exhibitions take place'}
-            </h3>
-            <YouTubeSlider />
+                ? 'Напишите нам в WhatsApp - мы с радостью ответим вам'
+                : 'Write to us on WhatsApp - we will be happy to answer you'}
+            </p>
+            
+            <div className="flex justify-center">
+              <motion.a
+                href="https://wa.me/77771110808"
+                target="_blank"
+                rel="noopener noreferrer"
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+                className="inline-flex items-center justify-center gap-3 px-6 py-4 bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl hover:bg-white/20 transition-all text-white font-medium"
+              >
+                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+                </svg>
+                <span>+7 777 111 08 08</span>
+              </motion.a>
+            </div>
           </motion.div>
         </div>
       </div>

@@ -24,12 +24,16 @@ export default function Participants() {
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
   
   // Количество видимых школ в зависимости от размера экрана
-  const [visibleCount, setVisibleCount] = useState(1);
+  const [visibleCount, setVisibleCount] = useState(typeof window !== 'undefined' && window.innerWidth < 768 ? 1 : 3);
   
   useEffect(() => {
     const handleResize = () => {
-      // Всегда показываем только 1 школу
-      setVisibleCount(1);
+      // Показываем 1 школу на мобильных и 3 на десктопе
+      if (window.innerWidth < 768) {
+        setVisibleCount(1);
+      } else {
+        setVisibleCount(3);
+      }
     };
     
     handleResize();
@@ -69,16 +73,24 @@ export default function Participants() {
   };
   
   return (
-    <section id="participants" className="py-10 sm:py-12 lg:py-16">
-      {/* Registration Button */}
+    <section id="participants" className="py-6 sm:py-8 lg:py-10">
+      {/* Registration Button and Organizer */}
       <div className="container mb-12">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="flex justify-center"
+          className="flex flex-col lg:flex-row items-center justify-center gap-6"
         >
+          {/* Organizer Info - Left side on desktop */}
+          <div className="flex flex-col items-center gap-1 p-4 bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl">
+            <p className="text-xs text-white/60 uppercase tracking-wider">{t('participants.organizer')}</p>
+            <h4 className="font-display font-bold text-lg text-white">M&K Study Centre</h4>
+            <p className="text-white/70 text-sm">{language === 'ru' ? '27 лет успешной работы в образовании' : '27 years of successful work in education'}</p>
+          </div>
+          
+          {/* Registration Button - Right side on desktop */}
           <a
             href="#registration"
             className="inline-flex items-center justify-center px-8 py-4 text-base font-medium text-white bg-gradient-to-r from-red-600 to-red-700 rounded-xl hover:from-red-700 hover:to-red-800 transform hover:-translate-y-0.5 transition-all duration-300 shadow-lg hover:shadow-xl"
@@ -97,7 +109,7 @@ export default function Participants() {
           viewport={{ once: true }}
           className="text-center mb-8 space-y-2"
         >
-          <h2 className="text-xl md:text-2xl lg:text-3xl font-display font-bold text-white">
+          <h2 className="text-lg md:text-xl lg:text-2xl font-semibold text-white">
             {t('participants.title')} <span className="text-white/80">{t('participants.title.highlight')}</span>
           </h2>
         </motion.div>
@@ -136,44 +148,42 @@ export default function Participants() {
                     animate={{ opacity: 1, scale: 1 }}
                     exit={{ opacity: 0, scale: 0.8 }}
                     transition={{ duration: 0.3 }}
-                    className={`flex-1 min-w-0 ${visibleCount === 1 ? 'w-full' : ''}`}
+                    className={`flex-1 min-w-0 ${visibleCount === 1 ? 'w-full' : visibleCount === 2 ? 'w-1/2' : 'w-1/3'}`}
                   >
                     <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl overflow-hidden hover:bg-white/[0.07] transition-all duration-300 h-full">
-                      <div className="flex flex-col md:flex-row items-center p-6 gap-6">
-                        {/* School Image - Horizontal format */}
-                        <div className="relative w-64 h-48 md:w-80 md:h-52 flex-shrink-0 rounded-xl overflow-hidden">
+                      {/* School Image - Full width */}
+                      <div className={`relative w-full ${visibleCount === 3 ? 'h-40 md:h-48' : visibleCount === 2 ? 'h-48 md:h-56' : 'h-56 md:h-64'}`}>
                           <Image
                             src={school.image || placeholderImage}
                             alt=""
                             fill
                             className="object-cover"
-                            sizes="(max-width: 768px) 256px, 320px"
+                            sizes="(max-width: 768px) 100vw, 33vw"
                             quality={85}
                             onError={(e) => {
                               e.currentTarget.src = placeholderImage;
                             }}
                           />
-                        </div>
-                        
-                        {/* School Info */}
-                        <div className="flex-1 text-left">
+                      </div>
+                      
+                      {/* School Info */}
+                      <div className={`${visibleCount === 3 ? 'p-3' : visibleCount === 2 ? 'p-4' : 'p-5'}`}>
                           {/* School Name */}
-                          <h3 className="text-2xl font-semibold text-white mb-1">
+                          <h3 className={`font-semibold text-white mb-1 ${visibleCount === 3 ? 'text-base md:text-lg' : visibleCount === 2 ? 'text-lg md:text-xl' : 'text-xl md:text-2xl'}`}>
                             {school.name}
                           </h3>
                           
                           {/* Country Name */}
-                          <p className="text-base text-white/70 mb-2">
+                          <p className={`text-white/70 mb-2 ${visibleCount === 3 ? 'text-xs' : visibleCount === 2 ? 'text-sm' : 'text-base'}`}>
                             {language === 'ru' ? school.countryName : school.countryNameEn}
                           </p>
                           
                           {/* School Description */}
                           {school.description && (
-                            <p className="text-sm leading-snug text-white/80">
+                            <p className={`text-white/80 mt-3 ${visibleCount === 3 ? 'text-xs leading-relaxed' : visibleCount === 2 ? 'text-xs leading-relaxed' : 'text-sm leading-relaxed'}`}>
                               {language === 'ru' ? school.description.ru : school.description.en}
                             </p>
                           )}
-                        </div>
                       </div>
                     </div>
                   </motion.div>
@@ -201,54 +211,6 @@ export default function Participants() {
             ))}
           </div>
         </div>
-
-        {/* Organizer Section - Minimalist */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.3 }}
-          viewport={{ once: true }}
-          className="mt-10 text-center"
-        >
-          <div className="inline-flex flex-col items-center gap-2 p-6 bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl">
-            <p className="text-sm text-white/60 uppercase tracking-wider">{t('participants.organizer')}</p>
-            <h4 className="font-display font-bold text-xl text-white">M&K Study Centre</h4>
-            <p className="text-white/70 text-base">{language === 'ru' ? '27 лет успешной работы в образовании' : '27 years of successful work in education'}</p>
-          </div>
-        </motion.div>
-
-        {/* Photo Section - Representatives */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.4 }}
-          viewport={{ once: true }}
-          className="mt-12 max-w-5xl mx-auto"
-        >
-          <div className="grid md:grid-cols-2 gap-6">
-            <div className="relative aspect-[4/3] rounded-2xl overflow-hidden">
-              <Image
-                src="/gallery/photo_2025-09-02_03-39-27.jpg"
-                alt=""
-                fill
-                className="object-cover"
-                sizes="(max-width: 768px) 100vw, 50vw"
-                quality={85}
-              />
-            </div>
-            
-            <div className="relative aspect-[4/3] rounded-2xl overflow-hidden">
-              <Image
-                src="/gallery/photo_2025-09-02_23-15-47.jpg"
-                alt=""
-                fill
-                className="object-cover"
-                sizes="(max-width: 768px) 100vw, 50vw"
-                quality={85}
-              />
-            </div>
-          </div>
-        </motion.div>
       </div>
     </section>
   );

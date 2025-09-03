@@ -24,7 +24,7 @@ export default function Footer() {
     }
   };
   return (
-    <footer className="bg-neutral-900 text-white">
+    <footer className="bg-[#1C417A] text-white">
       <div className="container py-12">
         <div className="grid md:grid-cols-4 gap-8">
           {/* Company Info */}

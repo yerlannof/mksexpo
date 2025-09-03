@@ -92,12 +92,6 @@ export default function YouTubeSlider() {
         ))}
       </div>
 
-      {/* Video Title */}
-      <div className="text-center mt-4">
-        <p className="text-white/80 text-sm">
-          {videos[currentIndex].title}
-        </p>
-      </div>
     </div>
   );
 }

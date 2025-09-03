@@ -6,6 +6,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import PageLoader from '@/components/ui/PageLoader';
 import HeroSkeleton from '@/components/skeletons/HeroSkeleton';
 import SectionSkeleton from '@/components/skeletons/SectionSkeleton';
+import SectionDivider from '@/components/ui/SectionDivider';
 
 // Dynamically import sections with loading states
 const HeroNew = dynamic(() => import('@/components/sections/HeroNew'), {
@@ -36,6 +37,18 @@ const FAQ = dynamic(() => import('@/components/sections/FAQ'), {
   loading: () => <SectionSkeleton variant="faq" />,
 });
 
+const Contact = dynamic(() => import('@/components/sections/Contact'), {
+  loading: () => <SectionSkeleton variant="content" />,
+});
+
+const PhotoGallery = dynamic(() => import('@/components/sections/PhotoGallery'), {
+  loading: () => <SectionSkeleton variant="content" />,
+});
+
+const YouTubeSection = dynamic(() => import('@/components/sections/YouTubeSection'), {
+  loading: () => <SectionSkeleton variant="content" />,
+});
+
 interface SectionState {
   id: string;
   isLoaded: boolean;
@@ -52,8 +65,9 @@ export default function HomePageWrapper() {
     { id: 'opportunities', isLoaded: false, isVisible: false, component: Opportunities, skeleton: <SectionSkeleton variant="content" /> },
     { id: 'programs', isLoaded: false, isVisible: false, component: Programs, skeleton: <SectionSkeleton variant="cards" cardCount={5} /> },
     { id: 'participants', isLoaded: false, isVisible: false, component: Participants, skeleton: <SectionSkeleton variant="cards" cardCount={6} /> },
-    { id: 'registration', isLoaded: false, isVisible: false, component: Registration, skeleton: <SectionSkeleton variant="content" /> },
     { id: 'faq', isLoaded: false, isVisible: false, component: FAQ, skeleton: <SectionSkeleton variant="faq" /> },
+    { id: 'youtube', isLoaded: false, isVisible: false, component: YouTubeSection, skeleton: <SectionSkeleton variant="content" /> },
+    { id: 'registration', isLoaded: false, isVisible: false, component: Registration, skeleton: <SectionSkeleton variant="content" /> },
   ]);
 
   const sectionRefs = useRef<{ [key: string]: HTMLDivElement | null }>({});
@@ -154,43 +168,52 @@ export default function HomePageWrapper() {
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5 }}
           >
-            {sections.map((section) => {
+            {sections.map((section, index) => {
               const Component = section.component;
               
+              // Определяем вариант разделителя для каждой секции
+              const dividerVariants = ['gradient', 'wave', 'ornament', 'gradient'];
+              const dividerVariant = dividerVariants[index % dividerVariants.length];
+              
               return (
-                <div 
-                  key={section.id}
-                  id={section.id}
-                  ref={el => {
-                    if (el) {
-                      sectionRefs.current[section.id] = el;
-                    }
-                  }}
-                  className="relative"
-                >
-                  <AnimatePresence mode="wait">
-                    {!section.isLoaded && section.isVisible ? (
-                      <motion.div
-                        key={`${section.id}-skeleton`}
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        exit={{ opacity: 0 }}
-                        transition={{ duration: 0.3 }}
-                      >
-                        {section.skeleton}
-                      </motion.div>
-                    ) : section.isLoaded ? (
-                      <motion.div
-                        key={`${section.id}-content`}
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        transition={{ duration: 0.5 }}
-                      >
-                        <Component />
-                      </motion.div>
-                    ) : null}
-                  </AnimatePresence>
-                </div>
+                <React.Fragment key={section.id}>
+                  <div 
+                    id={section.id}
+                    ref={el => {
+                      if (el) {
+                        sectionRefs.current[section.id] = el;
+                      }
+                    }}
+                    className="relative"
+                  >
+                    <AnimatePresence mode="wait">
+                      {!section.isLoaded && section.isVisible ? (
+                        <motion.div
+                          key={`${section.id}-skeleton`}
+                          initial={{ opacity: 0 }}
+                          animate={{ opacity: 1 }}
+                          exit={{ opacity: 0 }}
+                          transition={{ duration: 0.3 }}
+                        >
+                          {section.skeleton}
+                        </motion.div>
+                      ) : section.isLoaded ? (
+                        <motion.div
+                          key={`${section.id}-content`}
+                          initial={{ opacity: 0 }}
+                          animate={{ opacity: 1 }}
+                          transition={{ duration: 0.5 }}
+                        >
+                          <Component />
+                        </motion.div>
+                      ) : null}
+                    </AnimatePresence>
+                  </div>
+                  {/* Добавляем разделитель после каждой секции, кроме последней */}
+                  {index < sections.length - 1 && section.isLoaded && (
+                    <SectionDivider variant={dividerVariant as any} />
+                  )}
+                </React.Fragment>
               );
             })}
           </motion.div>

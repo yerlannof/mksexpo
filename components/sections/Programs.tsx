@@ -34,16 +34,16 @@ const programsData = {
       color: 'from-purple-500 to-purple-600'
     },
     {
-      title: 'Языковые экзамены',
-      subtitle: 'TOEFL, PTE, IELTS, SAT, CAT',
-      description: 'Подготовка к международным языковым сертификатам',
+      title: 'Каникулярные программы',
+      subtitle: 'Summer Schools, Language Camps, Academic Programs',
+      description: 'Краткосрочные учебные и языковые курсы, которые совмещают изучение английского, спорт, творчество и путешествия, помогая детям развивать навыки и открывать новые культуры',
       icon: Languages,
       color: 'from-teal-500 to-teal-600'
     },
     {
       title: 'Подготовка к университету',
-      subtitle: 'Foundation Programs, Pre-University GAP Program, International Foundation Year, University Pathway Programs',
-      description: 'Программы для выпускников 11 классов Казахстана, которые помогают адаптироваться к системе зарубежного образования. Включают академические предметы, интенсивный английский и подготовку к поступлению в университеты по всему миру. Программы для успешного поступления в топовые вузы',
+      subtitle: 'Foundation, Pre-University GAP Program, International Foundation Year, University Pathway Programs',
+      description: 'Программы для выпускников 11 классов Казахстана, которые помогают адаптироваться и успешно поступить в топовые ВУЗы',
       icon: TrendingUp,
       color: 'from-amber-500 to-amber-600'
     }
@@ -71,16 +71,16 @@ const programsData = {
       color: 'from-purple-500 to-purple-600'
     },
     {
-      title: 'Language Exams',
-      subtitle: 'TOEFL, PTE, IELTS, SAT, CAT',
-      description: 'Preparation for international language certificates',
+      title: 'Holiday Programs',
+      subtitle: 'Summer Schools, Language Camps, Academic Programs',
+      description: 'Short-term educational and language courses that combine English study, sports, creativity and travel, helping children develop skills and discover new cultures',
       icon: Languages,
       color: 'from-teal-500 to-teal-600'
     },
     {
       title: 'University Preparation',
-      subtitle: 'Foundation Programs, Pre-University GAP Program, International Foundation Year, University Pathway Programs',
-      description: 'Programs for 11th grade graduates from Kazakhstan that help adapt to foreign education systems. Include academic subjects, intensive English and university admission preparation worldwide',
+      subtitle: 'Foundation, Pre-University GAP Program, International Foundation Year, University Pathway Programs',
+      description: 'Programs for 11th grade graduates from Kazakhstan that help adapt and successfully enter top universities',
       icon: TrendingUp,
       color: 'from-amber-500 to-amber-600'
     }
@@ -91,7 +91,7 @@ export default function Programs() {
   const { language } = useLanguage();
 
   return (
-    <section id="programs" className="py-10 sm:py-12 lg:py-16">
+    <section id="programs" className="py-6 sm:py-8 lg:py-10">
       <div className="container">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -102,11 +102,11 @@ export default function Programs() {
         >
           {/* Section Header - Title removed, keeping description */}
           <div className="text-center mb-8">
-            <p className="text-white/80 text-base sm:text-lg max-w-3xl mx-auto">
+            <h3 className="text-lg md:text-xl lg:text-2xl font-semibold text-white mx-auto">
               {language === 'ru' 
-                ? 'Выберите подходящую программу обучения для вашего ребенка'
+                ? 'Выберите программу обучения для вашего ребенка'
                 : 'Choose the right educational program for your child'}
-            </p>
+            </h3>
           </div>
           
           {/* Programs Grid */}

@@ -13,6 +13,18 @@ export interface School {
 
 export const schoolsData: School[] = [
   { 
+    name: "St. Clare's Oxford", 
+    country: 'GB', 
+    countryName: 'Великобритания', 
+    countryNameEn: 'United Kingdom', 
+    initials: 'SCO',
+    image: "/schools/St-Clares-Oxford.jpg",
+    description: {
+      ru: 'Международный колледж в Оксфорде, один из пионеров программы IB в Европе с 1977 года. В среднем студенты IB получают 36 баллов (мировой средний — 30), а выпускники поступают в Russell Group, Ivy League и другие ведущие университеты. Небольшие классы (макс. 12 человек) и акцент на критическое мышление.',
+      en: 'International college in Oxford, one of the pioneers of the IB program in Europe since 1977. On average, IB students receive 36 points (world average - 30), and graduates enter Russell Group, Ivy League and other leading universities. Small classes (max. 12 people) and emphasis on critical thinking.'
+    }
+  },
+  { 
     name: 'Vertex School', 
     country: 'AE', 
     countryName: 'ОАЭ', 
@@ -49,7 +61,7 @@ export const schoolsData: School[] = [
     }
   },
   { 
-    name: 'Mander Portman Woodward (MPW)', 
+    name: 'Mander Portman Woodward', 
     country: 'GB', 
     countryName: 'Великобритания', 
     countryNameEn: 'United Kingdom', 
@@ -60,20 +72,8 @@ export const schoolsData: School[] = [
       en: 'Prestigious colleges in London, Cambridge and Birmingham with maximum flexibility of study. Specialization in A-level, GCSE preparation and university admission. 92% of students receive A*-B at A-level. Individual study plans and classes in mini-groups of up to 8 people.'
     }
   },
-  { 
-    name: "St. Clare's Oxford", 
-    country: 'GB', 
-    countryName: 'Великобритания', 
-    countryNameEn: 'United Kingdom', 
-    initials: 'SCO',
-    image: "/schools/St-Clares-Oxford.jpg",
-    description: {
-      ru: 'Международный колледж в Оксфорде, один из пионеров программы IB в Европе с 1977 года. В среднем студенты IB получают 36 баллов (мировой средний — 30), а выпускники поступают в Russell Group, Ivy League и другие ведущие университеты. Небольшие классы (макс. 12 человек) и акцент на критическое мышление.',
-      en: 'International college in Oxford, one of the pioneers of the IB program in Europe since 1977. On average, IB students receive 36 points (world average - 30), and graduates enter Russell Group, Ivy League and other leading universities. Small classes (max. 12 people) and emphasis on critical thinking.'
-    }
-  },
   {
-    name: 'North Broward Preparatory School',
+    name: 'North Broward Preparatory School (Fort Lauderdale, Florida)',
     country: 'US',
     countryName: 'США',
     countryNameEn: 'USA',
@@ -85,7 +85,7 @@ export const schoolsData: School[] = [
     }
   },
   {
-    name: 'Windermere Preparatory School',
+    name: 'Windermere Preparatory School (Orlando, Florida)',
     country: 'US',
     countryName: 'США',
     countryNameEn: 'USA',
@@ -97,7 +97,7 @@ export const schoolsData: School[] = [
     }
   },
   {
-    name: 'The Village School',
+    name: 'The Village School (Houston, Texas)',
     country: 'US',
     countryName: 'США',
     countryNameEn: 'USA',
@@ -121,7 +121,7 @@ export const schoolsData: School[] = [
     }
   },
   {
-    name: 'Collège Champittet',
+    name: 'Collège Champittet (Lausanne)',
     country: 'CH',
     countryName: 'Швейцария',
     countryNameEn: 'Switzerland',
@@ -133,7 +133,7 @@ export const schoolsData: School[] = [
     }
   },
   {
-    name: 'Collège du Léman',
+    name: 'Collège du Léman (Geneva)',
     country: 'CH',
     countryName: 'Швейцария',
     countryNameEn: 'Switzerland',
@@ -145,7 +145,7 @@ export const schoolsData: School[] = [
     }
   },
   {
-    name: 'Hamelin-Laie International School',
+    name: 'Hamelin-Laie International School (Montgat)',
     country: 'ES',
     countryName: 'Испания',
     countryNameEn: 'Spain',
@@ -157,7 +157,7 @@ export const schoolsData: School[] = [
     }
   },
   {
-    name: 'H-Farm School',
+    name: 'H-Farm School (Vicenza)',
     country: 'IT',
     countryName: 'Италия',
     countryNameEn: 'Italy',
@@ -169,7 +169,7 @@ export const schoolsData: School[] = [
     }
   },
   {
-    name: "d'Overbroeck's",
+    name: "d'Overbroeck's (Oxford)",
     country: 'GB',
     countryName: 'Великобритания',
     countryNameEn: 'United Kingdom',
@@ -181,7 +181,7 @@ export const schoolsData: School[] = [
     }
   },
   {
-    name: 'Oxford International College',
+    name: 'Oxford International College (Oxford)',
     country: 'GB',
     countryName: 'Великобритания',
     countryNameEn: 'United Kingdom',
@@ -193,7 +193,7 @@ export const schoolsData: School[] = [
     }
   },
   {
-    name: 'Oxford International College Brighton',
+    name: 'Oxford International College Brighton (Brighton)',
     country: 'GB',
     countryName: 'Великобритания',
     countryNameEn: 'United Kingdom',
