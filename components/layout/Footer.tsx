@@ -1,6 +1,6 @@
 'use client';
 
-import { Phone, Mail, MapPin, Facebook, Instagram, Linkedin } from 'lucide-react';
+import { Phone, Mail, MapPin, Facebook, Instagram } from 'lucide-react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { useLanguage } from '@/contexts/LanguageContext';
@@ -42,14 +42,11 @@ export default function Footer() {
               </p>
             )}
             <div className="flex gap-4">
-              <a href="#" className="text-neutral-400 hover:text-white transition-colors">
+              <a href="https://www.facebook.com/mkstudy" target="_blank" rel="noopener noreferrer" className="text-neutral-400 hover:text-white transition-colors">
                 <Facebook className="w-5 h-5" />
               </a>
-              <a href="#" className="text-neutral-400 hover:text-white transition-colors">
+              <a href="https://www.instagram.com/mkstudy.kz/" target="_blank" rel="noopener noreferrer" className="text-neutral-400 hover:text-white transition-colors">
                 <Instagram className="w-5 h-5" />
-              </a>
-              <a href="#" className="text-neutral-400 hover:text-white transition-colors">
-                <Linkedin className="w-5 h-5" />
               </a>
             </div>
           </div>
