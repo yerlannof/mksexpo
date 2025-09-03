@@ -26,7 +26,7 @@ export default function HeroNew() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
-              className="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-bold text-white leading-tight mb-3"
+              className="text-2xl sm:text-3xl md:text-3xl lg:text-3xl xl:text-4xl font-bold text-white leading-tight mb-3"
             >
               {t('hero.title.main').split('\n').map((line, i) => (
                 <span key={i}>
@@ -49,7 +49,7 @@ export default function HeroNew() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.15, duration: 0.8 }}
-              className="text-sm sm:text-base text-white/80 mb-8 space-y-1 text-left"
+              className="text-sm sm:text-base text-white/80 mb-8 space-y-1 text-left font-semibold"
             >
               {t('hero.dates').split('\n').map((line, i) => {
                 // Parse the date format and reverse it
