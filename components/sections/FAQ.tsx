@@ -222,7 +222,7 @@ export default function FAQ() {
                   className="flex items-center gap-3 px-6 py-3 bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl hover:bg-white/15 transition-all duration-300 text-white"
                 >
                   <Phone className="w-4 h-4" />
-                  <span className="text-sm font-medium">8-727-2588-583</span>
+                  <span className="text-sm font-medium">+7 727 2588 583</span>
                 </a>
               </div>
             </div>
