@@ -69,16 +69,16 @@ export default function Header() {
               <Image
                 src="/mkslogo.png"
                 alt="M&K Study Centre"
-                width={180}
-                height={72}
-                className="h-16 w-auto"
+                width={200}
+                height={80}
+                className="h-18 w-auto"
                 priority
               />
             </div>
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden lg:flex items-center space-x-8">
+          <div className="hidden lg:flex items-center space-x-10">
             <Link 
               href="#opportunities" 
               onClick={(e) => smoothScrollTo(e, 'opportunities')}
@@ -106,13 +106,6 @@ export default function Header() {
               className="text-neutral-700 hover:text-primary transition-colors font-medium"
             >
               {t('nav.steps') || 'Как участвовать'}
-            </Link>
-            <Link 
-              href="#registration" 
-              onClick={(e) => smoothScrollTo(e, 'registration')}
-              className="text-neutral-700 hover:text-primary transition-colors font-medium"
-            >
-              {t('nav.registration')}
             </Link>
             <Link 
               href="#faq" 
@@ -190,13 +183,6 @@ export default function Header() {
                 className="text-neutral-700 hover:text-primary transition-colors"
               >
                 {t('nav.steps') || 'Как участвовать'}
-              </Link>
-              <Link 
-                href="#registration" 
-                onClick={(e) => smoothScrollTo(e, 'registration')}
-                className="text-neutral-700 hover:text-primary transition-colors"
-              >
-                {t('nav.registration')}
               </Link>
               <Link 
                 href="#faq" 

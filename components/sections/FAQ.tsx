@@ -110,7 +110,7 @@ export default function FAQ() {
         <div className="max-w-4xl mx-auto">
           {/* Section Header */}
           <AnimatedSection animation="fadeUp" className="text-center mb-12 sm:mb-16 space-y-4">
-            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-display font-bold text-white">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-display font-bold text-white">
               {t('faq.title')} <span className="text-white">{t('faq.title.highlight')}</span>
             </h2>
             <p className="text-base sm:text-lg text-white/80">

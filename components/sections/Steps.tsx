@@ -68,7 +68,7 @@ export default function Steps() {
           viewport={{ once: true }}
           className="text-center mb-16 max-w-3xl mx-auto"
         >
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-bold text-white mb-4">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-display font-bold text-white mb-4">
             {t('steps.title')} <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-400">{t('steps.title.highlight')}</span>
           </h2>
           <p className="text-lg sm:text-xl text-white/70">

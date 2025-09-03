@@ -17,7 +17,7 @@ export default function HeroNew() {
   if (!mounted) return <div className="min-h-screen" />;
 
   return (
-    <section className="relative min-h-screen flex items-center overflow-hidden pt-24 sm:pt-20 px-4 sm:px-6 lg:px-8">
+    <section className="relative min-h-screen flex items-center overflow-hidden pt-16 sm:pt-14 px-4 sm:px-6 lg:px-8">
       <div className="container relative z-10">
         <div className="flex flex-col lg:flex-row items-center justify-between gap-8 sm:gap-12">
           {/* Left Column - Text Content */}
@@ -51,9 +51,15 @@ export default function HeroNew() {
               transition={{ delay: 0.15, duration: 0.8 }}
               className="text-sm sm:text-base text-white/80 mb-8 space-y-1 text-left"
             >
-              {t('hero.dates').split('\n').map((line, i) => (
-                <p key={i}>{line}</p>
-              ))}
+              {t('hero.dates').split('\n').map((line, i) => {
+                // Parse the date format and reverse it
+                const parts = line.split(' - ');
+                if (parts.length === 2) {
+                  const [city, date] = parts;
+                  return <p key={i}>{date} - {city}</p>;
+                }
+                return <p key={i}>{line}</p>;
+              })}
             </motion.div>
 
             <motion.div
@@ -62,7 +68,7 @@ export default function HeroNew() {
               transition={{ delay: 0.3, duration: 0.8 }}
               className="mb-12 sm:mb-16"
             >
-              <div className="flex flex-col items-start gap-2">
+              <div className="flex flex-col items-start gap-6">
                 <AnimatedButton
                   variant="danger"
                   size="xl"
@@ -92,7 +98,7 @@ export default function HeroNew() {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.5, duration: 0.8 }}
-                    className="relative aspect-[3/4] rounded-2xl overflow-hidden shadow-2xl"
+                    className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl"
                   >
                     <Image
                       src="/hero-photo-main.jpg"
@@ -134,7 +140,7 @@ export default function HeroNew() {
       </div>
 
       {/* Bottom scroll indicator */}
-      <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2">
+      <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2">
         <motion.div
           animate={{ y: [0, 10, 0] }}
           transition={{ repeat: Infinity, duration: 2 }}

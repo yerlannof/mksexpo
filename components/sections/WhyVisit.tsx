@@ -90,7 +90,7 @@ export default function WhyVisit() {
           viewport={{ once: true }}
           className="text-center mb-12 sm:mb-16 space-y-4"
         >
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-bold text-white">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-display font-bold text-white">
             {t('why.title')} <span className="text-white">{t('why.title.highlight')}</span>
           </h2>
           <p className="text-lg sm:text-xl text-white/80 max-w-3xl mx-auto">
