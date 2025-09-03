@@ -21,7 +21,7 @@ export default function Opportunities() {
           >
             <Image
               src="/gallery/photo_2025-09-02_23-10-04.jpg"
-              alt={language === 'ru' ? 'Консультация с представителями школ' : 'Consultation with school representatives'}
+              alt=""
               fill
               className="object-cover"
               sizes="(max-width: 768px) 100vw, 50vw"
@@ -37,7 +37,7 @@ export default function Opportunities() {
             viewport={{ once: true }}
             className="text-left order-1 lg:order-2"
           >
-            <h3 className="text-base md:text-lg font-semibold text-white mb-8">
+            <h3 className="text-lg md:text-xl lg:text-2xl font-semibold text-white mb-8">
               {language === 'ru' 
                 ? 'Только здесь у вас будет возможность:'
                 : 'Only here you will have the opportunity to:'}

@@ -49,7 +49,7 @@ export const schoolsData: School[] = [
     }
   },
   { 
-    name: 'MPW Birmingham', 
+    name: 'Mander Portman Woodward (MPW)', 
     country: 'GB', 
     countryName: 'Великобритания', 
     countryNameEn: 'United Kingdom', 

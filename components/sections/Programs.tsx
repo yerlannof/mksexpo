@@ -140,7 +140,7 @@ export default function Programs() {
                     </p>
                     
                     {/* Description - Always visible */}
-                    <p className="text-white/70 text-xs leading-relaxed mt-2">
+                    <p className="text-white/70 text-xs leading-snug mt-2">
                       {program.description}
                     </p>
                   </div>

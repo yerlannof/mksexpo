@@ -197,7 +197,7 @@ export default function Hero() {
               <div className="relative z-10 rounded-2xl overflow-hidden shadow-2xl">
                 <Image
                   src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=800&h=600&fit=crop" 
-                  alt="Students" 
+                  alt="" 
                   width={800}
                   height={600}
                   className="w-full h-full object-cover"

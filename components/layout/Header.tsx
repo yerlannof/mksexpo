@@ -68,7 +68,7 @@ export default function Header() {
             <div className="flex items-center gap-3">
               <Image
                 src="/mks-white-logo-new.png"
-                alt="M&K Study Centre"
+                alt=""
                 width={250}
                 height={100}
                 className="h-24 w-auto"

@@ -97,7 +97,7 @@ export default function Participants() {
           viewport={{ once: true }}
           className="text-center mb-8 space-y-2"
         >
-          <h2 className="text-lg md:text-xl font-display font-bold text-white">
+          <h2 className="text-xl md:text-2xl lg:text-3xl font-display font-bold text-white">
             {t('participants.title')} <span className="text-white/80">{t('participants.title.highlight')}</span>
           </h2>
         </motion.div>
@@ -144,7 +144,7 @@ export default function Participants() {
                         <div className="relative w-64 h-48 md:w-80 md:h-52 flex-shrink-0 rounded-xl overflow-hidden">
                           <Image
                             src={school.image || placeholderImage}
-                            alt={school.name}
+                            alt=""
                             fill
                             className="object-cover"
                             sizes="(max-width: 768px) 256px, 320px"
@@ -229,7 +229,7 @@ export default function Participants() {
             <div className="relative aspect-[4/3] rounded-2xl overflow-hidden">
               <Image
                 src="/gallery/photo_2025-09-02_23-15-47.jpg"
-                alt={language === 'ru' ? 'Общение с представителями школ' : 'Meeting with school representatives'}
+                alt=""
                 fill
                 className="object-cover"
                 sizes="(max-width: 768px) 100vw, 50vw"
@@ -246,7 +246,7 @@ export default function Participants() {
             <div className="relative aspect-[4/3] rounded-2xl overflow-hidden">
               <Image
                 src="/gallery/photo_2025-09-02_03-39-27.jpg"
-                alt={language === 'ru' ? 'Выступление представителей' : 'Representatives presentation'}
+                alt=""
                 fill
                 className="object-cover"
                 sizes="(max-width: 768px) 100vw, 50vw"

@@ -113,7 +113,7 @@ export default function Timeline() {
             <div className="relative aspect-[4/3] rounded-2xl overflow-hidden">
               <Image
                 src="/gallery/photo_2025-09-02_03-39-26 (4).jpg"
-                alt={language === 'ru' ? 'Атмосфера мероприятия' : 'Event atmosphere'}
+                alt=""
                 fill
                 className="object-cover"
                 sizes="(max-width: 768px) 100vw, 50vw"
@@ -130,7 +130,7 @@ export default function Timeline() {
             <div className="relative aspect-[4/3] rounded-2xl overflow-hidden">
               <Image
                 src="/gallery/photo_2025-09-02_03-39-27 (2).jpg"
-                alt={language === 'ru' ? 'Консультационная зона' : 'Consultation area'}
+                alt=""
                 fill
                 className="object-cover"
                 sizes="(max-width: 768px) 100vw, 50vw"

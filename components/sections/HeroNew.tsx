@@ -98,7 +98,7 @@ export default function HeroNew() {
               >
                 <Image
                   src="/gallery/photo_2025-09-02_23-13-02.jpg"
-                  alt="Выставка частных школ"
+                  alt=""
                   fill
                   className="object-cover"
                   sizes="(max-width: 768px) 100vw, 50vw"

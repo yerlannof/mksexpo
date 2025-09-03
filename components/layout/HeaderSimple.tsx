@@ -20,7 +20,7 @@ export default function HeaderSimple() {
           <Link href="/" className="flex items-center group">
             <Image
               src="/mks-white-logo-new.png"
-              alt="M&K Study Centre"
+              alt=""
               width={120}
               height={50}
               className="h-10 sm:h-12 md:h-14 w-auto"

@@ -96,7 +96,7 @@ export default function Testimonials() {
                   <div className="relative w-14 h-14 rounded-2xl overflow-hidden border-2 border-white/20">
                     <Image
                       src={testimonial.image}
-                      alt={t(testimonial.nameKey)}
+                      alt=""
                       fill
                       className="object-cover"
                     />

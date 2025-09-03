@@ -131,7 +131,7 @@ const PageLoader: React.FC<PageLoaderProps> = ({
         >
           <Image
             src="/mks-white-logo-new.png"
-            alt="M&K Study Centre"
+            alt=""
             width={180}
             height={80}
             className="w-[180px] h-auto object-contain"

@@ -2,6 +2,7 @@
 
 import { Phone, Mail, MapPin, Facebook, Instagram, Linkedin } from 'lucide-react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { useLanguage } from '@/contexts/LanguageContext';
 
 export default function Footer() {
@@ -28,7 +29,13 @@ export default function Footer() {
         <div className="grid md:grid-cols-4 gap-8">
           {/* Company Info */}
           <div className="space-y-4">
-            <h3 className="text-xl font-display font-bold">M&K Education</h3>
+            <Image
+              src="/mks-white-logo-new.png"
+              alt=""
+              width={150}
+              height={60}
+              className="h-12 w-auto"
+            />
             <p className="text-neutral-400">
               {t('footer.about.desc')}
             </p>
