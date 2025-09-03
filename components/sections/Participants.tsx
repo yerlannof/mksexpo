@@ -226,7 +226,7 @@ export default function Participants() {
           className="mt-12 max-w-5xl mx-auto"
         >
           <div className="grid md:grid-cols-2 gap-6">
-            <div className="relative aspect-[4/3] rounded-2xl overflow-hidden group">
+            <div className="relative aspect-[4/3] rounded-2xl overflow-hidden">
               <Image
                 src="/gallery/photo_2025-09-02_03-39-27.jpg"
                 alt=""
@@ -235,15 +235,9 @@ export default function Participants() {
                 sizes="(max-width: 768px) 100vw, 50vw"
                 quality={85}
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-              <div className="absolute bottom-4 left-4 right-4 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                <p className="text-white text-sm font-medium">
-                  {language === 'ru' ? 'Презентации школ' : 'School presentations'}
-                </p>
-              </div>
             </div>
             
-            <div className="relative aspect-[4/3] rounded-2xl overflow-hidden group">
+            <div className="relative aspect-[4/3] rounded-2xl overflow-hidden">
               <Image
                 src="/gallery/photo_2025-09-02_23-15-47.jpg"
                 alt=""
@@ -252,12 +246,6 @@ export default function Participants() {
                 sizes="(max-width: 768px) 100vw, 50vw"
                 quality={85}
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-              <div className="absolute bottom-4 left-4 right-4 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                <p className="text-white text-sm font-medium">
-                  {language === 'ru' ? 'Индивидуальные консультации' : 'Individual consultations'}
-                </p>
-              </div>
             </div>
           </div>
         </motion.div>
