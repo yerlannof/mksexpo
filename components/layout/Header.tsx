@@ -62,23 +62,23 @@ export default function Header() {
       
       {/* Main navigation */}
       <div className="container">
-        <nav className="flex items-center justify-between h-20">
+        <nav className="flex items-center justify-between h-28">
           {/* Logo */}
           <Link href="/" className="flex items-center space-x-3 group">
             <div className="flex items-center gap-3">
               <Image
-                src="/mkslogo.png"
+                src="/mks-white-logo-new.png"
                 alt="M&K Study Centre"
-                width={200}
-                height={80}
-                className="h-18 w-auto"
+                width={250}
+                height={100}
+                className="h-24 w-auto"
                 priority
               />
             </div>
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden lg:flex items-center space-x-10">
+          <div className="hidden lg:flex items-center space-x-20">
             <Link 
               href="#opportunities" 
               onClick={(e) => smoothScrollTo(e, 'opportunities')}
@@ -101,13 +101,6 @@ export default function Header() {
               {t('nav.participants')}
             </Link>
             <Link 
-              href="#steps" 
-              onClick={(e) => smoothScrollTo(e, 'steps')}
-              className="text-neutral-700 hover:text-primary transition-colors font-medium"
-            >
-              {t('nav.steps') || 'Как участвовать'}
-            </Link>
-            <Link 
               href="#faq" 
               onClick={(e) => smoothScrollTo(e, 'faq')}
               className="text-neutral-700 hover:text-primary transition-colors font-medium"
@@ -116,8 +109,8 @@ export default function Header() {
             </Link>
           </div>
 
-          {/* Language Switcher & CTA */}
-          <div className="hidden lg:flex items-center space-x-4">
+          {/* Language Switcher */}
+          <div className="hidden lg:flex items-center">
             <button
               onClick={() => setLanguage(language === 'ru' ? 'en' : 'ru')}
               className="flex items-center gap-2 text-neutral-600 hover:text-primary transition-colors"
@@ -128,13 +121,6 @@ export default function Header() {
               </span>
               <ChevronDown className="w-3 h-3" />
             </button>
-            <Link 
-              href="#registration" 
-              onClick={(e) => smoothScrollTo(e, 'registration')}
-              className="bg-red-600 hover:bg-red-700 text-white px-6 py-2.5 rounded-lg font-medium transition-all hover:shadow-lg flex items-center gap-2"
-            >
-              <span>Оставить заявку</span>
-            </Link>
           </div>
 
           {/* Mobile Menu Button */}
@@ -178,25 +164,11 @@ export default function Header() {
                 {t('nav.participants')}
               </Link>
               <Link 
-                href="#steps" 
-                onClick={(e) => smoothScrollTo(e, 'steps')}
-                className="text-neutral-700 hover:text-primary transition-colors"
-              >
-                {t('nav.steps') || 'Как участвовать'}
-              </Link>
-              <Link 
                 href="#faq" 
                 onClick={(e) => smoothScrollTo(e, 'faq')}
                 className="text-neutral-700 hover:text-primary transition-colors"
               >
                 {t('nav.faq')}
-              </Link>
-              <Link 
-                href="#registration" 
-                onClick={(e) => smoothScrollTo(e, 'registration')}
-                className="bg-red-600 hover:bg-red-700 text-white px-6 py-2.5 rounded-lg font-medium transition-all text-center"
-              >
-                Оставить заявку
               </Link>
               <button
                 onClick={() => setLanguage(language === 'ru' ? 'en' : 'ru')}

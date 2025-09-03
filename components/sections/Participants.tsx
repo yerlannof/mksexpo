@@ -5,56 +5,17 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useLanguage } from '@/contexts/LanguageContext';
 import Image from 'next/image';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
+import { schoolsData, placeholderImage } from '@/data/schoolsData';
 
-// Все школы в едином списке с информацией о стране
-const schools = [
-  { 
-    name: 'Vertex School', 
-    country: 'AE', 
-    countryName: 'ОАЭ', 
-    countryNameEn: 'UAE', 
-    initials: 'VS',
-    image: 'https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=400&h=300&fit=crop' // Modern Dubai educational institution building
-  },
-  { 
-    name: 'Concord College', 
-    country: 'GB', 
-    countryName: 'Великобритания', 
-    countryNameEn: 'United Kingdom', 
-    initials: 'CC',
-    image: 'https://images.unsplash.com/photo-1580894732444-8ecded7900cd?w=400&h=300&fit=crop' // British historic college building with traditional architecture
-  },
-  { 
-    name: 'Cascadia College', 
-    country: 'US', 
-    countryName: 'США', 
-    countryNameEn: 'USA', 
-    initials: 'CC',
-    image: 'https://images.unsplash.com/photo-1541339907198-e08756dedf3f?w=400&h=300&fit=crop' // American college campus building
-  },
-  { 
-    name: 'St. Clares Oxford', 
-    country: 'GB', 
-    countryName: 'Великобритания', 
-    countryNameEn: 'United Kingdom', 
-    initials: 'SC',
-    image: 'https://images.unsplash.com/photo-1574958269340-fa927503f3dd?w=400&h=300&fit=crop' // Oxford university building architecture
-  },
-  { 
-    name: 'MPW College', 
-    country: 'GB', 
-    countryName: 'Великобритания', 
-    countryNameEn: 'United Kingdom', 
-    initials: 'MPW',
-    image: 'https://images.unsplash.com/photo-1564981797816-1043664bf78d?w=400&h=300&fit=crop' // Modern London academic building
-  },
-];
+// Используем импортированные данные школ
+const schools = schoolsData;
 
 // Цвета для инициалов школ по странам
 const schoolColors: Record<string, string> = {
   GB: 'from-blue-500 to-blue-600',
   US: 'from-indigo-500 to-indigo-600',
   AE: 'from-amber-500 to-amber-600',
+  IT: 'from-green-500 to-green-600',
 };
 
 export default function Participants() {
@@ -63,17 +24,12 @@ export default function Participants() {
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
   
   // Количество видимых школ в зависимости от размера экрана
-  const [visibleCount, setVisibleCount] = useState(3);
+  const [visibleCount, setVisibleCount] = useState(1);
   
   useEffect(() => {
     const handleResize = () => {
-      if (window.innerWidth < 640) {
-        setVisibleCount(1);
-      } else if (window.innerWidth < 1024) {
-        setVisibleCount(2);
-      } else {
-        setVisibleCount(3);
-      }
+      // Всегда показываем только 1 школу
+      setVisibleCount(1);
     };
     
     handleResize();
@@ -87,7 +43,7 @@ export default function Participants() {
     
     const interval = setInterval(() => {
       setCurrentIndex((prev) => (prev + 1) % schools.length);
-    }, 3000);
+    }, 12000);
     
     return () => clearInterval(interval);
   }, [isAutoPlaying]);
@@ -113,7 +69,25 @@ export default function Participants() {
   };
   
   return (
-    <section className="py-12 sm:py-16 lg:py-20">
+    <section id="participants" className="py-10 sm:py-12 lg:py-16">
+      {/* Registration Button */}
+      <div className="container mb-12">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+          className="flex justify-center"
+        >
+          <a
+            href="#registration"
+            className="inline-flex items-center justify-center px-8 py-4 text-base font-medium text-white bg-gradient-to-r from-red-600 to-red-700 rounded-xl hover:from-red-700 hover:to-red-800 transform hover:-translate-y-0.5 transition-all duration-300 shadow-lg hover:shadow-xl"
+          >
+            {language === 'ru' ? 'Зарегистрироваться на выставку' : 'Register for exhibition'}
+          </a>
+        </motion.div>
+      </div>
+
       <div className="container">
         {/* Section Header */}
         <motion.div
@@ -123,7 +97,7 @@ export default function Participants() {
           viewport={{ once: true }}
           className="text-center mb-8 space-y-2"
         >
-          <h2 className="text-2xl md:text-3xl font-display font-bold text-white">
+          <h2 className="text-lg md:text-xl font-display font-bold text-white">
             {t('participants.title')} <span className="text-white/80">{t('participants.title.highlight')}</span>
           </h2>
         </motion.div>
@@ -133,18 +107,18 @@ export default function Participants() {
           {/* Navigation Buttons */}
           <button
             onClick={handlePrev}
-            className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 md:-translate-x-12 z-10 p-3 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full hover:bg-white/20 transition-all"
+            className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-3 md:-translate-x-10 z-10 p-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full hover:bg-white/20 transition-all"
             aria-label="Previous school"
           >
-            <ChevronLeft className="w-6 h-6 text-white" />
+            <ChevronLeft className="w-5 h-5 text-white" />
           </button>
           
           <button
             onClick={handleNext}
-            className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 md:translate-x-12 z-10 p-3 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full hover:bg-white/20 transition-all"
+            className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-3 md:translate-x-10 z-10 p-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full hover:bg-white/20 transition-all"
             aria-label="Next school"
           >
-            <ChevronRight className="w-6 h-6 text-white" />
+            <ChevronRight className="w-5 h-5 text-white" />
           </button>
           
           {/* Schools Container */}
@@ -165,30 +139,40 @@ export default function Participants() {
                     className={`flex-1 min-w-0 ${visibleCount === 1 ? 'w-full' : ''}`}
                   >
                     <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl overflow-hidden hover:bg-white/[0.07] transition-all duration-300 h-full">
-                      {/* School Image */}
-                      <div className="relative aspect-[4/3] w-full">
-                        <Image
-                          src={school.image}
-                          alt={school.name}
-                          fill
-                          className="object-cover"
-                          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                          quality={85}
-                        />
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
-                      </div>
-                      
-                      <div className="p-4">
-                        <div className="flex flex-col items-center text-center space-y-2">
+                      <div className="flex flex-col md:flex-row items-center p-6 gap-6">
+                        {/* School Image - Horizontal format */}
+                        <div className="relative w-64 h-48 md:w-80 md:h-52 flex-shrink-0 rounded-xl overflow-hidden">
+                          <Image
+                            src={school.image || placeholderImage}
+                            alt={school.name}
+                            fill
+                            className="object-cover"
+                            sizes="(max-width: 768px) 256px, 320px"
+                            quality={85}
+                            onError={(e) => {
+                              e.currentTarget.src = placeholderImage;
+                            }}
+                          />
+                        </div>
+                        
+                        {/* School Info */}
+                        <div className="flex-1 text-center md:text-left">
                           {/* School Name */}
-                          <h3 className="text-lg font-semibold text-white">
+                          <h3 className="text-2xl font-semibold text-white mb-1">
                             {school.name}
                           </h3>
                           
                           {/* Country Name */}
-                          <p className="text-sm text-white/70">
+                          <p className="text-base text-white/70 mb-3">
                             {language === 'ru' ? school.countryName : school.countryNameEn}
                           </p>
+                          
+                          {/* School Description */}
+                          {school.description && (
+                            <p className="text-sm leading-relaxed text-white/80">
+                              {language === 'ru' ? school.description.ru : school.description.en}
+                            </p>
+                          )}
                         </div>
                       </div>
                     </div>
@@ -199,7 +183,7 @@ export default function Participants() {
           </div>
           
           {/* Progress Dots */}
-          <div className="flex justify-center gap-2 mt-8">
+          <div className="flex justify-center gap-2 mt-6">
             {schools.map((_, index) => (
               <button
                 key={index}
@@ -218,18 +202,33 @@ export default function Participants() {
           </div>
         </div>
 
-        {/* Photo Section - Representatives */}
+        {/* Organizer Section - Minimalist */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.3 }}
+          viewport={{ once: true }}
+          className="mt-10 text-center"
+        >
+          <div className="inline-flex flex-col items-center gap-2 p-6 bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl">
+            <p className="text-sm text-white/60 uppercase tracking-wider">{t('participants.organizer')}</p>
+            <h4 className="font-display font-bold text-xl text-white">M&K Study Centre</h4>
+            <p className="text-white/70 text-base">{language === 'ru' ? '27 лет успешной работы в образовании' : '27 years of successful work in education'}</p>
+          </div>
+        </motion.div>
+
+        {/* Photo Section - Representatives */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.4 }}
           viewport={{ once: true }}
           className="mt-12 max-w-5xl mx-auto"
         >
           <div className="grid md:grid-cols-2 gap-6">
             <div className="relative aspect-[4/3] rounded-2xl overflow-hidden">
               <Image
-                src="/gallery/photo_2025-09-02_03-39-26 (3).jpg"
+                src="/gallery/photo_2025-09-02_23-15-47.jpg"
                 alt={language === 'ru' ? 'Общение с представителями школ' : 'Meeting with school representatives'}
                 fill
                 className="object-cover"
@@ -260,21 +259,6 @@ export default function Participants() {
                 </p>
               </div>
             </div>
-          </div>
-        </motion.div>
-
-        {/* Organizer Section - Minimalist */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.4 }}
-          viewport={{ once: true }}
-          className="mt-8 text-center"
-        >
-          <div className="inline-flex flex-col items-center gap-2 p-4 bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl">
-            <p className="text-sm text-white/60 uppercase tracking-wider">{t('participants.organizer')}</p>
-            <h4 className="font-display font-bold text-lg text-white">M&K Study Centre</h4>
-            <p className="text-white/70 text-sm">{t('participants.organizer.desc')}</p>
           </div>
         </motion.div>
       </div>

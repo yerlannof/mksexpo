@@ -19,32 +19,26 @@ export default function HeaderSimple() {
           {/* Logo */}
           <Link href="/" className="flex items-center group">
             <Image
-              src="/mkslogo.png"
+              src="/mks-white-logo-new.png"
               alt="M&K Study Centre"
-              width={50}
+              width={120}
               height={50}
-              className="h-8 sm:h-10 md:h-12 w-auto"
+              className="h-10 sm:h-12 md:h-14 w-auto"
               priority
             />
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-6">
-            <Link href="#participants" className="text-white/90 hover:text-white transition-colors">
-              {t('nav.participants')}
-            </Link>
-            <Link href="#timeline" className="text-white/90 hover:text-white transition-colors">
-              {t('nav.timeline')}
-            </Link>
-            <Link href="#whyvisit" className="text-white/90 hover:text-white transition-colors">
-              {t('nav.whyvisit')}
-            </Link>
-            <Link href="#testimonials" className="text-white/90 hover:text-white transition-colors">
-              {t('nav.testimonials')}
-            </Link>
-            <Link href="#faq" className="text-white/90 hover:text-white transition-colors">
-              {t('nav.faq')}
-            </Link>
+          <div className="hidden md:flex items-center space-x-12 lg:space-x-16">
+            <a href="#participants" className="text-white/90 hover:text-white transition-colors">
+              {language === 'ru' ? 'Участники' : 'Participants'}
+            </a>
+            <a href="#programs" className="text-white/90 hover:text-white transition-colors">
+              {language === 'ru' ? 'Программы' : 'Programs'}
+            </a>
+            <a href="#faq" className="text-white/90 hover:text-white transition-colors">
+              FAQ
+            </a>
           </div>
 
           {/* Mobile Controls */}
@@ -56,14 +50,6 @@ export default function HeaderSimple() {
               <Globe className="w-4 h-4" />
               <span>{language === 'ru' ? 'RU' : 'EN'}</span>
             </button>
-            <AnimatedButton
-              variant="secondary"
-              size="sm"
-              href="#registration"
-              className="text-xs px-3 py-2"
-            >
-              {t('nav.registration')}
-            </AnimatedButton>
             <button
               onClick={() => setIsMenuOpen(true)}
               className="p-2 rounded-lg bg-white/10 hover:bg-white/20 transition-colors"
@@ -82,13 +68,6 @@ export default function HeaderSimple() {
               <Globe className="w-4 h-4" />
               <span>{language === 'ru' ? 'RU' : 'EN'}</span>
             </button>
-            <AnimatedButton
-              variant="secondary"
-              size="md"
-              href="#registration"
-            >
-              {t('nav.registration')}
-            </AnimatedButton>
           </div>
         </nav>
 

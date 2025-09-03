@@ -17,7 +17,7 @@ export default function HeroNew() {
   if (!mounted) return <div className="min-h-screen" />;
 
   return (
-    <section className="relative min-h-screen flex items-center overflow-hidden pt-16 sm:pt-14 px-4 sm:px-6 lg:px-8">
+    <section className="relative min-h-[80vh] flex items-center overflow-hidden pt-20 sm:pt-10 px-4 sm:px-6 lg:px-8">
       <div className="container relative z-10">
         <div className="flex flex-col lg:flex-row items-center justify-between gap-8 sm:gap-12">
           {/* Left Column - Text Content */}
@@ -66,7 +66,7 @@ export default function HeroNew() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3, duration: 0.8 }}
-              className="mb-12 sm:mb-16"
+              className="mb-8 sm:mb-10"
             >
               <div className="flex flex-col items-start gap-6">
                 <AnimatedButton
@@ -89,50 +89,23 @@ export default function HeroNew() {
             className="flex-1 flex justify-center items-center w-full max-w-md lg:max-w-2xl xl:max-w-3xl"
           >
             <div className="relative w-full">
-              {/* Images Grid */}
-              <div className="grid grid-cols-2 gap-4">
-                {/* First Column */}
-                <div>
-                  {/* First Image */}
-                  <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.5, duration: 0.8 }}
-                    className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl"
-                  >
-                    <Image
-                      src="/hero-photo-main.jpg"
-                      alt="Консультация по поступлению в частные школы"
-                      fill
-                      className="object-cover"
-                      sizes="(max-width: 768px) 50vw, 25vw"
-                      priority
-                      quality={85}
-                    />
-                  </motion.div>
-                </div>
-                
-                {/* Second Column */}
-                <div className="pt-8">
-                  {/* Second Image */}
-                  <motion.div
-                    initial={{ opacity: 0, y: -20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.6, duration: 0.8 }}
-                    className="relative aspect-[3/4] rounded-2xl overflow-hidden shadow-2xl"
-                  >
-                    <Image
-                      src="/gallery/photo_2025-09-02_23-13-02.jpg"
-                      alt="Выставка частных школ"
-                      fill
-                      className="object-cover"
-                      sizes="(max-width: 768px) 50vw, 25vw"
-                      loading="lazy"
-                      quality={75}
-                    />
-                  </motion.div>
-                </div>
-              </div>
+              {/* Single Image */}
+              <motion.div
+                initial={{ opacity: 0, y: -20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.5, duration: 0.8 }}
+                className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl max-w-lg mx-auto"
+              >
+                <Image
+                  src="/gallery/photo_2025-09-02_23-13-02.jpg"
+                  alt="Выставка частных школ"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                  priority
+                  quality={85}
+                />
+              </motion.div>
             </div>
           </motion.div>
         </div>

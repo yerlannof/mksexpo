@@ -96,9 +96,9 @@ const translations = {
     'steps.6.desc': 'Бесплатное тестирование по английскому языку',
     
     // Registration
-    'registration.title': 'Бесплатная',
-    'registration.title.highlight': 'регистрация',
-    'registration.subtitle': 'Забронируйте место на выставке',
+    'registration.title': 'Зарегистрируйтесь на выставку',
+    'registration.title.highlight': 'бесплатно',
+    'registration.subtitle': '',
     'registration.firstName': 'Имя',
     'registration.firstName.placeholder': 'Введите ваше имя',
     'registration.lastName': 'Фамилия',
@@ -276,9 +276,9 @@ const translations = {
     'testimonials.subtitle': 'Success stories from our clients',
     
     // Registration
-    'registration.title': 'Free',
-    'registration.title.highlight': 'registration',
-    'registration.subtitle': 'Register now and get a personal consultation',
+    'registration.title': 'Register for the exhibition',
+    'registration.title.highlight': 'for free',
+    'registration.subtitle': '',
     'registration.firstName': 'First Name',
     'registration.firstName.placeholder': 'Enter your first name',
     'registration.lastName': 'Last Name',

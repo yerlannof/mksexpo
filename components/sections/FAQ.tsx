@@ -22,72 +22,112 @@ interface FAQItem {
 const faqs: FAQItem[] = [
   {
     question: {
-      ru: 'Какие частные школы будут представлены на выставке?',
-      en: 'Which private schools will be represented at the exhibition?'
+      ru: 'Сколько стоит участие?',
+      en: 'How much does it cost to participate?'
     },
     answer: {
-      ru: 'На выставке будут представлены ведущие частные школы из Великобритании, США, Швейцарии, Канады и Германии. Среди них Harrow School, Wellington College, Phillips Academy, Le Rosey и другие престижные учебные заведения.',
-      en: 'The exhibition will feature leading private schools from UK, USA, Switzerland, Canada and Germany. Including Harrow School, Wellington College, Phillips Academy, Le Rosey and other prestigious institutions.'
+      ru: 'Посещение выставки для всех гостей бесплатное. Всё, что нужно — пройти онлайн-регистрацию, чтобы получить доступ ко всем мероприятиям и списку участников.',
+      en: 'Exhibition attendance is free for all guests. All you need is to complete online registration to get access to all events and list of participants.'
     },
   },
   {
     question: {
-      ru: 'Какие программы обучения предлагают частные школы?',
-      en: 'What educational programs do private schools offer?'
+      ru: 'Что я узнаю на выставке?',
+      en: 'What will I learn at the exhibition?'
     },
     answer: {
-      ru: 'Частные школы предлагают различные программы: британская система (GCSE, A-Level), американская система (High School, AP), программа International Baccalaureate (IB), а также национальные программы с углубленным изучением языков.',
-      en: 'Private schools offer various programs: British system (GCSE, A-Level), American system (High School, AP), International Baccalaureate (IB), as well as national programs with intensive language study.'
+      ru: 'Вы познакомитесь с ведущими частными школами разных стран, узнаете о программах обучения, условиях поступления, стоимости и возможностях получения скидок. Кроме того, сможете лично задать вопросы представителям школ и получить рекомендации именно для вашей ситуации.',
+      en: 'You will meet leading private schools from different countries, learn about study programs, admission requirements, costs and scholarship opportunities. You will also be able to ask questions directly to school representatives and get recommendations for your specific situation.'
     },
   },
   {
     question: {
-      ru: 'Чем отличается обучение в частной школе от государственной?',
-      en: 'What is the difference between private and public school education?'
+      ru: 'На каком языке будет общение?',
+      en: 'What language will be used for communication?'
     },
     answer: {
-      ru: 'Частные школы предлагают небольшие классы (8-12 учеников), индивидуальный подход, широкий выбор предметов и внеклассных активностей, современное оснащение, подготовку к поступлению в топовые университеты мира.',
-      en: 'Private schools offer small classes (8-12 students), individual approach, wide choice of subjects and extracurricular activities, modern facilities, preparation for admission to top world universities.'
+      ru: 'Основное общение проходит на английском и языке страны, которую представляет школа. Для вашего удобства будут работать переводчики, поэтому вы сможете спокойно обсуждать все вопросы даже без знания иностранных языков.',
+      en: 'Main communication is in English and the language of the country the school represents. Interpreters will be available for your convenience, so you can discuss all questions comfortably even without knowledge of foreign languages.'
     },
   },
   {
     question: {
-      ru: 'Какая стоимость обучения в частных школах?',
-      en: 'What is the cost of private school education?'
+      ru: 'Можно ли получить скидку или стипендию?',
+      en: 'Is it possible to get a discount or scholarship?'
     },
     answer: {
-      ru: 'Стоимость обучения варьируется от 20,000 до 80,000 долларов в год в зависимости от страны, типа школы (дневная или пансион) и программы. Многие школы предлагают стипендии для талантливых учеников.',
-      en: 'Tuition fees range from $20,000 to $80,000 per year depending on country, school type (day or boarding) and program. Many schools offer scholarships for talented students.'
+      ru: 'Да, многие школы предлагают частичные скидки и гранты для студентов. Полные стипендии встречаются реже, но о доступных вариантах можно будет узнать непосредственно у представителей школ. Также они расскажут, какие условия нужно выполнить, чтобы претендовать на финансовую поддержку.',
+      en: 'Yes, many schools offer partial discounts and grants for students. Full scholarships are less common, but you can learn about available options directly from school representatives. They will also explain what conditions need to be met to qualify for financial support.'
     },
   },
   {
     question: {
-      ru: 'С какого возраста можно поступить в частную школу?',
-      en: 'From what age can you enroll in a private school?'
+      ru: 'Где найти список участников?',
+      en: 'Where can I find the list of participants?'
     },
     answer: {
-      ru: 'Большинство частных школ принимают учеников с 11-13 лет, но есть школы с начальными классами от 7 лет. Оптимальный возраст для поступления в школу-пансион — 13-14 лет.',
-      en: 'Most private schools accept students from 11-13 years old, but there are schools with primary classes from 7 years old. The optimal age for boarding school admission is 13-14 years.'
+      ru: 'Полный список школ-участников с кратким описанием каждой из них вы получите на этапе онлайн-регистрации. Это поможет заранее составить план и выделить те школы, которые интересуют вас больше всего.',
+      en: 'You will receive a complete list of participating schools with brief descriptions during online registration. This will help you plan ahead and identify schools that interest you most.'
     },
   },
   {
     question: {
-      ru: 'Какие требования для поступления в частные школы?',
-      en: 'What are the admission requirements for private schools?'
+      ru: 'Обязательно приходить к открытию?',
+      en: 'Is it mandatory to come to the opening?'
     },
     answer: {
-      ru: 'Основные требования: хорошая успеваемость, знание английского языка (IELTS/TOEFL), мотивационное письмо, рекомендации от учителей. Некоторые школы проводят вступительные экзамены и интервью.',
-      en: 'Main requirements: good academic performance, English proficiency (IELTS/TOEFL), motivation letter, teacher recommendations. Some schools conduct entrance exams and interviews.'
+      ru: 'Нет, строгого времени прихода нет — вы можете прийти в любое удобное время в течение дня. Но мы рекомендуем заранее посмотреть расписание презентаций, чтобы не пропустить выступления и встречи, которые важны именно для вас.',
+      en: 'No, there is no strict arrival time - you can come at any convenient time during the day. However, we recommend checking the presentation schedule in advance to not miss the talks and meetings that are important to you.'
     },
   },
   {
     question: {
-      ru: 'Нужна ли предварительная регистрация на выставку?',
-      en: 'Is pre-registration required for the exhibition?'
+      ru: 'Можно ли прийти с семьей или друзьями?',
+      en: 'Can I come with family or friends?'
     },
     answer: {
-      ru: 'Да, регистрация обязательна. Это позволит нам подготовить для вас персональную программу встреч со школами, соответствующими вашим критериям.',
-      en: 'Yes, registration is mandatory. This will allow us to prepare a personalized meeting program with schools that match your criteria.'
+      ru: 'Конечно, выставку можно посещать вместе с близкими. Если вы приходите не с членами семьи, то вашим друзьям или знакомым также нужно будет зарегистрироваться. Это сделает посещение удобным для всех.',
+      en: 'Of course, you can visit the exhibition with loved ones. If you are not coming with family members, your friends or acquaintances will also need to register. This will make the visit convenient for everyone.'
+    },
+  },
+  {
+    question: {
+      ru: 'С какого возраста принимают в школы?',
+      en: 'From what age do schools accept students?'
+    },
+    answer: {
+      ru: 'Большинство школ принимают детей начиная примерно с 11–12 лет и до окончания средней школы. Но требования могут отличаться, поэтому лучше уточнять детали у представителей конкретной школы на выставке.',
+      en: 'Most schools accept children starting from about 11-12 years old until the end of high school. However, requirements may vary, so it is better to clarify details with representatives of specific schools at the exhibition.'
+    },
+  },
+  {
+    question: {
+      ru: 'Будут ли личные консультации?',
+      en: 'Will there be personal consultations?'
+    },
+    answer: {
+      ru: 'Да, у вас будет возможность индивидуально пообщаться с представителями школ. Они ответят на ваши вопросы, помогут оценить перспективы и дадут практические рекомендации по поступлению.',
+      en: 'Yes, you will have the opportunity to communicate individually with school representatives. They will answer your questions, help assess prospects and give practical recommendations for admission.'
+    },
+  },
+  {
+    question: {
+      ru: 'Сколько времени стоит запланировать на выставку?',
+      en: 'How much time should I plan for the exhibition?'
+    },
+    answer: {
+      ru: 'В среднем достаточно 1–2 часов, чтобы пройтись по стендам и пообщаться с представителями. Но если вы хотите подробно посетить презентации и воспользоваться возможностью для личных консультаций, лучше выделить половину дня.',
+      en: 'On average, 1-2 hours is enough to visit the stands and talk with representatives. But if you want to attend presentations in detail and take advantage of personal consultations, it is better to allocate half a day.'
+    },
+  },
+  {
+    question: {
+      ru: 'Нужно ли знать английский для участия?',
+      en: 'Do I need to know English to participate?'
+    },
+    answer: {
+      ru: 'Нет, знание английского не обязательно. На выставке будут работать переводчики, которые помогут вам в общении с представителями школ, поэтому все вопросы вы сможете задать без языковых барьеров.',
+      en: 'No, knowledge of English is not required. Interpreters will be working at the exhibition to help you communicate with school representatives, so you can ask all questions without language barriers.'
     },
   },
 ];
@@ -101,7 +141,7 @@ export default function FAQ() {
   };
 
   return (
-    <section className="section-padding relative overflow-hidden px-4 sm:px-6 lg:px-8">
+    <section id="faq" className="section-padding relative overflow-hidden px-4 sm:px-6 lg:px-8">
       {/* Decorative background elements */}
       <div className="absolute top-20 left-10 w-64 sm:w-96 h-64 sm:h-96 bg-gradient-to-br from-purple-500/10 to-pink-500/10 rounded-full blur-3xl"></div>
       <div className="absolute bottom-20 right-10 w-64 sm:w-96 h-64 sm:h-96 bg-gradient-to-tr from-blue-500/10 to-cyan-500/10 rounded-full blur-3xl"></div>
@@ -110,10 +150,10 @@ export default function FAQ() {
         <div className="max-w-4xl mx-auto">
           {/* Section Header */}
           <AnimatedSection animation="fadeUp" className="text-center mb-12 sm:mb-16 space-y-4">
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-display font-bold text-white">
+            <h2 className="text-lg sm:text-xl md:text-2xl font-display font-bold text-white">
               {t('faq.title')} <span className="text-white">{t('faq.title.highlight')}</span>
             </h2>
-            <p className="text-base sm:text-lg text-white/80">
+            <p className="text-sm sm:text-base text-white/80">
               {t('faq.subtitle')}
             </p>
           </AnimatedSection>
@@ -130,7 +170,7 @@ export default function FAQ() {
                 >
                 <button
                   onClick={() => toggleQuestion(index)}
-                  className="w-full px-4 sm:px-6 md:px-8 py-4 sm:py-6 text-left flex items-center justify-between group"
+                  className="w-full px-4 sm:px-6 py-3 sm:py-4 text-left flex items-center justify-between group"
                 >
                   <span className="font-semibold text-base sm:text-lg pr-4 text-white group-hover:text-white/90 transition-colors">
                     {faq.question[language]}
@@ -146,7 +186,7 @@ export default function FAQ() {
                     openIndex === index ? 'max-h-96' : 'max-h-0'
                   }`}
                 >
-                  <div className="px-4 sm:px-6 md:px-8 pb-4 sm:pb-6 text-sm sm:text-base text-white/70">
+                  <div className="px-4 sm:px-6 pb-3 sm:pb-4 text-sm sm:text-base text-white/70">
                     {faq.answer[language]}
                   </div>
                 </div>
@@ -155,39 +195,35 @@ export default function FAQ() {
             ))}
           </AnimatedSection>
 
-          {/* Contact Section */}
-          <AnimatedSection animation="fadeUp" delay={0.5} className="mt-12 sm:mt-16 text-center">
-            <GlassCard variant="gradient" padding="xl">
-              <h3 className="text-2xl sm:text-3xl font-display font-bold mb-4 text-white">
+          {/* Contact Section - Minimalist Style */}
+          <AnimatedSection animation="fadeUp" delay={0.5} className="mt-12 sm:mt-16">
+            <div className="max-w-2xl mx-auto text-center">
+              <h3 className="text-lg sm:text-xl font-display font-bold mb-3 text-white">
                 {language === 'ru' ? 'Остались вопросы?' : 'Still have questions?'}
               </h3>
-              <p className="text-white/80 mb-6 sm:mb-8 text-base sm:text-lg">
+              <p className="text-white/70 mb-8 text-sm sm:text-base">
                 {language === 'ru' 
                   ? 'Свяжитесь с нами, и мы с радостью ответим на все ваши вопросы'
                   : 'Contact us and we will be happy to answer all your questions'
                 }
               </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <AnimatedButton
-                  variant="secondary"
-                  size="lg"
+              <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                <a 
                   href="mailto:info@mkeducation.kz"
-                  leftIcon={<Mail className="w-5 h-5" />}
-                  className="w-full sm:w-auto"
+                  className="flex items-center gap-3 px-6 py-3 bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl hover:bg-white/15 transition-all duration-300 text-white"
                 >
-                  info@mkeducation.kz
-                </AnimatedButton>
-                <AnimatedButton
-                  variant="primary"
-                  size="lg"
+                  <Mail className="w-4 h-4" />
+                  <span className="text-sm font-medium">info@mkeducation.kz</span>
+                </a>
+                <a 
                   href="tel:+77272588583"
-                  leftIcon={<Phone className="w-5 h-5" />}
-                  className="w-full sm:w-auto"
+                  className="flex items-center gap-3 px-6 py-3 bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl hover:bg-white/15 transition-all duration-300 text-white"
                 >
-                  +7 (727) 258-85-83
-                </AnimatedButton>
+                  <Phone className="w-4 h-4" />
+                  <span className="text-sm font-medium">+7 (727) 258-85-83</span>
+                </a>
               </div>
-            </GlassCard>
+            </div>
           </AnimatedSection>
         </div>
       </div>

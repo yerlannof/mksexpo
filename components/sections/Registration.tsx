@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
 import { useLanguage } from '@/contexts/LanguageContext';
 import AnimatedButton from '@/components/ui/AnimatedButton';
 import { useToast } from '@/hooks/useToast';
-import Image from 'next/image';
+import YouTubeSlider from '@/components/ui/YouTubeSlider';
 
 export default function Registration() {
   const { t, language } = useLanguage();
@@ -94,7 +94,7 @@ export default function Registration() {
   };
 
   return (
-    <section className="section-padding relative overflow-hidden px-4 sm:px-6 lg:px-8">
+    <section id="registration" className="section-padding relative overflow-hidden px-4 sm:px-6 lg:px-8">
       {/* Background decorations */}
       <div className="absolute inset-0 z-0">
         <div className="absolute top-1/2 left-1/3 w-64 sm:w-96 h-64 sm:h-96 bg-gradient-to-br from-cyan-500/20 to-blue-500/20 rounded-full filter blur-3xl animate-pulse-slow" />
@@ -111,12 +111,9 @@ export default function Registration() {
             viewport={{ once: true }}
             className="text-center mb-8 sm:mb-12 space-y-4"
           >
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-display font-bold text-white">
+            <h2 className="text-lg sm:text-xl md:text-2xl font-display font-bold text-white">
               {t('registration.title')} <span className="text-white">{t('registration.title.highlight')}</span>
             </h2>
-            <p className="text-lg sm:text-xl text-white/80">
-              {t('registration.subtitle')}
-            </p>
           </motion.div>
 
           {/* Registration Form */}
@@ -248,12 +245,12 @@ export default function Registration() {
               </label>
               <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-3">
                 {[
+                  { key: 'gcse', label: 'GCSE и A-level (UK)' },
                   { key: 'ib', label: t('registration.programs.ib') },
-                  { key: 'gcse', label: t('registration.programs.gcse') },
                   { key: 'ap', label: t('registration.programs.ap') },
-                  { key: 'local', label: t('registration.programs.local') },
                   { key: 'summer', label: t('registration.programs.summer') },
                   { key: 'language', label: t('registration.programs.language') },
+                  { key: 'undecided', label: language === 'ru' ? 'Не определился' : 'Not decided' },
                 ].map((program) => (
                   <label key={program.key} className="flex items-center space-x-3 cursor-pointer group">
                     <input
@@ -296,49 +293,15 @@ export default function Registration() {
             </div>
           </motion.form>
 
-          {/* Photo Section - Consultation moments */}
+          {/* Video Section */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.3 }}
             viewport={{ once: true }}
-            className="mt-16 max-w-5xl mx-auto"
+            className="mt-16"
           >
-            <div className="grid md:grid-cols-2 gap-6">
-              <div className="relative aspect-[4/3] rounded-2xl overflow-hidden">
-                <Image
-                  src="/gallery/photo_2025-09-02_03-39-24 (2).jpg"
-                  alt={language === 'ru' ? 'Индивидуальная консультация' : 'Individual consultation'}
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 768px) 100vw, 50vw"
-                  quality={85}
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
-                <div className="absolute bottom-4 left-4 right-4">
-                  <p className="text-white text-sm font-medium">
-                    {language === 'ru' ? 'Индивидуальные консультации с представителями школ' : 'Individual consultations with school representatives'}
-                  </p>
-                </div>
-              </div>
-              
-              <div className="relative aspect-[4/3] rounded-2xl overflow-hidden">
-                <Image
-                  src="/gallery/photo_2025-09-02_03-39-25 (4).jpg"
-                  alt={language === 'ru' ? 'Консультация родителей' : 'Parent consultation'}
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 768px) 100vw, 50vw"
-                  quality={85}
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
-                <div className="absolute bottom-4 left-4 right-4">
-                  <p className="text-white text-sm font-medium">
-                    {language === 'ru' ? 'Профессиональная помощь в выборе школы' : 'Professional help in choosing a school'}
-                  </p>
-                </div>
-              </div>
-            </div>
+            <YouTubeSlider />
           </motion.div>
         </div>
       </div>

@@ -1,7 +1,6 @@
 'use client';
 
 import { useEffect } from 'react';
-import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { X, Users, ClipboardList, HelpCircle, Phone, Mail, Globe, Calendar, GraduationCap, BookOpen } from 'lucide-react';
@@ -29,32 +28,17 @@ export default function MobileDrawer({ isOpen, onClose }: MobileDrawerProps) {
   const menuItems = [
     { 
       href: '#participants', 
-      label: t('nav.participants'),
+      label: language === 'ru' ? 'Участники' : 'Participants',
       icon: Users 
     },
     { 
       href: '#programs', 
-      label: language === 'ru' ? 'Программы обучения' : 'Programs',
+      label: language === 'ru' ? 'Программы' : 'Programs',
       icon: BookOpen 
     },
     { 
-      href: '#steps', 
-      label: language === 'ru' ? '6 шагов к поступлению' : '6 Steps to Admission',
-      icon: GraduationCap 
-    },
-    { 
-      href: '#timeline', 
-      label: t('nav.timeline'),
-      icon: Calendar 
-    },
-    { 
-      href: '#registration', 
-      label: t('nav.registration'),
-      icon: ClipboardList 
-    },
-    { 
       href: '#faq', 
-      label: t('nav.faq'),
+      label: 'FAQ',
       icon: HelpCircle 
     },
   ];
@@ -109,16 +93,23 @@ export default function MobileDrawer({ isOpen, onClose }: MobileDrawerProps) {
                     const Icon = item.icon;
                     return (
                       <li key={index}>
-                        <Link 
+                        <a 
                           href={item.href} 
-                          onClick={onClose} 
-                          className="flex items-center gap-4 p-4 hover:bg-gray-50 rounded-xl transition-colors group"
+                          onClick={(e) => {
+                            e.preventDefault();
+                            const element = document.querySelector(item.href);
+                            if (element) {
+                              element.scrollIntoView({ behavior: 'smooth' });
+                            }
+                            onClose();
+                          }} 
+                          className="flex items-center gap-4 p-4 hover:bg-gray-50 rounded-xl transition-colors group block"
                         >
-                          <Icon className="w-6 h-6 text-primary group-hover:text-primary-light transition-colors" />
+                          <Icon className="w-6 h-6 text-primary group-hover:text-primary-light transition-colors flex-shrink-0" />
                           <span className="font-medium text-gray-900 text-lg">
                             {item.label}
                           </span>
-                        </Link>
+                        </a>
                       </li>
                     );
                   })}
@@ -179,17 +170,6 @@ export default function MobileDrawer({ isOpen, onClose }: MobileDrawerProps) {
                   </a>
                 </div>
               </div>
-            </div>
-
-            {/* Fixed Footer */}
-            <div className="flex-shrink-0 p-4 border-t border-gray-100 bg-gray-50/50">
-              <Link
-                href="#registration"
-                onClick={onClose}
-                className="block w-full py-4 px-6 text-center bg-red-600 text-white font-semibold rounded-xl hover:bg-red-700 transition-colors shadow-lg"
-              >
-                {t('nav.registration')}
-              </Link>
             </div>
           </motion.div>
         </div>
