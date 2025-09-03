@@ -154,14 +154,14 @@ const translations = {
     
     // Footer
     'footer.about': 'О компании',
-    'footer.about.desc': '',
+    'footer.about.desc': 'ведущий образовательный центр в Казахстане с 27-летним опытом работы',
     'footer.quickLinks': 'Быстрые ссылки',
     'footer.contact': 'Контакты',
     'footer.phone': 'Телефон',
     'footer.email': 'Email',
     'footer.address': 'Адрес',
-    'footer.address.almaty': 'Алматы, ул. Богенбай батыра 132',
-    'footer.address.astana': 'Астана, ул. Сыганак 18/1',
+    'footer.address.almaty': 'ул. Байсеитовой, 40/1',
+    'footer.address.astana': 'пр. Кабанбай батыра, 5/1, ВП 12',
     'footer.social': 'Социальные сети',
     'footer.rights': 'Все права защищены',
     'timeline.date.almaty': '5 октября 2025',
@@ -334,14 +334,14 @@ const translations = {
     
     // Footer
     'footer.about': 'About Us',
-    'footer.about.desc': '',
+    'footer.about.desc': 'leading educational center in Kazakhstan with 27 years of experience',
     'footer.quickLinks': 'Quick Links',
     'footer.contact': 'Contact',
     'footer.phone': 'Phone',
     'footer.email': 'Email',
     'footer.address': 'Address',
-    'footer.address.almaty': 'Almaty, 132 Bogenbay Batyr St.',
-    'footer.address.astana': 'Astana, 18/1 Syganak St.',
+    'footer.address.almaty': 'Baiseitova St., 40/1',
+    'footer.address.astana': 'Kabanbay Batyr Ave., 5/1, Office 12',
     'footer.social': 'Social Media',
     'footer.rights': 'All rights reserved',
     
