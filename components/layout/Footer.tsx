@@ -124,7 +124,7 @@ export default function Footer() {
         </div>
 
         <div className="border-t border-neutral-800 mt-8 pt-8 text-center text-neutral-400">
-          <p>&copy; 2025 M&K Education. {t('footer.rights')}.</p>
+          <p>&copy; 2025 {t('footer.rights')}.</p>
         </div>
       </div>
     </footer>

@@ -83,7 +83,7 @@ export default function Participants() {
             href="#registration"
             className="inline-flex items-center justify-center px-8 py-4 text-base font-medium text-white bg-gradient-to-r from-red-600 to-red-700 rounded-xl hover:from-red-700 hover:to-red-800 transform hover:-translate-y-0.5 transition-all duration-300 shadow-lg hover:shadow-xl"
           >
-            {language === 'ru' ? 'Зарегистрироваться на выставку' : 'Register for exhibition'}
+            {language === 'ru' ? 'Зарегистрироваться' : 'Register'}
           </a>
         </motion.div>
       </div>
@@ -228,23 +228,6 @@ export default function Participants() {
           <div className="grid md:grid-cols-2 gap-6">
             <div className="relative aspect-[4/3] rounded-2xl overflow-hidden">
               <Image
-                src="/gallery/photo_2025-09-02_23-15-47.jpg"
-                alt=""
-                fill
-                className="object-cover"
-                sizes="(max-width: 768px) 100vw, 50vw"
-                quality={85}
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
-              <div className="absolute bottom-4 left-4 right-4">
-                <p className="text-white text-sm font-medium">
-                  {language === 'ru' ? 'Индивидуальные консультации' : 'Individual consultations'}
-                </p>
-              </div>
-            </div>
-            
-            <div className="relative aspect-[4/3] rounded-2xl overflow-hidden">
-              <Image
                 src="/gallery/photo_2025-09-02_03-39-27.jpg"
                 alt=""
                 fill
@@ -256,6 +239,23 @@ export default function Participants() {
               <div className="absolute bottom-4 left-4 right-4">
                 <p className="text-white text-sm font-medium">
                   {language === 'ru' ? 'Презентации школ' : 'School presentations'}
+                </p>
+              </div>
+            </div>
+            
+            <div className="relative aspect-[4/3] rounded-2xl overflow-hidden">
+              <Image
+                src="/gallery/photo_2025-09-02_23-15-47.jpg"
+                alt=""
+                fill
+                className="object-cover"
+                sizes="(max-width: 768px) 100vw, 50vw"
+                quality={85}
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
+              <div className="absolute bottom-4 left-4 right-4">
+                <p className="text-white text-sm font-medium">
+                  {language === 'ru' ? 'Индивидуальные консультации' : 'Individual consultations'}
                 </p>
               </div>
             </div>

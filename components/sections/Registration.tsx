@@ -301,7 +301,7 @@ export default function Registration() {
             viewport={{ once: true }}
             className="mt-16"
           >
-            <h3 className="text-xl md:text-2xl font-semibold text-white text-center mb-8">
+            <h3 className="text-base md:text-lg font-semibold text-white text-center mb-8">
               {language === 'ru' 
                 ? 'Посмотрите как проходят наши выставки'
                 : 'See how our exhibitions take place'}
