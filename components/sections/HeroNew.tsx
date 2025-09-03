@@ -17,7 +17,7 @@ export default function HeroNew() {
   if (!mounted) return <div className="min-h-screen" />;
 
   return (
-    <section className="relative min-h-[80vh] flex items-center overflow-hidden pt-20 sm:pt-10 px-4 sm:px-6 lg:px-8">
+    <section className="relative min-h-[80vh] flex items-center overflow-hidden pt-12 sm:pt-10 px-4 sm:px-6 lg:px-8">
       <div className="container relative z-10">
         <div className="flex flex-col lg:flex-row items-center justify-between gap-8 sm:gap-12">
           {/* Left Column - Text Content */}

@@ -8,7 +8,7 @@ export default function Opportunities() {
   const { language } = useLanguage();
 
   return (
-    <section className="section-padding">
+    <section className="pt-8 sm:pt-10 lg:pt-12 pb-10 sm:pb-12 lg:pb-16">
       <div className="container">
         <div className="grid lg:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
           {/* Image Column - Left on desktop */}
