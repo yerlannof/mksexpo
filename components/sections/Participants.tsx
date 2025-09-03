@@ -236,7 +236,7 @@ export default function Participants() {
                 quality={85}
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
-              <div className="absolute bottom-4 left-4 right-4">
+              <div className="absolute bottom-4 left-4 right-4 pointer-events-none">
                 <p className="text-white text-sm font-medium">
                   {language === 'ru' ? 'Презентации школ' : 'School presentations'}
                 </p>
@@ -253,7 +253,7 @@ export default function Participants() {
                 quality={85}
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
-              <div className="absolute bottom-4 left-4 right-4">
+              <div className="absolute bottom-4 left-4 right-4 pointer-events-none">
                 <p className="text-white text-sm font-medium">
                   {language === 'ru' ? 'Индивидуальные консультации' : 'Individual consultations'}
                 </p>
