@@ -156,20 +156,20 @@ export default function Participants() {
                         </div>
                         
                         {/* School Info */}
-                        <div className="flex-1 text-center md:text-left">
+                        <div className="flex-1 text-left">
                           {/* School Name */}
                           <h3 className="text-2xl font-semibold text-white mb-1">
                             {school.name}
                           </h3>
                           
                           {/* Country Name */}
-                          <p className="text-base text-white/70 mb-3">
+                          <p className="text-base text-white/70 mb-2">
                             {language === 'ru' ? school.countryName : school.countryNameEn}
                           </p>
                           
                           {/* School Description */}
                           {school.description && (
-                            <p className="text-sm leading-relaxed text-white/80">
+                            <p className="text-sm leading-snug text-white/80">
                               {language === 'ru' ? school.description.ru : school.description.en}
                             </p>
                           )}

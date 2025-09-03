@@ -20,7 +20,7 @@ export default function Opportunities() {
             className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl order-2 lg:order-1"
           >
             <Image
-              src="/gallery/photo_2025-09-02_23-10-04.jpg"
+              src="/gallery/photo_2025-09-02_23-13-02.jpg"
               alt=""
               fill
               className="object-cover"

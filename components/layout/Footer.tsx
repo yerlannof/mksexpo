@@ -36,9 +36,11 @@ export default function Footer() {
               height={60}
               className="h-12 w-auto"
             />
-            <p className="text-neutral-400">
-              {t('footer.about.desc')}
-            </p>
+            {t('footer.about.desc') && (
+              <p className="text-neutral-400">
+                {t('footer.about.desc')}
+              </p>
+            )}
             <div className="flex gap-4">
               <a href="#" className="text-neutral-400 hover:text-white transition-colors">
                 <Facebook className="w-5 h-5" />

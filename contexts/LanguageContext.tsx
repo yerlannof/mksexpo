@@ -154,7 +154,7 @@ const translations = {
     
     // Footer
     'footer.about': 'О компании',
-    'footer.about.desc': 'M&K Education — ведущий образовательный центр в Казахстане с 27-летним опытом работы',
+    'footer.about.desc': '',
     'footer.quickLinks': 'Быстрые ссылки',
     'footer.contact': 'Контакты',
     'footer.phone': 'Телефон',
@@ -334,7 +334,7 @@ const translations = {
     
     // Footer
     'footer.about': 'About Us',
-    'footer.about.desc': 'M&K Education — leading educational center in Kazakhstan with 27 years of experience',
+    'footer.about.desc': '',
     'footer.quickLinks': 'Quick Links',
     'footer.contact': 'Contact',
     'footer.phone': 'Phone',

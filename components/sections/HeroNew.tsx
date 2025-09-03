@@ -97,7 +97,7 @@ export default function HeroNew() {
                 className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl max-w-lg mx-auto"
               >
                 <Image
-                  src="/gallery/photo_2025-09-02_23-13-02.jpg"
+                  src="/gallery/photo_2025-09-02_23-10-04.jpg"
                   alt=""
                   fill
                   className="object-cover"
