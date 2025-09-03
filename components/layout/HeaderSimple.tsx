@@ -14,7 +14,7 @@ export default function HeaderSimple() {
 
   return (
     <header className="fixed top-0 w-full bg-primary z-50 shadow-md">
-      <div className="container">
+      <div className="container px-4 sm:px-6">
         <nav className="flex items-center justify-between h-16 sm:h-20">
           {/* Logo */}
           <Link href="/" className="flex items-center group">
@@ -42,20 +42,20 @@ export default function HeaderSimple() {
           </div>
 
           {/* Mobile Controls */}
-          <div className="flex md:hidden items-center space-x-3">
+          <div className="flex md:hidden items-center gap-3">
             <button
               onClick={() => setLanguage(language === 'ru' ? 'en' : 'ru')}
-              className="flex items-center gap-1 px-3 py-2 text-sm font-medium text-white bg-white/10 rounded-lg hover:bg-white/20 transition-colors"
+              className="flex items-center gap-1 px-3 py-2 text-sm font-medium text-white bg-white/20 rounded-lg hover:bg-white/30 transition-colors border border-white/30"
             >
               <Globe className="w-4 h-4" />
-              <span>{language === 'ru' ? 'RU' : 'EN'}</span>
+              <span className="font-semibold">{language === 'ru' ? 'RU' : 'EN'}</span>
             </button>
             <button
               onClick={() => setIsMenuOpen(true)}
-              className="p-2 rounded-lg bg-white/10 hover:bg-white/20 transition-colors border border-white/20"
+              className="p-2.5 rounded-lg bg-white/20 hover:bg-white/30 transition-colors border border-white/30"
               aria-label="Open menu"
             >
-              <Menu className="w-6 h-6 text-white" />
+              <Menu className="w-6 h-6 text-white" strokeWidth={2.5} />
             </button>
           </div>
 
