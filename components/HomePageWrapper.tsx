@@ -17,9 +17,6 @@ const Opportunities = dynamic(() => import('@/components/sections/Opportunities'
   loading: () => <SectionSkeleton variant="content" />,
 });
 
-const Timeline = dynamic(() => import('@/components/sections/Timeline'), {
-  loading: () => <SectionSkeleton variant="list" cardCount={4} />,
-});
 
 const Participants = dynamic(() => import('@/components/sections/Participants'), {
   loading: () => <SectionSkeleton variant="cards" cardCount={6} />,
@@ -37,13 +34,7 @@ const FAQ = dynamic(() => import('@/components/sections/FAQ'), {
   loading: () => <SectionSkeleton variant="faq" />,
 });
 
-const Contact = dynamic(() => import('@/components/sections/Contact'), {
-  loading: () => <SectionSkeleton variant="content" />,
-});
 
-const PhotoGallery = dynamic(() => import('@/components/sections/PhotoGallery'), {
-  loading: () => <SectionSkeleton variant="content" />,
-});
 
 const YouTubeSection = dynamic(() => import('@/components/sections/YouTubeSection'), {
   loading: () => <SectionSkeleton variant="content" />,
@@ -211,7 +202,7 @@ export default function HomePageWrapper() {
                   </div>
                   {/* Добавляем разделитель после каждой секции, кроме последней */}
                   {index < sections.length - 1 && section.isLoaded && (
-                    <SectionDivider variant={dividerVariant as any} />
+                    <SectionDivider variant={dividerVariant as 'gradient' | 'wave' | 'ornament'} />
                   )}
                 </React.Fragment>
               );
