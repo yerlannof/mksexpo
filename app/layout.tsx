@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { Providers } from "./providers";
-import FacebookPixel from "@/components/FacebookPixel";
+import FacebookPixelHead from "@/components/FacebookPixelHead";
 
 const inter = Inter({
   subsets: ["latin", "cyrillic"],
@@ -67,8 +67,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${inter.variable}`} suppressHydrationWarning>
+      <head>
+        <FacebookPixelHead />
+      </head>
       <body className="font-sans antialiased" suppressHydrationWarning>
-        <FacebookPixel />
         <Providers>{children}</Providers>
       </body>
     </html>

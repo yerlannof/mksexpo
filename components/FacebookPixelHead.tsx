@@ -1,14 +1,7 @@
-'use client';
-
-import Script from 'next/script';
-
-export default function FacebookPixel() {
+export default function FacebookPixelHead() {
   return (
     <>
-      {/* Facebook Pixel Script */}
-      <Script
-        id="fb-pixel"
-        strategy="beforeInteractive"
+      <script
         dangerouslySetInnerHTML={{
           __html: `
             !function(f,b,e,v,n,t,s)
@@ -24,10 +17,7 @@ export default function FacebookPixel() {
           `,
         }}
       />
-      
-      {/* Facebook Pixel NoScript */}
       <noscript>
-        {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
           height="1"
           width="1"
