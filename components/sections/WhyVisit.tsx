@@ -111,7 +111,7 @@ export default function WhyVisit() {
                 viewport={{ once: true }}
                 className="group"
               >
-                <div className="relative bg-white/10 backdrop-blur-md rounded-2xl sm:rounded-3xl p-6 sm:p-8 h-full border border-white/20 hover:bg-white/15 transition-all duration-300 hover:transform hover:-translate-y-1">
+                <div className="relative bg-white/20 md:bg-white/10 md:backdrop-blur-md rounded-2xl sm:rounded-3xl p-6 sm:p-8 h-full border border-white/20 hover:bg-white/15 transition-all duration-300 md:hover:transform md:hover:-translate-y-1">
                   {/* Icon container with gradient background */}
                   <div 
                     className="w-20 h-20 rounded-2xl flex items-center justify-center mb-6 relative overflow-hidden group-hover:scale-105 transition-transform"
@@ -139,7 +139,7 @@ export default function WhyVisit() {
           viewport={{ once: true }}
           className="mt-12 sm:mt-16"
         >
-          <div className="relative bg-white/10 backdrop-blur-md rounded-2xl sm:rounded-3xl p-8 sm:p-10 md:p-12 text-center border border-white/20 overflow-hidden">
+          <div className="relative bg-white/20 md:bg-white/10 md:backdrop-blur-md rounded-2xl sm:rounded-3xl p-8 sm:p-10 md:p-12 text-center border border-white/20 overflow-hidden">
             {/* Background decoration */}
             <div className="absolute top-0 right-0 w-64 h-64 bg-gradient-to-br from-purple-500/20 to-pink-500/20 rounded-full blur-3xl -translate-y-32 translate-x-32"></div>
             <div className="absolute bottom-0 left-0 w-64 h-64 bg-gradient-to-tr from-blue-500/20 to-cyan-500/20 rounded-full blur-3xl translate-y-32 -translate-x-32"></div>

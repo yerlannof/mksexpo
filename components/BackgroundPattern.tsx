@@ -6,6 +6,7 @@ import { useEffect, useState } from 'react'
 export function BackgroundPattern() {
   const [mounted, setMounted] = useState(false)
   const [prefersReducedMotion, setPrefersReducedMotion] = useState(false)
+  const [isLowEnd, setIsLowEnd] = useState(false)
 
   useEffect(() => {
     setMounted(true)
@@ -13,6 +14,16 @@ export function BackgroundPattern() {
     // Check for reduced motion preference
     const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)')
     setPrefersReducedMotion(mediaQuery.matches)
+    
+    // Detect low-end devices
+    const checkLowEnd = 
+      window.innerWidth < 768 || 
+      navigator.hardwareConcurrency <= 4 ||
+      (navigator as any).connection?.effectiveType === 'slow-2g' ||
+      (navigator as any).connection?.effectiveType === '2g' ||
+      (navigator as any).connection?.effectiveType === '3g'
+    
+    setIsLowEnd(checkLowEnd)
     
     const handleChange = (e: MediaQueryListEvent) => {
       setPrefersReducedMotion(e.matches)
@@ -22,7 +33,7 @@ export function BackgroundPattern() {
     return () => mediaQuery.removeEventListener('change', handleChange)
   }, [])
 
-  if (!mounted || prefersReducedMotion) {
+  if (!mounted || prefersReducedMotion || isLowEnd) {
     return (
       <div className="fixed inset-0 -z-10">
         <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-white to-purple-50" />
@@ -35,12 +46,12 @@ export function BackgroundPattern() {
       {/* Base gradient */}
       <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-white to-purple-50" />
       
-      {/* Animated gradient orbs */}
+      {/* Animated gradient orbs - reduced to 2 for performance */}
       <div className="absolute inset-0">
-        {[...Array(4)].map((_, i) => (
+        {[...Array(2)].map((_, i) => (
           <motion.div
             key={i}
-            className="absolute rounded-full mix-blend-multiply filter blur-3xl opacity-20"
+            className="absolute rounded-full mix-blend-multiply filter blur-2xl opacity-20"
             style={{
               background: `radial-gradient(circle, ${
                 ['#3B82F6', '#8B5CF6', '#06B6D4', '#10B981'][i]
@@ -80,55 +91,7 @@ export function BackgroundPattern() {
         }}
       />
 
-      {/* Floating particles */}
-      <div className="absolute inset-0">
-        {[...Array(20)].map((_, i) => (
-          <motion.div
-            key={`particle-${i}`}
-            className="absolute w-1 h-1 bg-blue-400/20 rounded-full"
-            animate={{
-              y: [-20, -window.innerHeight - 20],
-              x: [0, (Math.random() - 0.5) * 200],
-              opacity: [0, 1, 0],
-            }}
-            transition={{
-              duration: 10 + Math.random() * 20,
-              repeat: Infinity,
-              delay: Math.random() * 20,
-              ease: 'linear',
-            }}
-            style={{
-              left: `${Math.random() * 100}%`,
-              top: '100%',
-            }}
-          />
-        ))}
-      </div>
-
-      {/* Light rays */}
-      <div className="absolute inset-0 overflow-hidden">
-        {[...Array(3)].map((_, i) => (
-          <motion.div
-            key={`ray-${i}`}
-            className="absolute h-[1px] bg-gradient-to-r from-transparent via-blue-400/10 to-transparent"
-            animate={{
-              x: [-1000, 2000],
-              opacity: [0, 0.5, 0],
-            }}
-            transition={{
-              duration: 8 + i * 2,
-              repeat: Infinity,
-              delay: i * 3,
-              ease: 'linear',
-            }}
-            style={{
-              width: '2000px',
-              top: `${30 + i * 20}%`,
-              transform: `rotate(${-30 + i * 10}deg)`,
-            }}
-          />
-        ))}
-      </div>
+      {/* Removed floating particles and light rays for better performance */}
     </div>
   )
 }

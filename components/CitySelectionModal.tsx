@@ -18,14 +18,14 @@ const cities = {
       city: 'Актау',
       time: '15:00-19:00',
       venue: 'Renaissance by Sulo',
-      eventId: '3562401' // Replace with actual Timepad event ID for Aktau
+      eventId: '3562617'
     },
     {
       date: '2 октября',
       city: 'Атырау',
       time: '15:00-19:00',
       venue: 'Renaissance by Crystall',
-      eventId: '3562402' // Replace with actual Timepad event ID for Atyrau
+      eventId: '3562622'
     },
     {
       date: '4 октября',
@@ -48,14 +48,14 @@ const cities = {
       city: 'Aktau',
       time: '15:00-19:00',
       venue: 'Renaissance by Sulo',
-      eventId: '3562401' // Replace with actual Timepad event ID for Aktau
+      eventId: '3562617'
     },
     {
       date: 'October 2',
       city: 'Atyrau',
       time: '15:00-19:00',
       venue: 'Renaissance by Crystall',
-      eventId: '3562402' // Replace with actual Timepad event ID for Atyrau
+      eventId: '3562622'
     },
     {
       date: 'October 4',

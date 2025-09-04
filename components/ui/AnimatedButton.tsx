@@ -68,6 +68,11 @@ export const AnimatedButton: React.FC<AnimatedButtonProps> = ({
   const buttonRef = useRef<HTMLButtonElement>(null);
   const anchorRef = useRef<HTMLAnchorElement>(null);
   const [ripples, setRipples] = useState<RippleProps[]>([]);
+  const [isMobile, setIsMobile] = useState(false);
+  
+  useEffect(() => {
+    setIsMobile(window.innerWidth < 768);
+  }, []);
   
   // Get the current ref based on whether it's a link or button
   const currentRef = href ? anchorRef : buttonRef;
@@ -81,9 +86,9 @@ export const AnimatedButton: React.FC<AnimatedButtonProps> = ({
   const buttonX = useSpring(useTransform(mouseX, (value) => value * 0.2), springConfig);
   const buttonY = useSpring(useTransform(mouseY, (value) => value * 0.2), springConfig);
 
-  // Handle mouse move for magnetic effect
+  // Handle mouse move for magnetic effect - disabled on mobile
   const handleMouseMove = (e: MouseEvent<HTMLButtonElement | HTMLAnchorElement>) => {
-    if (disabled || loading) return;
+    if (disabled || loading || isMobile) return;
     
     const rect = currentRef.current?.getBoundingClientRect();
     if (!rect) return;
@@ -100,17 +105,20 @@ export const AnimatedButton: React.FC<AnimatedButtonProps> = ({
     mouseY.set(0);
   };
 
-  // Handle click with ripple effect
+  // Handle click with ripple effect - simplified on mobile
   const handleClick = (e: MouseEvent<HTMLButtonElement | HTMLAnchorElement>) => {
     if (disabled || loading) return;
 
-    const rect = currentRef.current?.getBoundingClientRect();
-    if (!rect) return;
+    // Skip ripple effect on mobile for performance
+    if (!isMobile) {
+      const rect = currentRef.current?.getBoundingClientRect();
+      if (!rect) return;
 
-    const rippleX = e.clientX - rect.left - 150;
-    const rippleY = e.clientY - rect.top - 150;
+      const rippleX = e.clientX - rect.left - 150;
+      const rippleY = e.clientY - rect.top - 150;
 
-    setRipples([...ripples, { x: rippleX, y: rippleY }]);
+      setRipples([...ripples, { x: rippleX, y: rippleY }]);
+    }
     
     // Handle smooth scrolling for anchor links
     if (href && href.startsWith('#')) {
@@ -292,8 +300,8 @@ export const AnimatedButton: React.FC<AnimatedButtonProps> = ({
       disabled={disabled || loading}
       {...safeProps}
       className={cn(baseClasses, variantClasses[variant], className)}
-      style={{ x: buttonX, y: buttonY, ...gradientAnimation }}
-      whileHover={{ scale: disabled || loading ? 1 : 1.05 }}
+      style={{ x: isMobile ? 0 : buttonX, y: isMobile ? 0 : buttonY, ...gradientAnimation }}
+      whileHover={{ scale: disabled || loading || isMobile ? 1 : 1.05 }}
       whileTap={{ scale: disabled || loading ? 1 : 0.95 }}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
