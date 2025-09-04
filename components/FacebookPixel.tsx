@@ -8,7 +8,7 @@ export default function FacebookPixel() {
       {/* Facebook Pixel Script */}
       <Script
         id="fb-pixel"
-        strategy="afterInteractive"
+        strategy="beforeInteractive"
         dangerouslySetInnerHTML={{
           __html: `
             !function(f,b,e,v,n,t,s)
