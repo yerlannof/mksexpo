@@ -6,8 +6,8 @@ import Script from 'next/script';
 
 declare global {
   interface Window {
-    fbq: any;
-    _fbq: any;
+    fbq: (track: string, event: string, params?: Record<string, unknown>) => void;
+    _fbq: (track: string, event: string, params?: Record<string, unknown>) => void;
   }
 }
 
@@ -48,11 +48,12 @@ export default function FacebookPixel() {
       
       {/* Facebook Pixel NoScript */}
       <noscript>
+        {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
           height="1"
           width="1"
           style={{ display: 'none' }}
-          alt="Facebook Pixel"
+          alt=""
           src={`https://www.facebook.com/tr?id=${FB_PIXEL_ID}&ev=PageView&noscript=1`}
         />
       </noscript>
@@ -61,7 +62,7 @@ export default function FacebookPixel() {
 }
 
 // Helper function to track custom events
-export const trackFBEvent = (eventName: string, parameters?: Record<string, any>) => {
+export const trackFBEvent = (eventName: string, parameters?: Record<string, unknown>) => {
   if (typeof window !== 'undefined' && window.fbq) {
     window.fbq('track', eventName, parameters);
   }
