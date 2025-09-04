@@ -5,7 +5,6 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { X } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import TimepadRegistrationModal from './TimepadRegistrationModal';
-import { fbEvents } from '@/components/FacebookPixel';
 
 interface CitySelectionModalProps {
   isOpen: boolean;
@@ -83,9 +82,6 @@ export default function CitySelectionModal({ isOpen, onClose }: CitySelectionMod
   const [isRegistrationOpen, setIsRegistrationOpen] = useState(false);
 
   const handleCityClick = (city: string, eventId: string) => {
-    // Track city selection event for Facebook
-    fbEvents.trackCitySelected(city);
-    
     setSelectedCity({ city, eventId });
     setIsRegistrationOpen(true);
   };

@@ -4,7 +4,6 @@ import { useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
-import { fbEvents } from '@/components/FacebookPixel';
 
 interface TimepadRegistrationModalProps {
   isOpen: boolean;
@@ -24,9 +23,6 @@ export default function TimepadRegistrationModal({
 
   useEffect(() => {
     if (isOpen && widgetContainerRef.current) {
-      // Track registration form viewed event
-      fbEvents.trackRegistrationViewed(city);
-      
       // Clear previous widget
       widgetContainerRef.current.innerHTML = '';
       
@@ -47,7 +43,7 @@ export default function TimepadRegistrationModal({
       
       widgetContainerRef.current.appendChild(script);
     }
-  }, [isOpen, eventId, city]);
+  }, [isOpen, eventId]);
 
   return (
     <AnimatePresence>
