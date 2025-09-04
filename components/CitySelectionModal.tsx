@@ -14,28 +14,28 @@ interface CitySelectionModalProps {
 const cities = {
   ru: [
     {
-      date: '01 октября',
+      date: '1 октября',
       city: 'Актау',
       time: '15:00-19:00',
       venue: 'Renaissance by Sulo',
       eventId: '3562401' // Replace with actual Timepad event ID for Aktau
     },
     {
-      date: '02 октября',
+      date: '2 октября',
       city: 'Атырау',
       time: '15:00-19:00',
       venue: 'Renaissance by Crystall',
       eventId: '3562402' // Replace with actual Timepad event ID for Atyrau
     },
     {
-      date: '04 октября',
+      date: '4 октября',
       city: 'Астана',
       time: '13:00-17:00',
       venue: 'Hilton Astana Hotel, EXPO',
       eventId: '3562405' // Actual Timepad event ID for Astana
     },
     {
-      date: '05 октября',
+      date: '5 октября',
       city: 'Алматы',
       time: '13:00-17:00',
       venue: 'Rixos Almaty Hotel',
@@ -120,7 +120,7 @@ export default function CitySelectionModal({ isOpen, onClose }: CitySelectionMod
             >
               {/* Header */}
               <div className="flex items-center justify-between mb-6">
-                <h3 className="text-2xl font-bold text-white">
+                <h3 className="text-xl sm:text-2xl font-bold text-white">
                   {language === 'ru' ? 'Выберите город для регистрации' : 'Choose a city for registration'}
                 </h3>
                 <button
@@ -140,14 +140,14 @@ export default function CitySelectionModal({ isOpen, onClose }: CitySelectionMod
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: index * 0.1 }}
-                    className="block w-full p-6 bg-white/10 backdrop-blur-sm rounded-xl hover:bg-white/20 transition-all duration-300 transform hover:scale-[1.02] hover:shadow-xl group text-left"
+                    className="block w-full p-4 sm:p-6 bg-white/10 backdrop-blur-sm rounded-xl hover:bg-white/20 transition-all duration-300 transform hover:scale-[1.02] hover:shadow-xl group text-left"
                   >
                     <div className="flex items-start justify-between">
                       <div className="flex-1">
-                        <div className="flex items-baseline gap-3 mb-2">
-                          <span className="text-xl font-bold text-white">{city.date} – {city.city}</span>
+                        <div className="flex items-baseline gap-3 mb-1 sm:mb-2">
+                          <span className="text-lg sm:text-xl font-bold text-white">{city.date} – {city.city}</span>
                         </div>
-                        <p className="text-white/80">
+                        <p className="text-sm sm:text-base text-white/80">
                           {city.time}, {city.venue}
                         </p>
                       </div>

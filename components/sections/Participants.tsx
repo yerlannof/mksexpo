@@ -7,6 +7,7 @@ import { useCityModal } from '@/contexts/CityModalContext';
 import Image from 'next/image';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { schoolsData, placeholderImage } from '@/data/schoolsData';
+import AnimatedButton from '@/components/ui/AnimatedButton';
 
 // Используем импортированные данные школ
 const schools = schoolsData;
@@ -86,12 +87,14 @@ export default function Participants() {
           className="flex justify-center"
         >
           {/* Registration Button */}
-          <button
+          <AnimatedButton
+            variant="danger"
+            size="xl"
             onClick={openCityModal}
-            className="inline-flex items-center justify-center px-8 py-4 text-base font-medium text-white bg-gradient-to-r from-red-600 to-red-700 rounded-xl hover:from-red-700 hover:to-red-800 transform hover:-translate-y-0.5 transition-all duration-300 shadow-lg hover:shadow-xl"
+            className="w-auto text-sm sm:text-base px-4 py-2 sm:px-6 sm:py-3"
           >
-            {language === 'ru' ? 'Зарегистрироваться' : 'Register'}
-          </button>
+            {t('hero.cta.apply')}
+          </AnimatedButton>
         </motion.div>
       </div>
 

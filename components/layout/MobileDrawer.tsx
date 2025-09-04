@@ -3,7 +3,9 @@
 import { useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useLanguage } from '@/contexts/LanguageContext';
+import { useCityModal } from '@/contexts/CityModalContext';
 import { X, Users, ClipboardList, HelpCircle, Phone, Mail, Globe, Calendar, GraduationCap, BookOpen } from 'lucide-react';
+import AnimatedButton from '@/components/ui/AnimatedButton';
 
 interface MobileDrawerProps {
   isOpen: boolean;
@@ -12,6 +14,7 @@ interface MobileDrawerProps {
 
 export default function MobileDrawer({ isOpen, onClose }: MobileDrawerProps) {
   const { language, setLanguage, t } = useLanguage();
+  const { openCityModal } = useCityModal();
 
   // Prevent body scroll when drawer is open
   useEffect(() => {
@@ -114,6 +117,22 @@ export default function MobileDrawer({ isOpen, onClose }: MobileDrawerProps) {
                     );
                   })}
                 </ul>
+                
+                {/* Registration Button */}
+                <div className="mt-4">
+                  <AnimatedButton
+                    variant="danger"
+                    size="xl"
+                    onClick={() => {
+                      openCityModal();
+                      onClose();
+                    }}
+                    className="w-full text-sm sm:text-base px-4 py-2 sm:px-6 sm:py-3"
+                    leftIcon={<Calendar className="w-6 h-6" />}
+                  >
+                    {t('hero.cta.apply')}
+                  </AnimatedButton>
+                </div>
               </nav>
 
               {/* Language Switcher */}

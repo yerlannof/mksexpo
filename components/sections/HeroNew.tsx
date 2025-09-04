@@ -53,7 +53,7 @@ export default function HeroNew() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.15, duration: 0.8 }}
-              className="text-[0.7rem] sm:text-sm md:text-base lg:text-lg text-white/90 mt-6 mb-8 space-y-2 text-left"
+              className="text-xs sm:text-sm md:text-base lg:text-lg text-white/90 mt-6 mb-8 space-y-2 text-left"
             >
               {t('hero.dates').split('\n').map((line, i) => {
                 // Extract date and city part (e.g., "04 октября – Астана" or "October 4 – Astana")

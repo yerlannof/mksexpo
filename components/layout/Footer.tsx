@@ -4,9 +4,12 @@ import { Phone, Mail, MapPin, Facebook, Instagram } from 'lucide-react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { useLanguage } from '@/contexts/LanguageContext';
+import { useCityModal } from '@/contexts/CityModalContext';
+import AnimatedButton from '@/components/ui/AnimatedButton';
 
 export default function Footer() {
   const { t } = useLanguage();
+  const { openCityModal } = useCityModal();
   
   const smoothScrollTo = (e: React.MouseEvent<HTMLAnchorElement>, targetId: string) => {
     e.preventDefault();
@@ -112,13 +115,12 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <Link 
-                  href="#registration" 
-                  onClick={(e) => smoothScrollTo(e, 'registration')}
-                  className="text-neutral-400 hover:text-white transition-colors"
+                <button 
+                  onClick={openCityModal}
+                  className="text-neutral-400 hover:text-white transition-colors text-left"
                 >
                   {t('nav.registration')}
-                </Link>
+                </button>
               </li>
               <li>
                 <Link 

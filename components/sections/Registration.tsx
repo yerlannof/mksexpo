@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { useCityModal } from '@/contexts/CityModalContext';
+import AnimatedButton from '@/components/ui/AnimatedButton';
 
 export default function Registration() {
   const { t, language } = useLanguage();
@@ -26,31 +27,16 @@ export default function Registration() {
             viewport={{ once: true }}
             className="text-center mb-8 space-y-2"
           >
-            <h2 className="text-lg md:text-xl lg:text-2xl font-semibold text-white flex flex-col sm:flex-row items-center justify-center gap-3">
-              <span className="inline-flex items-center gap-3">
-                {language === 'ru' ? (
-                  <>
-                    <button 
-                      onClick={openCityModal}
-                      className="bg-gradient-to-r from-red-600 to-red-700 hover:from-red-700 hover:to-red-800 text-white px-6 py-2 rounded-lg font-bold transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl cursor-pointer"
-                    >
-                      Зарегистрируйтесь
-                    </button>
-                    <span>на выставку бесплатно</span>
-                  </>
-                ) : (
-                  <>
-                    <button 
-                      onClick={openCityModal}
-                      className="bg-gradient-to-r from-red-600 to-red-700 hover:from-red-700 hover:to-red-800 text-white px-6 py-2 rounded-lg font-bold transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl cursor-pointer"
-                    >
-                      Register
-                    </button>
-                    <span>for the exhibition for free</span>
-                  </>
-                )}
-              </span>
-            </h2>
+            <div className="flex justify-center">
+              <AnimatedButton
+                variant="danger"
+                size="xl"
+                onClick={openCityModal}
+                className="w-auto text-sm sm:text-base px-4 py-2 sm:px-6 sm:py-3"
+              >
+                {t('hero.cta.apply')}
+              </AnimatedButton>
+            </div>
           </motion.div>
 
           {/* Organizer Info Block */}
@@ -59,16 +45,16 @@ export default function Registration() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
             viewport={{ once: true }}
-            className="backdrop-blur-md bg-white/10 border border-white/20 rounded-2xl sm:rounded-3xl p-8 md:p-12 text-center"
+            className="backdrop-blur-md bg-white/5 border border-white/10 rounded-xl p-4 text-center max-w-sm mx-auto"
           >
-            <h3 className="text-sm uppercase tracking-wider text-white/60 mb-3">
-              {language === 'ru' ? 'ОРГАНИЗАТОР ВЫСТАВКИ' : 'EXHIBITION ORGANIZER'}
-            </h3>
-            <h2 className="text-2xl md:text-3xl font-bold text-white mb-3">
+            <p className="text-[0.65rem] uppercase tracking-wider text-white/40 mb-1">
+              {language === 'ru' ? 'организатор' : 'organizer'}
+            </p>
+            <h3 className="text-base font-semibold text-white mb-1">
               M&K Study Centre
-            </h2>
-            <p className="text-lg text-white/80">
-              {language === 'ru' ? '27 лет успешной работы в образовании' : '27 years of successful work in education'}
+            </h3>
+            <p className="text-xs text-white/60">
+              {language === 'ru' ? '27 лет в образовании' : '27 years in education'}
             </p>
           </motion.div>
 

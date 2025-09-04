@@ -4,7 +4,9 @@ import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Calendar, Users, ChevronDown } from 'lucide-react';
 import { useCityModal } from '@/contexts/CityModalContext';
+import { useLanguage } from '@/contexts/LanguageContext';
 import Image from 'next/image';
+import AnimatedButton from '@/components/ui/AnimatedButton';
 
 interface TimeLeft {
   days: number;
@@ -15,6 +17,7 @@ interface TimeLeft {
 
 export default function Hero() {
   const { openCityModal } = useCityModal();
+  const { t } = useLanguage();
   const [timeLeft, setTimeLeft] = useState<TimeLeft>({ days: 0, hours: 0, minutes: 0, seconds: 0 });
   const [mounted, setMounted] = useState(false);
 
@@ -166,10 +169,15 @@ export default function Hero() {
                 className="flex flex-col sm:flex-row gap-4"
               >
                 <div className="flex flex-col">
-                  <button onClick={openCityModal} className="bg-red-600 hover:bg-red-700 text-white px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-300 transform hover:scale-105 inline-flex items-center justify-center shadow-xl hover:shadow-2xl text-center group">
-                    <span>Зарегистрироваться</span>
-                    <Calendar className="w-5 h-5 ml-2 group-hover:scale-110 transition-transform" />
-                  </button>
+                  <AnimatedButton
+                    variant="danger"
+                    size="xl"
+                    onClick={openCityModal}
+                    className="w-auto text-sm sm:text-base px-4 py-2 sm:px-6 sm:py-3"
+                    rightIcon={<Calendar className="w-5 h-5" />}
+                  >
+                    {t('hero.cta.apply')}
+                  </AnimatedButton>
                   <p className="text-sm text-neutral-600 text-center mt-2">для бесплатного участия в выставке!</p>
                 </div>
                 <a href="#participants" className="btn-outline text-center group self-start">

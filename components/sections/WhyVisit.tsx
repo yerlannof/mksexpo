@@ -2,10 +2,12 @@
 
 import { motion } from 'framer-motion';
 import { useLanguage } from '@/contexts/LanguageContext';
+import { useCityModal } from '@/contexts/CityModalContext';
 import AnimatedButton from '@/components/ui/AnimatedButton';
 
 export default function WhyVisit() {
   const { t } = useLanguage();
+  const { openCityModal } = useCityModal();
   
   const reasons = [
     {
@@ -158,17 +160,17 @@ export default function WhyVisit() {
                 {t('why.cta.desc')}
               </p>
               <AnimatedButton 
-                variant="glow" 
+                variant="danger" 
                 size="xl"
-                href="#registration"
-                className="w-full sm:w-auto"
+                onClick={openCityModal}
+                className="w-auto text-sm sm:text-base px-4 py-2 sm:px-6 sm:py-3"
                 rightIcon={
                   <svg viewBox="0 0 24 24" fill="none" className="w-5 h-5">
                     <path d="M5 12h14m-7-7l7 7-7 7" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                   </svg>
                 }
               >
-                {t('hero.cta.register')}
+                {t('hero.cta.apply')}
               </AnimatedButton>
             </div>
           </div>

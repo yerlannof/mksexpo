@@ -4,6 +4,7 @@ import { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { useLanguage } from '@/contexts/LanguageContext';
+import { useCityModal } from '@/contexts/CityModalContext';
 import { Globe, Menu } from 'lucide-react';
 import AnimatedButton from '@/components/ui/AnimatedButton';
 import MobileDrawer from './MobileDrawer';
@@ -11,6 +12,7 @@ import MobileDrawer from './MobileDrawer';
 export default function HeaderSimple() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { language, setLanguage, t } = useLanguage();
+  const { openCityModal } = useCityModal();
 
   return (
     <header className="fixed top-0 w-full bg-[#1C417A] z-50 shadow-md">
@@ -39,9 +41,9 @@ export default function HeaderSimple() {
             <a href="#faq" className="text-white/90 hover:text-white transition-colors">
               FAQ
             </a>
-            <a href="#registration" className="text-white/90 hover:text-white transition-colors">
+            <button onClick={openCityModal} className="text-white/90 hover:text-white transition-colors">
               {language === 'ru' ? 'Регистрация' : 'Registration'}
-            </a>
+            </button>
           </div>
 
           {/* Mobile Controls - High contrast and visibility */}
