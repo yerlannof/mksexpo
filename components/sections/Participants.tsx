@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useLanguage } from '@/contexts/LanguageContext';
+import { useCityModal } from '@/contexts/CityModalContext';
 import Image from 'next/image';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { schoolsData, placeholderImage } from '@/data/schoolsData';
@@ -20,6 +21,7 @@ const schoolColors: Record<string, string> = {
 
 export default function Participants() {
   const { t, language } = useLanguage();
+  const { openCityModal } = useCityModal();
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
   
@@ -81,22 +83,15 @@ export default function Participants() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="flex flex-col lg:flex-row items-center justify-center gap-6"
+          className="flex justify-center"
         >
-          {/* Organizer Info - Left side on desktop */}
-          <div className="flex flex-col items-center gap-1 p-4 bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl">
-            <p className="text-xs text-white/60 uppercase tracking-wider">{t('participants.organizer')}</p>
-            <h4 className="font-display font-bold text-lg text-white">M&K Study Centre</h4>
-            <p className="text-white/70 text-sm">{language === 'ru' ? '27 лет успешной работы в образовании' : '27 years of successful work in education'}</p>
-          </div>
-          
-          {/* Registration Button - Right side on desktop */}
-          <a
-            href="#registration"
+          {/* Registration Button */}
+          <button
+            onClick={openCityModal}
             className="inline-flex items-center justify-center px-8 py-4 text-base font-medium text-white bg-gradient-to-r from-red-600 to-red-700 rounded-xl hover:from-red-700 hover:to-red-800 transform hover:-translate-y-0.5 transition-all duration-300 shadow-lg hover:shadow-xl"
           >
             {language === 'ru' ? 'Зарегистрироваться' : 'Register'}
-          </a>
+          </button>
         </motion.div>
       </div>
 
@@ -169,7 +164,7 @@ export default function Participants() {
                       {/* School Info */}
                       <div className={`${visibleCount === 3 ? 'p-3' : visibleCount === 2 ? 'p-4' : 'p-5'}`}>
                           {/* School Name */}
-                          <h3 className={`font-semibold text-white mb-1 ${visibleCount === 3 ? 'text-base md:text-lg' : visibleCount === 2 ? 'text-lg md:text-xl' : 'text-xl md:text-2xl'}`}>
+                          <h3 className={`font-semibold text-white mb-1 ${visibleCount === 3 ? 'text-base md:text-lg' : visibleCount === 2 ? 'text-lg md:text-xl' : 'text-lg md:text-2xl'}`}>
                             {school.name}
                           </h3>
                           
@@ -180,7 +175,7 @@ export default function Participants() {
                           
                           {/* School Description */}
                           {school.description && (
-                            <p className={`text-white/80 mt-3 ${visibleCount === 3 ? 'text-xs leading-relaxed' : visibleCount === 2 ? 'text-xs leading-relaxed' : 'text-sm leading-relaxed'}`}>
+                            <p className={`text-white/80 mt-3 ${visibleCount === 3 ? 'text-xs leading-relaxed' : visibleCount === 2 ? 'text-xs leading-relaxed' : 'text-sm leading-normal md:leading-relaxed'}`}>
                               {language === 'ru' ? school.description.ru : school.description.en}
                             </p>
                           )}

@@ -45,6 +45,11 @@ export default function Footer() {
               <a href="https://www.facebook.com/mkstudy" target="_blank" rel="noopener noreferrer" className="text-neutral-400 hover:text-white transition-colors">
                 <Facebook className="w-5 h-5" />
               </a>
+              <a href="https://t.me/mk_studyexpert" target="_blank" rel="noopener noreferrer" className="text-neutral-400 hover:text-white transition-colors">
+                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.56c-.21 2.27-1.13 7.75-1.6 10.29-.2 1.08-.59 1.44-.97 1.47-.82.07-1.45-.54-2.24-.97-1.24-.7-1.94-1.13-3.14-1.81-1.39-.79-.49-1.22.3-1.93.21-.19 3.85-3.52 3.92-3.82.01-.04.01-.17-.07-.24-.08-.08-.2-.05-.28-.03-.12.03-2.02.63-5.7 1.86-.54.3-1.03.45-1.47.45-.48 0-1.41-.17-2.1-.31-.85-.18-1.52-.27-1.46-.57.03-.16.37-.32 1.01-.5 3.95-1.72 6.58-2.86 7.89-3.41 3.75-1.58 4.53-1.85 5.04-1.86.11 0 .37.03.53.18.14.12.18.29.2.43-.01.06-.01.25-.03.38z"/>
+                </svg>
+              </a>
               <a href="https://www.instagram.com/mkstudy.kz/" target="_blank" rel="noopener noreferrer" className="text-neutral-400 hover:text-white transition-colors">
                 <Instagram className="w-5 h-5" />
               </a>

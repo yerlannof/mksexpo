@@ -3,12 +3,14 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { useLanguage } from '@/contexts/LanguageContext';
+import { useCityModal } from '@/contexts/CityModalContext';
 import Image from 'next/image';
 import AnimatedButton from '@/components/ui/AnimatedButton';
 
 export default function HeroNew() {
   const [mounted, setMounted] = useState(false);
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
+  const { openCityModal } = useCityModal();
 
   useEffect(() => {
     setMounted(true);
@@ -17,7 +19,7 @@ export default function HeroNew() {
   if (!mounted) return <div className="min-h-screen" />;
 
   return (
-    <section className="relative min-h-[60vh] lg:min-h-[70vh] flex items-center overflow-hidden pt-24 sm:pt-20 md:pt-16 lg:pt-8 px-4 sm:px-6 lg:px-8 pb-0 lg:pb-0">
+    <section className="relative min-h-[60vh] lg:min-h-[70vh] flex items-center overflow-hidden pt-24 sm:pt-20 md:pt-16 lg:pt-24 xl:pt-28 px-4 sm:px-6 lg:px-8 pb-0 lg:pb-0">
       <div className="container relative z-10">
         <div className="flex flex-col lg:flex-row items-start justify-between gap-8 sm:gap-12">
           {/* Left Column - Text Content */}
@@ -26,7 +28,7 @@ export default function HeroNew() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
-              className="text-xl sm:text-2xl md:text-3xl lg:text-3xl xl:text-4xl font-bold text-white leading-tight mb-3"
+              className="text-2xl sm:text-2xl md:text-3xl lg:text-3xl xl:text-4xl font-bold text-white leading-tight mb-3"
             >
               {t('hero.title.main').split('\n').map((line, i) => (
                 <span key={i}>
@@ -40,30 +42,32 @@ export default function HeroNew() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.1, duration: 0.8 }}
-              className="text-base md:text-lg lg:text-xl text-white/80 mb-4"
+              className="text-base md:text-lg lg:text-xl text-white mt-6 mb-6"
             >
-              выбирайте школу сегодня — стройте успешное завтра
+              {language === 'ru' 
+                ? 'здесь начинается ваш путь к топовым университетам'
+                : 'your path to top universities starts here'}
             </motion.p>
 
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.15, duration: 0.8 }}
-              className="text-sm md:text-base lg:text-lg text-white/90 mt-6 mb-8 space-y-2 text-left"
+              className="text-[0.7rem] sm:text-sm md:text-base lg:text-lg text-white/90 mt-6 mb-8 space-y-2 text-left"
             >
               {t('hero.dates').split('\n').map((line, i) => {
-                // Extract date part (e.g., "04 октября" or "October 4")
-                const dateMatch = line.match(/^(\d+\s+\w+|October\s+\d+|октября\s+\d+|\d+\s+октября)/);
-                if (dateMatch) {
-                  const datePart = dateMatch[0];
-                  const restOfLine = line.substring(datePart.length);
+                // Extract date and city part (e.g., "04 октября – Астана" or "October 4 – Astana")
+                const parts = line.split(', ');
+                if (parts.length >= 2) {
+                  const dateAndCity = parts[0]; // e.g., "04 октября – Астана"
+                  const restOfLine = ', ' + parts.slice(1).join(', '); // e.g., ", 13:00-17:00, Hotel"
                   return (
-                    <p key={i}>
-                      <span className="font-bold">{datePart}</span>{restOfLine}
+                    <p key={i} className="whitespace-nowrap overflow-x-auto">
+                      <span className="font-bold">{dateAndCity}</span>{restOfLine}
                     </p>
                   );
                 }
-                return <p key={i}>{line}</p>;
+                return <p key={i} className="whitespace-nowrap overflow-x-auto">{line}</p>;
               })}
             </motion.div>
 
@@ -77,7 +81,7 @@ export default function HeroNew() {
                 <AnimatedButton
                   variant="danger"
                   size="xl"
-                  href="#registration"
+                  onClick={openCityModal}
                   className="w-auto text-sm sm:text-base px-4 py-2 sm:px-6 sm:py-3"
                 >
                   {t('hero.cta.apply')}
@@ -91,7 +95,7 @@ export default function HeroNew() {
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.4, duration: 0.8 }}
-            className="flex-1 flex justify-center items-start lg:items-start w-full max-w-lg lg:max-w-3xl xl:max-w-4xl scale-110 lg:scale-[2.2] xl:scale-[2.4] lg:mt-0 origin-top"
+            className="flex-1 flex justify-center items-start lg:items-start w-full max-w-lg lg:max-w-3xl xl:max-w-4xl scale-110 lg:scale-[2.2] xl:scale-[2.4] mt-4 lg:mt-8 xl:mt-10 origin-top"
           >
             <div className="relative w-full">
               {/* Single Image */}

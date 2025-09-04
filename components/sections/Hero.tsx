@@ -2,7 +2,8 @@
 
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { Calendar, MapPin, Users, ChevronDown } from 'lucide-react';
+import { Calendar, Users, ChevronDown } from 'lucide-react';
+import { useCityModal } from '@/contexts/CityModalContext';
 import Image from 'next/image';
 
 interface TimeLeft {
@@ -13,6 +14,7 @@ interface TimeLeft {
 }
 
 export default function Hero() {
+  const { openCityModal } = useCityModal();
   const [timeLeft, setTimeLeft] = useState<TimeLeft>({ days: 0, hours: 0, minutes: 0, seconds: 0 });
   const [mounted, setMounted] = useState(false);
 
@@ -55,7 +57,7 @@ export default function Hero() {
       </div>
       
       <div className="container relative">
-        <div className="min-h-screen flex items-center pt-20">
+        <div className="min-h-screen flex items-center pt-32 lg:pt-28">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             {/* Content */}
             <motion.div 
@@ -96,7 +98,7 @@ export default function Hero() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.3 }}
-                className="text-4xl md:text-5xl lg:text-6xl font-display font-extrabold leading-tight tracking-tight"
+                className="text-5xl md:text-5xl lg:text-6xl font-display font-extrabold leading-tight tracking-tight"
               >
                 Выставка<br/>
                 <span className="gradient-text">«Частные школы<br/>
@@ -111,12 +113,22 @@ export default function Hero() {
               >
                 <div className="space-y-2">
                   <p className="font-medium text-lg">
-                    <span className="text-primary">Астана</span> – 04 октября, 13:00-17:00, Hilton Astana Hotel (EXPO)
+                    <span className="text-primary font-bold">01 октября – Актау</span>, 15:00-19:00, Renaissance by Sulo
                   </p>
                 </div>
                 <div className="space-y-2">
                   <p className="font-medium text-lg">
-                    <span className="text-primary">Алматы</span> – 05 октября, 13:00-17:00, Rixos Almaty Hotel
+                    <span className="text-primary font-bold">02 октября – Атырау</span>, 15:00-19:00, Renaissance by Crystall
+                  </p>
+                </div>
+                <div className="space-y-2">
+                  <p className="font-medium text-lg">
+                    <span className="text-primary font-bold">04 октября – Астана</span>, 13:00-17:00, Hilton Astana Hotel, EXPO
+                  </p>
+                </div>
+                <div className="space-y-2">
+                  <p className="font-medium text-lg">
+                    <span className="text-primary font-bold">05 октября – Алматы</span>, 13:00-17:00, Rixos Almaty Hotel
                   </p>
                 </div>
               </motion.div>
@@ -154,10 +166,10 @@ export default function Hero() {
                 className="flex flex-col sm:flex-row gap-4"
               >
                 <div className="flex flex-col">
-                  <a href="#registration" className="bg-red-600 hover:bg-red-700 text-white px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-300 transform hover:scale-105 inline-flex items-center justify-center shadow-xl hover:shadow-2xl text-center group">
+                  <button onClick={openCityModal} className="bg-red-600 hover:bg-red-700 text-white px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-300 transform hover:scale-105 inline-flex items-center justify-center shadow-xl hover:shadow-2xl text-center group">
                     <span>Зарегистрироваться</span>
                     <Calendar className="w-5 h-5 ml-2 group-hover:scale-110 transition-transform" />
-                  </a>
+                  </button>
                   <p className="text-sm text-neutral-600 text-center mt-2">для бесплатного участия в выставке!</p>
                 </div>
                 <a href="#participants" className="btn-outline text-center group self-start">

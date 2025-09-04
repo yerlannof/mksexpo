@@ -41,7 +41,7 @@ export default function Opportunities() {
             viewport={{ once: true }}
             className="text-left order-1 lg:order-2 px-4 sm:px-0"
           >
-            <h3 className="text-lg md:text-xl lg:text-2xl font-semibold text-white mb-8 mt-8 lg:mt-0">
+            <h3 className="text-[1.24rem] md:text-xl lg:text-2xl font-semibold text-white mb-8 mt-8 lg:mt-0">
               {language === 'ru' 
                 ? 'На выставке у вас будет возможность:'
                 : 'At the exhibition you will have the opportunity to:'}

@@ -34,18 +34,18 @@ const programsData = {
       color: 'from-purple-500 to-purple-600'
     },
     {
-      title: 'Каникулярные программы',
-      subtitle: 'Summer Schools, Language Camps, Academic Programs',
-      description: 'Краткосрочные учебные и языковые курсы, которые совмещают изучение английского, спорт, творчество и путешествия, помогая детям развивать навыки и открывать новые культуры',
-      icon: Languages,
-      color: 'from-teal-500 to-teal-600'
-    },
-    {
       title: 'Подготовка к университету',
       subtitle: 'Foundation, Pre-University GAP Program, International Foundation Year, University Pathway Programs',
       description: 'Программы для выпускников 11 классов Казахстана, которые помогают адаптироваться и успешно поступить в топовые ВУЗы',
       icon: TrendingUp,
       color: 'from-amber-500 to-amber-600'
+    },
+    {
+      title: 'Каникулярные программы',
+      subtitle: 'Summer Schools, Language Camps, Academic Programs',
+      description: 'Краткосрочные учебные и языковые курсы, которые совмещают изучение английского, спорт, творчество и путешествия, помогая детям развивать навыки и открывать новые культуры',
+      icon: Languages,
+      color: 'from-teal-500 to-teal-600'
     }
   ],
   en: [
@@ -71,18 +71,18 @@ const programsData = {
       color: 'from-purple-500 to-purple-600'
     },
     {
-      title: 'Holiday Programs',
-      subtitle: 'Summer Schools, Language Camps, Academic Programs',
-      description: 'Short-term educational and language courses that combine English study, sports, creativity and travel, helping children develop skills and discover new cultures',
-      icon: Languages,
-      color: 'from-teal-500 to-teal-600'
-    },
-    {
       title: 'University Preparation',
       subtitle: 'Foundation, Pre-University GAP Program, International Foundation Year, University Pathway Programs',
       description: 'Programs for 11th grade graduates from Kazakhstan that help adapt and successfully enter top universities',
       icon: TrendingUp,
       color: 'from-amber-500 to-amber-600'
+    },
+    {
+      title: 'Holiday Programs',
+      subtitle: 'Summer Schools, Language Camps, Academic Programs',
+      description: 'Short-term educational and language courses that combine English study, sports, creativity and travel, helping children develop skills and discover new cultures',
+      icon: Languages,
+      color: 'from-teal-500 to-teal-600'
     }
   ]
 };
