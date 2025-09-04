@@ -19,9 +19,12 @@ export function BackgroundPattern() {
     const checkLowEnd = 
       window.innerWidth < 768 || 
       navigator.hardwareConcurrency <= 4 ||
-      (navigator as any).connection?.effectiveType === 'slow-2g' ||
-      (navigator as any).connection?.effectiveType === '2g' ||
-      (navigator as any).connection?.effectiveType === '3g'
+      ('connection' in navigator && 
+        (navigator as Navigator & {connection?: {effectiveType?: string}}).connection?.effectiveType === 'slow-2g') ||
+      ('connection' in navigator && 
+        (navigator as Navigator & {connection?: {effectiveType?: string}}).connection?.effectiveType === '2g') ||
+      ('connection' in navigator && 
+        (navigator as Navigator & {connection?: {effectiveType?: string}}).connection?.effectiveType === '3g')
     
     setIsLowEnd(checkLowEnd)
     

@@ -5,7 +5,6 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { useCityModal } from '@/contexts/CityModalContext';
-import AnimatedButton from '@/components/ui/AnimatedButton';
 
 export default function Footer() {
   const { t } = useLanguage();

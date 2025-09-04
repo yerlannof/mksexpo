@@ -6,12 +6,11 @@ import Image from 'next/image';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { useCityModal } from '@/contexts/CityModalContext';
 import { Globe, Menu } from 'lucide-react';
-import AnimatedButton from '@/components/ui/AnimatedButton';
 import MobileDrawer from './MobileDrawer';
 
 export default function HeaderSimple() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const { language, setLanguage, t } = useLanguage();
+  const { language, setLanguage } = useLanguage();
   const { openCityModal } = useCityModal();
 
   return (

@@ -4,7 +4,7 @@ import { useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { useCityModal } from '@/contexts/CityModalContext';
-import { X, Users, ClipboardList, HelpCircle, Phone, Mail, Globe, Calendar, GraduationCap, BookOpen } from 'lucide-react';
+import { X, Users, HelpCircle, Phone, Mail, Globe, Calendar, BookOpen } from 'lucide-react';
 import AnimatedButton from '@/components/ui/AnimatedButton';
 
 interface MobileDrawerProps {
