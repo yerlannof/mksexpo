@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { useCityModal } from '@/contexts/CityModalContext';
 import AnimatedButton from '@/components/ui/AnimatedButton';
+import { fbEvents } from '@/components/FacebookPixel';
 
 export default function Registration() {
   const { t, language } = useLanguage();
@@ -83,6 +84,7 @@ export default function Registration() {
                 rel="noopener noreferrer"
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
+                onClick={() => fbEvents.trackContactClick('WhatsApp')}
                 className="inline-flex items-center justify-center gap-3 px-6 py-4 bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl hover:bg-white/20 transition-all text-white font-medium"
               >
                 <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">

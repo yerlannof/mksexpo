@@ -2,6 +2,7 @@
 
 import { createContext, useContext, useState, useCallback, ReactNode } from 'react';
 import CitySelectionModal from '@/components/CitySelectionModal';
+import { fbEvents } from '@/components/FacebookPixel';
 
 interface CityModalContextType {
   openCityModal: () => void;
@@ -17,6 +18,9 @@ export function CityModalProvider({ children }: { children: ReactNode }) {
   const [isOpen, setIsOpen] = useState(false);
 
   const openCityModal = useCallback(() => {
+    // Track registration initiated event for Facebook
+    fbEvents.trackRegistrationInitiated();
+    
     setIsOpen(true);
     document.body.style.overflow = 'hidden';
   }, []);
