@@ -12,7 +12,7 @@ export default function FacebookPixelHead() {
             t.src=v;s=b.getElementsByTagName(e)[0];
             s.parentNode.insertBefore(t,s)}(window, document,'script',
             'https://connect.facebook.net/en_US/fbevents.js');
-            fbq('init', '1986191375465310');
+            fbq('init', '1444111270140281');
             fbq('track', 'PageView');
           `,
         }}
@@ -23,7 +23,7 @@ export default function FacebookPixelHead() {
           width="1"
           style={{ display: 'none' }}
           alt=""
-          src="https://www.facebook.com/tr?id=1986191375465310&ev=PageView&noscript=1"
+          src="https://www.facebook.com/tr?id=1444111270140281&ev=PageView&noscript=1"
         />
       </noscript>
     </>
