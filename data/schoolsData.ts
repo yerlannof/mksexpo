@@ -26,14 +26,14 @@ export const schoolsData: School[] = [
   },
   { 
     name: 'Vertex School', 
-    country: 'AE', 
-    countryName: 'ОАЭ', 
-    countryNameEn: 'UAE', 
+    country: 'CZ', 
+    countryName: 'Чехия', 
+    countryNameEn: 'Czech Republic', 
     initials: 'VS',
-    image: '/schools/Vertex-School.jpg',
+    image: '/schools/vertex school cz.jpg',
     description: {
-      ru: 'Современная международная школа в Дубае, предлагающая британскую программу обучения с IGCSE и A-level. Школа известна индивидуальным подходом к каждому ученику, современными технологиями в обучении и мультикультурной средой. Выпускники поступают в ведущие университеты Великобритании, США и других стран.',
-      en: 'Modern international school in Dubai offering British curriculum with IGCSE and A-level programs. The school is known for its personalized approach to each student, modern teaching technologies and multicultural environment. Graduates gain admission to leading universities in the UK, USA and other countries.'
+      ru: 'Языковая подготовительная школа при Чешском техническом университете в Праге. Интенсивные программы чешского языка до уровня B2/C1 с максимальными группами 15 человек. Школа обеспечивает полную поддержку студентов: от визы и проживания до поступления в топовые чешские вузы с бесплатным обучением.',
+      en: 'Language preparation school affiliated with Czech Technical University in Prague. Intensive Czech language programs up to B2/C1 level with maximum 15 students per group. The school provides complete student support: from visa and accommodation to admission to top Czech universities with free education.'
     }
   },
   { 

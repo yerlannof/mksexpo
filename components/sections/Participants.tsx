@@ -18,6 +18,9 @@ const schoolColors: Record<string, string> = {
   US: 'from-indigo-500 to-indigo-600',
   AE: 'from-amber-500 to-amber-600',
   IT: 'from-green-500 to-green-600',
+  CZ: 'from-red-500 to-red-600',
+  CH: 'from-purple-500 to-purple-600',
+  ES: 'from-orange-500 to-orange-600',
 };
 
 export default function Participants() {
