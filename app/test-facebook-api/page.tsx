@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import Link from 'next/link';
 
 export default function TestFacebookAPI() {
   const [status, setStatus] = useState<string>('');
@@ -153,12 +154,12 @@ export default function TestFacebookAPI() {
         </div>
 
         <div className="mt-8 text-center">
-          <a 
+          <Link 
             href="/" 
             className="text-blue-600 hover:underline"
           >
             ← Вернуться на главную
-          </a>
+          </Link>
         </div>
       </div>
     </div>
