@@ -23,7 +23,7 @@ interface FacebookEvent {
   event_source_url?: string;
   event_id?: string;
   action_source: string;
-  custom_data?: Record<string, any>;
+  custom_data?: Record<string, unknown>;
 }
 
 // Хеширование персональных данных (требование Facebook)
@@ -37,8 +37,8 @@ function formatPhone(phone: string): string {
 }
 
 // Подготовка данных пользователя
-function prepareUserData(userData: UserData): Record<string, any> {
-  const prepared: Record<string, any> = {};
+function prepareUserData(userData: UserData): Record<string, unknown> {
+  const prepared: Record<string, unknown> = {};
   
   if (userData.email) {
     prepared.em = hashData(userData.email);
@@ -100,7 +100,7 @@ function prepareUserData(userData: UserData): Record<string, any> {
 export async function sendFacebookConversionEvent(
   event: FacebookEvent,
   userData?: UserData
-): Promise<any> {
+): Promise<unknown> {
   // Проверяем наличие необходимых переменных окружения
   const pixelId = process.env.FACEBOOK_PIXEL_ID || '1444111270140281';
   const accessToken = process.env.FACEBOOK_ACCESS_TOKEN;
@@ -170,7 +170,7 @@ export const FacebookEvents = {
   },
   
   // Регистрация на событие
-  async completeRegistration(userData?: UserData, customData?: Record<string, any>) {
+  async completeRegistration(userData?: UserData, customData?: Record<string, unknown>) {
     return sendFacebookConversionEvent({
       event_name: 'CompleteRegistration',
       event_time: Math.floor(Date.now() / 1000),
@@ -180,7 +180,7 @@ export const FacebookEvents = {
   },
   
   // Лид (заполнение формы)
-  async lead(userData?: UserData, customData?: Record<string, any>) {
+  async lead(userData?: UserData, customData?: Record<string, unknown>) {
     return sendFacebookConversionEvent({
       event_name: 'Lead',
       event_time: Math.floor(Date.now() / 1000),
@@ -190,7 +190,7 @@ export const FacebookEvents = {
   },
   
   // Кастомное событие
-  async custom(eventName: string, userData?: UserData, customData?: Record<string, any>) {
+  async custom(eventName: string, userData?: UserData, customData?: Record<string, unknown>) {
     return sendFacebookConversionEvent({
       event_name: eventName,
       event_time: Math.floor(Date.now() / 1000),

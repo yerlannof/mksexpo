@@ -4,10 +4,20 @@
 import { FacebookEvents, generateEventId } from './facebook-conversions';
 
 // Пример 1: Отправка события регистрации при заполнении формы
-export async function handleFormSubmit(formData: any) {
+interface FormData {
+  email: string;
+  phone?: string;
+  firstName?: string;
+  lastName?: string;
+  city?: string;
+  eventLocation?: string;
+}
+
+export async function handleFormSubmit(formData: FormData) {
   try {
     // Генерируем уникальный ID для дедупликации с Pixel
-    const eventId = generateEventId('CompleteRegistration', formData.email);
+    // Генерируем уникальный ID для дедупликации с Pixel
+    // const eventId = generateEventId('CompleteRegistration', formData.email);
     
     // Отправляем событие на сервер Facebook
     await FacebookEvents.completeRegistration({
@@ -42,7 +52,13 @@ export async function trackPageView(url: string) {
 }
 
 // Пример 3: Использование через API endpoint
-export async function sendEventViaAPI(eventData: any) {
+interface EventData {
+  eventName: string;
+  customData?: Record<string, unknown>;
+  userData?: Record<string, unknown>;
+}
+
+export async function sendEventViaAPI(eventData: EventData) {
   try {
     const response = await fetch('/api/fb-events', {
       method: 'POST',
