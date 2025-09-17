@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { X } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import TimepadRegistrationModal from './TimepadRegistrationModal';
+import { useFacebookTracking } from '@/hooks/useFacebookTracking';
 
 interface CitySelectionModalProps {
   isOpen: boolean;
@@ -77,6 +78,7 @@ const cities = {
 export default function CitySelectionModal({ isOpen, onClose }: CitySelectionModalProps) {
   const { language } = useLanguage();
   const cityList = cities[language];
+  const { trackViewContent, trackInitiateCheckout } = useFacebookTracking();
   
   const [selectedCity, setSelectedCity] = useState<{ city: string; eventId: string } | null>(null);
   const [isRegistrationOpen, setIsRegistrationOpen] = useState(false);
@@ -84,6 +86,23 @@ export default function CitySelectionModal({ isOpen, onClose }: CitySelectionMod
   const handleCityClick = (city: string, eventId: string) => {
     setSelectedCity({ city, eventId });
     setIsRegistrationOpen(true);
+    
+    // Отправляем событие ViewContent при выборе города
+    trackViewContent(
+      `City Selection - ${city}`,
+      'Registration',
+      {
+        city: city,
+        event_id: eventId,
+        language: language
+      }
+    );
+    
+    // Отправляем событие InitiateCheckout при открытии формы регистрации
+    trackInitiateCheckout(city, eventId, {
+      content_type: 'event_registration',
+      language: language
+    });
   };
 
   const handleCloseRegistration = () => {

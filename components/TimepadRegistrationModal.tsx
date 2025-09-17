@@ -4,6 +4,7 @@ import { useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
+import { useFacebookTracking } from '@/hooks/useFacebookTracking';
 
 interface TimepadRegistrationModalProps {
   isOpen: boolean;
@@ -20,6 +21,7 @@ export default function TimepadRegistrationModal({
 }: TimepadRegistrationModalProps) {
   const { language } = useLanguage();
   const widgetContainerRef = useRef<HTMLDivElement>(null);
+  const { trackCompleteRegistration } = useFacebookTracking();
 
   useEffect(() => {
     if (isOpen && widgetContainerRef.current) {
@@ -42,8 +44,29 @@ export default function TimepadRegistrationModal({
       script.setAttribute('data-timepad-widget-v2', 'event_register');
       
       widgetContainerRef.current.appendChild(script);
+      
+      // Слушаем сообщения от Timepad виджета для отслеживания успешной регистрации
+      const handleMessage = (event: MessageEvent) => {
+        // Проверяем, что сообщение от Timepad
+        if (event.origin.includes('timepad.ru') && event.data) {
+          // Если регистрация успешна
+          if (event.data.type === 'registration_success' || event.data.status === 'success') {
+            trackCompleteRegistration(city, eventId, {
+              registration_method: 'timepad_widget',
+              language: language
+            });
+          }
+        }
+      };
+      
+      window.addEventListener('message', handleMessage);
+      
+      // Cleanup
+      return () => {
+        window.removeEventListener('message', handleMessage);
+      };
     }
-  }, [isOpen, eventId]);
+  }, [isOpen, eventId, city, language, trackCompleteRegistration]);
 
   return (
     <AnimatePresence>

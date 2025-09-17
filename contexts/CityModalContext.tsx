@@ -2,6 +2,7 @@
 
 import { createContext, useContext, useState, useCallback, ReactNode } from 'react';
 import CitySelectionModal from '@/components/CitySelectionModal';
+import { useFacebookTracking } from '@/hooks/useFacebookTracking';
 
 interface CityModalContextType {
   openCityModal: () => void;
@@ -15,11 +16,20 @@ const CityModalContext = createContext<CityModalContextType>({
 
 export function CityModalProvider({ children }: { children: ReactNode }) {
   const [isOpen, setIsOpen] = useState(false);
+  const { trackLead } = useFacebookTracking();
 
   const openCityModal = useCallback(() => {
     setIsOpen(true);
     document.body.style.overflow = 'hidden';
-  }, []);
+    
+    // Отправляем событие Lead в Facebook когда пользователь кликает "Записаться"
+    trackLead({
+      content_name: 'Registration Button Click',
+      content_category: 'Lead Generation',
+      value: 1,
+      currency: 'KZT'
+    });
+  }, [trackLead]);
 
   const closeCityModal = useCallback(() => {
     setIsOpen(false);
