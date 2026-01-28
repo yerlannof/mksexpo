@@ -29,15 +29,16 @@ export default function MobileDrawer({ isOpen, onClose }: MobileDrawerProps) {
   }, [isOpen]);
 
   const menuItems = [
-    { 
-      href: '#participants', 
-      label: language === 'ru' ? 'Участники' : 'Participants',
-      icon: Users 
-    },
-    { 
-      href: '#programs', 
+    // Temporarily hidden
+    // {
+    //   href: '#participants',
+    //   label: language === 'ru' ? 'Участники' : 'Participants',
+    //   icon: Users
+    // },
+    {
+      href: '#programs',
       label: language === 'ru' ? 'Программы' : 'Programs',
-      icon: BookOpen 
+      icon: BookOpen
     },
     { 
       href: '#faq', 

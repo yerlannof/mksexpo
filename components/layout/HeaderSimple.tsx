@@ -31,9 +31,11 @@ export default function HeaderSimple() {
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-12 lg:space-x-16">
+            {/* Temporarily hidden
             <a href="#participants" className="text-white/90 hover:text-white transition-colors">
               {language === 'ru' ? 'Участники' : 'Participants'}
             </a>
+            */}
             <a href="#programs" className="text-white/90 hover:text-white transition-colors">
               {language === 'ru' ? 'Программы' : 'Programs'}
             </a>
