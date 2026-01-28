@@ -103,9 +103,9 @@ export default function Programs() {
           {/* Section Header - Title removed, keeping description */}
           <div className="text-center mb-8">
             <h3 className="text-lg md:text-xl lg:text-2xl font-semibold text-white mx-auto">
-              {language === 'ru' 
-                ? 'Выберите программу обучения для вашего ребенка'
-                : 'Choose the right educational program for your child'}
+              {language === 'ru'
+                ? 'Программы обучения для вашего ребенка на выставке'
+                : 'Educational programs for your child at the exhibition'}
             </h3>
           </div>
           

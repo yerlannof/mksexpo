@@ -15,62 +15,34 @@ interface CitySelectionModalProps {
 const cities = {
   ru: [
     {
-      date: '1 октября',
-      city: 'Актау',
-      time: '15:00-19:00',
-      venue: 'Renaissance by Sulo',
-      eventId: '3562617'
-    },
-    {
-      date: '2 октября',
-      city: 'Атырау',
-      time: '15:00-19:00',
-      venue: 'Renaissance by Crystall',
-      eventId: '3562622'
-    },
-    {
-      date: '4 октября',
+      date: '28 февраля',
       city: 'Астана',
       time: '13:00-17:00',
-      venue: 'Hilton Astana Hotel, EXPO',
-      eventId: '3562405' // Actual Timepad event ID for Astana
+      venue: 'Hilton Astana',
+      eventId: '3562405'
     },
     {
-      date: '5 октября',
+      date: '01 марта',
       city: 'Алматы',
       time: '13:00-17:00',
-      venue: 'Rixos Almaty Hotel',
-      eventId: '3562434' // Actual Timepad event ID for Almaty
+      venue: 'Rixos Almaty',
+      eventId: '3562434'
     }
   ],
   en: [
     {
-      date: 'October 1',
-      city: 'Aktau',
-      time: '15:00-19:00',
-      venue: 'Renaissance by Sulo',
-      eventId: '3562617'
-    },
-    {
-      date: 'October 2',
-      city: 'Atyrau',
-      time: '15:00-19:00',
-      venue: 'Renaissance by Crystall',
-      eventId: '3562622'
-    },
-    {
-      date: 'October 4',
+      date: 'February 28',
       city: 'Astana',
       time: '13:00-17:00',
-      venue: 'Hilton Astana Hotel, EXPO',
-      eventId: '3562405' // Actual Timepad event ID for Astana
+      venue: 'Hilton Astana',
+      eventId: '3562405'
     },
     {
-      date: 'October 5',
+      date: 'March 1',
       city: 'Almaty',
       time: '13:00-17:00',
-      venue: 'Rixos Almaty Hotel',
-      eventId: '3562434' // Actual Timepad event ID for Almaty
+      venue: 'Rixos Almaty',
+      eventId: '3562434'
     }
   ]
 };

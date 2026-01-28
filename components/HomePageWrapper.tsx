@@ -55,7 +55,7 @@ export default function HomePageWrapper() {
     { id: 'hero', isLoaded: false, isVisible: true, component: HeroNew, skeleton: <HeroSkeleton /> },
     { id: 'opportunities', isLoaded: false, isVisible: false, component: Opportunities, skeleton: <SectionSkeleton variant="content" /> },
     { id: 'programs', isLoaded: false, isVisible: false, component: Programs, skeleton: <SectionSkeleton variant="cards" cardCount={5} /> },
-    { id: 'participants', isLoaded: false, isVisible: false, component: Participants, skeleton: <SectionSkeleton variant="cards" cardCount={6} /> },
+    // { id: 'participants', isLoaded: false, isVisible: false, component: Participants, skeleton: <SectionSkeleton variant="cards" cardCount={6} /> }, // Temporarily hidden
     { id: 'faq', isLoaded: false, isVisible: false, component: FAQ, skeleton: <SectionSkeleton variant="faq" /> },
     { id: 'youtube', isLoaded: false, isVisible: false, component: YouTubeSection, skeleton: <SectionSkeleton variant="content" /> },
     { id: 'registration', isLoaded: false, isVisible: false, component: Registration, skeleton: <SectionSkeleton variant="content" /> },
