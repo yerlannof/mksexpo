@@ -19,14 +19,14 @@ const cities = {
       city: 'Астана',
       time: '13:00-17:00',
       venue: 'Hilton Astana',
-      eventId: '3562405'
+      eventId: '3793034'
     },
     {
       date: '01 марта',
       city: 'Алматы',
       time: '13:00-17:00',
       venue: 'Rixos Almaty',
-      eventId: '3562434'
+      eventId: '3792643'
     }
   ],
   en: [
@@ -35,14 +35,14 @@ const cities = {
       city: 'Astana',
       time: '13:00-17:00',
       venue: 'Hilton Astana',
-      eventId: '3562405'
+      eventId: '3793034'
     },
     {
       date: 'March 1',
       city: 'Almaty',
       time: '13:00-17:00',
       venue: 'Rixos Almaty',
-      eventId: '3562434'
+      eventId: '3792643'
     }
   ]
 };
